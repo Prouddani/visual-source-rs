@@ -1,0 +1,212 @@
+== EXAMPLES ==
+
+=== ENCODED ===
+
+Workspace.AI Examples.Variables.Set Variable Subtraction:
+00000000000000048t)9cus|AAb^q*kV[RgU46Y/NHH5b7y}G)5?9f$My9RGX#KRU4_Jvv0P5=[:MAkFs&8WJ:T2^9OTN(&(kz_7>rw9E:lcam>!8z|c)A5P4_^&cbaRGIp}3:.588>x}_sDdwK-:eL80K_]lF$>LYmIK)~o<mZY[I]d'|E<}r]hTM8(.(f;y/M8hUpMHp8_rcZ,g~`mgpe ;0yhJO<=lVat8hEO5M(SLaTFK- Sb4jQDjuJavDd*a/[$'NMCJ)?]r[Z+Ue6Q2hq1VSoM2J@7
+
+--------------------
+
+Workspace.AI Examples.Variables.Set Variable division:
+00000000000000048tz9duM|A,/(&SfB6O4W'el6Qv2D_3y&@(|8MYlv&^|YE;JiM!GI7ORJtgW^SC^+@${th9q9iQ_wr)$(wHKVW:weodw56:ba-_xsGhylA_opQn_&Zk%#(EEIfoW(0 DtJ+Qp0n}N0]+bNw1/V~_?`_IJ]Z$}A<l3Y-Zgdb>@1r!@r#{=#bq 6.8^GnD'!O8HqG|J],(g@f:]n1=PLJzS,vsF]#X0/Jde+uNWArB0&/4>+tme[spv*9xGX98[U3iQ!$BXrN0dX[}rwSf`fB
+
+--------------------
+
+Workspace.AI Examples.Variables.Set Variable modulus:
+0000000000000004lw$8E~0s3;'(|P!A< *>t?WL}@^+BTj;Q5H1k(`y+?!i~]8&-t!--U[&WuY^*ryb-R8-y~e8Y-07gDfUQQ%l2$|p*wJb0wEirqbl+x:()]/KV`J4q:[o=h}5 z+rKWN<*v_$I**[;n]#`GITGm&{mV1upS *i!xP)MM?QbYtn&nu:JT9F^n!VWc?qp*jpFJgb*tfj|O5sVnq-B,a=OZYfj9'*li570{iun2=&hhYreDUs&?OVY=h1;DsO@D|7H%>{6K_6NiO4D%Z#@ya7]B
+
+--------------------
+
+Workspace.AI Examples.Variables.Set Variable solve equation:
+00000000000000040t$8duM|^+/(eQfM6+L9?}fkUM Z%A_EDtwc?&>auGP85`oZUGFf}b#&s!gfUrzAXlX%% j9&6'KP2U.rHsK<;{l+I2)v]Nqv!^Q3'HnNPg?}VRQtm/@,).xv!d/{Q*6u++~<Y;bo$Mk&]jy:.U0?Cm_*SToznjhX-oj]4U;5-8&!hNk]GYi`<Sw'Uj^3[*d1/unc#f_'u/9iU~@WLLQix<duEclWs]#303YfSO/N(zp[NI},SwjVkO$uwXL_oM<;[I_{y,]1e#>nnm.F&ab;YDw,%9h=J5s%6y On*b#7:2/^!V
+
+--------------------
+
+Workspace.AI Examples.Variables.Set Variable Addition:
+00000000000000048tz9&tM|A,/(&S'C=3Kmb&(ayYDT{F*iDm*0#z{6ci'VXvgrS1HhDvqeDST:<RDAyN;w|cZfx[)wP]d5]P7jByU=EZ{h >P(S<LEOs%)P?78U[ksf>G(PW2h3=vB^4S;Y6$2Dzu|u%w6}ZFQ>&~!n`uPwz6qnWPamvL$4gw&d_+sg'oWfQVD}b!^A;F odc*]B8Km<}S=P'p(w{dGKyS*v'tW-@nmK.Y.=tW0ny=&/D7ksee2t{0)yDMWy4n4byjfgW(oylNP>[V@H&`hB
+
+--------------------
+
+Workspace.AI Examples.Variables.Set Variable random number:
+0000000000000004ctz9kuM|A,/(n1fBXas$:4SNMKAIzf?HFy8)y!bRSq?=p,y@(TE6@HlBz*6' 1RAjq.,3b(M9&Dkgn17=dyNkjVu ^VFMp>jc)Hb+HZAs~.(u;J0:TIPGlbuS2RbZoK*nii~wy9Y:p-[)oZyJ@9}pNC>' ~Wsh(5oa0B*4.]+z}XW+sRO41tlqG)8Sy!;<b@:v}`-7v6bf@]QK=I[SfP/3UzK1%`*nc`GZ*l+v Y(u'c*6]:!=<rR:tf2;SEu+D
+
+--------------------
+
+Workspace.AI Examples.Variables.Set Variable multiplication:
+00000000000000048t],duK'`;9KmQfB0cXsjT`48'NEQa%s8bGQ*8,,')gL?:(iuPz1$kpNJqb`#r2AQpXhi3lRLb~.<c!.pp{htUD*[~fd`j=*VJ!WzBb)-?qhUr#wfweW|0,6#]>>@. j3+<q~;M%Pg.0tr5qk],;09|U1d(fIc24 ie~t?}`G(3'6uPr&@wo@.mU`y#9%_huREnGOhkpe r)Dk*t`nG=m.'eL4lr UP_=x$v,>uYvV<7#(W4Mc*BSJS_6)f6xI@1^rae.]$zI?(p,zknZ#Bx@:
+
+--------------------
+
+Workspace.AI Examples.Variables.Set Variable exponentiation:
+00000000000000048t'9duM|n;'(eQ8A`Njv^?#m`mrW6O5mWn$d3Hvb-`^+WV/W,S^4fdm9N[3j??CWIcG+tOOX3[@P;XujMp:Rt9+lx?/<s8zUOtY-)J.OM^rm>o{z`;,7`MJ6m_'&K:h+HR57Yy229_L=N%^Kc-Qz%RIQ(:B[g!OeuU];l3>={grd>@l/='%/$0M)0LG1 V?Rxh').T9ty57hm8+xYMpFAbU:?k G}V%=-gXn_dGQ_{A_Ng!ob6E~p#Lvl|*cwCPjX>S{RIOR*F:[CM!^<!bv=rD
+
+--------------------
+
+Workspace.AI Examples.Events.player added:
+0000000000000004zqb7u|0s;`~o;_BL`yXR|}<PQCYtWJiNEi]Z[zd[Re^Z>EK:%:f:5qLs.s:wA-f%B=9w!pK,ZrPzYh/W%It:aah*f=;IqO6n?G,anMw!3?u=*d;lc'#<bnv!'vx68I1rJzl#bt1)u`O4QOjZnIbK:y.pN'uvly,mJ>P4apR3DHWcG_O{AB@z.=rc*gQ'v#rw~'QcSR2:#
+
+--------------------
+
+Workspace.AI Examples.Events.player removing:
+0000000000000004.n$8<|0s3;'(|P!ALB?3y SG;.^QiK;7HSnvDK:!QMx__' u5mnatmP+uF)XYnX|E4LSXHxy`8`7VmDz=qhc;Fm$;#Dq:UHW='2Vc]Bb:Ob,(@,`a@1G]0qqXS;6IpB4/xQb8*}2+b&eu+L6yD3>R% 'z[zuA9lGr4'_RpH,2N-J%M0[KZ]HBV'7s&QZV#2_5nhayg-+/t}u]8iB
+
+--------------------
+
+Workspace.AI Examples.Events.get player from character:
+0000000000000004Ozd7}SM|3;%u. N&RE1M}dA'?Q>N(Sv({H05q<+)?YwM7<jN/]VPwI0IF@FZo$|.a#B_^(@4,,qM=6: D. &@jgpBO/1m<)_H}r+9$K8?bH1LN*2co6jW:fSrM4~-#*eO0>kf$k@YI(MP W'UQ,Zb,@Kl; /DM'ZzN`(TtPO(Zz[>3(MPZddMn.8sxJ<$J:{whwk+Q6R:>CIk5a'IiNW;]+|~/n^rL~@,n6q=QynM$&;NxL((h1PKbp=QsTuS I=nlS4=MaR6d`^[L'qwW9i*SehGq0ix$yx4t<%V=iT#5yp%M[eeo?qo_q*IF8^QKX+ni:u|.~oL5m-UY(k(1CD%_m.i)&UUEOs t?`g]h^j52cC4.a,1JQ][Cg1/]w=P|p|)[@&I|5aL3i?-7]EgE*qDE=*wf|9u7BLdhz>tpo8:([v>O.%JK<xQ.TW_Dw_7TJOFnUD{5d?+h|Y;pqq=OfHRA<4/EM<&<!Q8FckdxBN?DS~?[oS=Kn3-8G^`4zt}`@P9lsoK>*7_ VaR3ba^|`H
+
+--------------------
+
+Workspace.AI Examples.Basic.Comment:
+0000000000000004xkd7u|0s3;'(PQ8A.AXB.h/YE4!Q$mW|H/@!;&hE}]E6Sa^q `grM33j/jo4.,~,!'s&>$<SK1kPkvl_+`bF7Tu#jP7Jb64J)a3!0My5iX$1gf@N}?&U,.4%ok#kK8]|O*>oaJG6+e^iTmBno@NCCRvi?li,:}@a;e_T=w5 EkZ_9fQu+}VC
+
+--------------------
+
+Workspace.AI Examples.Basic.Warn:
+0000000000000004,h'9ptM|n;'(cQgB`Z@FlgvchgyK G-Pm}i0Yz$cVr61Dv]S@^4_.jq>*KNf,67p7jL6bKiP>eFykP+7FNVqu1'vIaZz]%qvci]XG)qub,S=ospS&x)VincZ_8:~pF),urM40h_r$TUtdg$Lg6Tqbcg969ty.0{h_$y;5L]&&B
+
+--------------------
+
+Workspace.AI Examples.Basic.Print Variable:
+0000000000000004@nz9&tM|A,/(31fB]xPW7-PZ|8Wv5XB4cLf(mUIKK)*4%^hi649LZoLyXjF^eALTf9%x(!{a.8JZ]kzp$ay0_Fy[o1pe?S9v-nPl,?,rXd^y:OD6Oo'p/d4@>mGPBo160%O-D(a(gPX/} `@}MJ`2>LX]Uy;auFL[]FpVjLJ-RfoZ+^ZObaDs/,L,Rqz.@hQ7%xaex>J?+^VWeZVBot`R'gd$7o2O2Rc?`G6xd8[4zfGG=
+
+--------------------
+
+Workspace.AI Examples.Basic.Print Literal:
+0000000000000004,h$8ptM|^+/(eQhBwy-Hg:HHEYgX#}F}T&MN@zjfq_QT+~US<pX:FsabgKb!#myl|alL3'`clcX!(Hl4 %jt%{e3XD_.^2UXAjZ'aMuD$**^)ka2ZN<%{Z:+76yf3ON`%^R?;G3^B#Li#p Mq0V~B:uWZ hU%ox/'^'rO
+
+--------------------
+
+Workspace.AI Examples.Basic.Wait + print:
+0000000000000004MlPxqtM|^+hinuELb9qtWS<PT|BvSGqP/Dy;]3KKz<&(`},Dxf)oc@DW &(:Vn[6J6k24{Rx8559/GUSZqS[d4U#n<]I3dr`BPn?_kdtICnJzIXDfx/d|$]0+L.i_ UIi6Z?Z7PtF9WkK_50!3Ql:>6s'Z2<(Rf.- (&nw!-_N/sn'PSAX], ry>AX-+11(kQ6v]g=eB
+
+--------------------
+
+Workspace.AI Examples.Basic.Error:
+0000000000000004,hcwqtK'^3%uI5JWEz{4p6!sL&9vQl 558aG(v~YR#0Pm&~`@?9C+V-9mW HX)%M *Zv8c|qHgWGZjk/_DN+ 7V&/plhYz+bUP<^Bf]0B(B{^j >=Ds/C$|.;qade@R]7((]RrTdnH8+/I9QA8_6mdO6e:6mb)h@U`
+
+--------------------
+
+Workspace.AI Examples.Strings.split strings:
+0000000000000004Nw$8ZCls3;'(|P8AH#uaW]a>''F!y/ft83|8b98EqMom-e=dkNNV1s'_F&iBz?LufBbdNK:oW,gwg'J8`^~Hp*1<.cfQ%%6pYOym~>~]f.VSQ4q@KlZG6u5fd@#;gNQOtmGjSv]^qW/!?(zw&3MMi$8-qewDC^}E8l5`BItw*/= xv?O}dEU%9~JgP;0T5DZ4-Goy]!#O?xJeiyw&Rw=:.]c7e`P?Qu;Pm91^`ckU`/WS7=^H8V>T'TqtKHwr,7/juhvK*U>!usQbzO34d*=X`3a7)TSmHzG{@>t.G~%e
+
+--------------------
+
+Workspace.AI Examples.Strings.combine number and strings:
+0000000000000004Puz9kuM|A,/(&S(CNJU5)+5cIH,acW eDp=LZYSqyelWD&^i.J5tW>GgvJ[Qnwk+cANd{G8Wp(Ep,-_+ea8(ovmc9r`boGr0V%y|Q=E?S{I/V`qh!%h($&2j4]B-4^=$<+=6B#J@<6H5M'%1uI`H|fig>hQi7khPy=o+CwZ!{,fIhS6MA.K79DM/JryI;w%UY#~G[_,3rZD^'Vf_^x#gW6O/kq|U($|+,wjeo.1(=Z0#Ni50@cn8`cr^|J`%&mQ`/&2((ax#[v>c=j&gAa1<jl>1.5?E9$Sv``Tv9&{V&;9C
+
+--------------------
+
+Workspace.AI Examples.Strings.find strings:
+0000000000000004.n$8duM|^+/(eQ#C?dEJz<eG}YH|5bc| L}4sdng+]Bt0@)c@5cFs)[IKpVFz?:M6}P'ZnBqQe/'j#x%l]rd:ao90[mbXbEk@.H3j=NKh$gPfq;i6@v#ISas_N=Q,gV6hX1IL@*+h3$(mx&3?]EwBJ5 iJcL7#I`8mDo&K`B7Es?p5W2.IPQpo*5b+]eHnU`ib#6wSm`3qgL/}](chI!aakx!5mRih_PA=@xWpF+<G#H|;Q+$gA{X
+
+--------------------
+
+Workspace.AI Examples.Strings.combine strings:
+0000000000000004zq'9&tM|n;'(eQ8AV4=dqnRu4>`GWL~=uL |+mEYQme!x_!M+5?M&8V[]]v%L&vP&T!fS+i-C9JzKG$Ha8@ViP,.}lt)S@K.|A=D'nTlfr!(nGvO,0)iKS9PL_%;b3D0Y?bNTk[TWKt3[@E|-s :b(xD1fq6$DQ[zcA(UQktm:O?P@YzPn$cMrsg?66#OxH`>kWj4gHD?$Qd<^dww370bHSvg*!z$ILNj#omP9Bs~]+f,(C_Vut+f
+
+=== DECODED (HUMAN READABLE) ===
+
+Workspace.AI Examples.Variables.Set Variable Subtraction:
+  Editor CameraPosition -0.3A,0.282 CameraZoom 0.1C2  Block Type Subtraction Name Subtraction1 VisualPosition -0.36B,0.7D ChildBlocks Set Variable2 ElseChildBlock nil Inputs Number1 2 my_variable Number2 0 6 Outputs Result result  Block Type SetVariable1 Name Set Variable1 VisualPosition -0.36B,-0.1F4 ChildBlocks Subtraction1 ElseChildBlock nil Inputs Value 1 F Number Outputs VariableName my_variable  Block Type SetVariable1 Name Set Variable2 VisualPosition -0.36B,0.2EE ChildBlocks ElseChildBlock nil Inputs Value 2 result Outputs VariableName my_variable
+
+--------------------
+
+Workspace.AI Examples.Variables.Set Variable division:
+  Editor CameraPosition -0.81,0.1C6 CameraZoom 0.1C2  Block Type Division Name Division1 VisualPosition -0.36B,0.7D ChildBlocks Set Variable2 ElseChildBlock nil Inputs Number1 2 my_variable Number2 0 6 Outputs Result result  Block Type SetVariable1 Name Set Variable1 VisualPosition -0.36B,-0.1F4 ChildBlocks Division1 ElseChildBlock nil Inputs Value 1 F Number Outputs VariableName my_variable  Block Type SetVariable1 Name Set Variable2 VisualPosition -0.36B,0.2EE ChildBlocks ElseChildBlock nil Inputs Value 2 result Outputs VariableName my_variable
+
+--------------------
+
+Workspace.AI Examples.Variables.Set Variable modulus:
+  Editor CameraPosition -0.95,0.191 CameraZoom 0.1C2  Block Type Modulus Name Modulus1 VisualPosition -0.36B,0.7D ChildBlocks Set Variable2 ElseChildBlock nil Inputs Number1 2 my_variable Number2 0 6 Outputs Result result  Block Type SetVariable1 Name Set Variable2 VisualPosition -0.36B,0.2EE ChildBlocks ElseChildBlock nil Inputs Value 2 result Outputs VariableName my_variable  Block Type SetVariable1 Name Set Variable1 VisualPosition -0.36B,-0.1F4 ChildBlocks Modulus1 ElseChildBlock nil Inputs Value 1 F Number Outputs VariableName my_variable
+
+--------------------
+
+Workspace.AI Examples.Variables.Set Variable solve equation:
+  Editor CameraPosition -0.23A,0.FC CameraZoom 0.1C2  Block Type SetVariable1 Name Set Variable2 VisualPosition -0.36B,0.2EE ChildBlocks ElseChildBlock nil Inputs Value 2 result Outputs VariableName my_variable  Block Type SolveEquation Name Solve Equation1 VisualPosition -0.36B,0.7D ChildBlocks Set Variable2 ElseChildBlock nil Inputs Equation 0 my_variable + 6 + (6 - 5) / 2 + (12 * 6 / 3) Outputs Result result  Block Type SetVariable1 Name Set Variable1 VisualPosition -0.36B,-0.1F4 ChildBlocks Solve Equation1 ElseChildBlock nil Inputs Value 1 F Number Outputs VariableName my_variable
+
+--------------------
+
+Workspace.AI Examples.Variables.Set Variable Addition:
+  Editor CameraPosition -0.81,0.1C6 CameraZoom 0.1C2  Block Type Addition Name Addition1 VisualPosition -0.36B,0.7D ChildBlocks Set Variable2 ElseChildBlock nil Inputs Number1 2 my_variable Number2 0 6 Outputs Result result  Block Type SetVariable1 Name Set Variable1 VisualPosition -0.36B,-0.1F4 ChildBlocks Addition1 ElseChildBlock nil Inputs Value 1 F Number Outputs VariableName my_variable  Block Type SetVariable1 Name Set Variable2 VisualPosition -0.36B,0.2EE ChildBlocks ElseChildBlock nil Inputs Value 2 result Outputs VariableName my_variable
+
+--------------------
+
+Workspace.AI Examples.Variables.Set Variable random number:
+  Editor CameraPosition -0.A2,-0.369 CameraZoom 0.1C2  Block Type SetVariable1 Name Set Variable1 VisualPosition -0.36B,-0.1F4 ChildBlocks ElseChildBlock nil Inputs Value 2 rng Outputs VariableName my_variable  Block Type RandomNumber Name Random Number1 VisualPosition -0.36B,-1.7D ChildBlocks Set Variable1 ElseChildBlock nil Inputs Minimum 0 0 Maximum 0 A Outputs Result rng
+
+--------------------
+
+Workspace.AI Examples.Variables.Set Variable multiplication:
+  Editor CameraPosition -0.81,0.1C6 CameraZoom 0.1C2  Block Type Multiplication Name Multiplication1 VisualPosition -0.36B,0.7D ChildBlocks Set Variable2 ElseChildBlock nil Inputs Number1 2 my_variable Number2 0 6 Outputs Result result  Block Type SetVariable1 Name Set Variable1 VisualPosition -0.36B,-0.1F4 ChildBlocks Multiplication1 ElseChildBlock nil Inputs Value 1 F Number Outputs VariableName my_variable  Block Type SetVariable1 Name Set Variable2 VisualPosition -0.36B,0.2EE ChildBlocks ElseChildBlock nil Inputs Value 2 result Outputs VariableName my_variable
+
+--------------------
+
+Workspace.AI Examples.Variables.Set Variable exponentiation:
+  Editor CameraPosition -0.164,0.76 CameraZoom 0.1C2  Block Type Exponentiation Name Exponentiation1 VisualPosition -0.36B,0.7D ChildBlocks Set Variable2 ElseChildBlock nil Inputs Number1 2 my_variable Number2 0 6 Outputs Result result  Block Type SetVariable1 Name Set Variable1 VisualPosition -0.36B,-0.1F4 ChildBlocks Exponentiation1 ElseChildBlock nil Inputs Value 1 F Number Outputs VariableName my_variable  Block Type SetVariable1 Name Set Variable2 VisualPosition -0.36B,0.2EE ChildBlocks ElseChildBlock nil Inputs Value 2 result Outputs VariableName my_variable
+
+--------------------
+
+Workspace.AI Examples.Events.player added:
+  Editor CameraPosition -0.232,-0.237 CameraZoom 0.1C2  Block Type Print Name Print1 VisualPosition -0.36B,0 ChildBlocks ElseChildBlock nil Inputs Text 2 player Outputs  Block Type PlayerAdded Name Player Added1 VisualPosition -0.36B,-0.271 ChildBlocks Print1 ElseChildBlock nil Inputs Outputs Player player
+
+--------------------
+
+Workspace.AI Examples.Events.player removing:
+  Editor CameraPosition -0.EF,-0.1F8 CameraZoom 0.1C2  Block Type Print Name Print1 VisualPosition -0.36B,0 ChildBlocks ElseChildBlock nil Inputs Text 2 player Outputs  Block Type PlayerRemoving Name Player Removing1 VisualPosition -0.36B,-0.271 ChildBlocks Print1 ElseChildBlock nil Inputs Outputs Player player
+
+--------------------
+
+Workspace.AI Examples.Events.get player from character:
+  Editor CameraPosition -0.2C5,0.271 CameraZoom 0.1C2  Block Type ChildAdded Name Child Added1 VisualPosition -1.1F4,-0.1F4 ChildBlocks Is A1 ElseChildBlock nil Inputs Object 0 script.Parent.Parent.Parent Outputs Child child  Block Type Print Name Print1 VisualPosition -1.1F4,3.FA ChildBlocks ElseChildBlock nil Inputs Text 2 player Outputs  Block Type GetPlayerFromCharacter Name Get Player From Character1 VisualPosition -1.1F4,2.271 ChildBlocks Print1 ElseChildBlock nil Inputs Character 0 child Outputs Player player  Block Type If Name If2 VisualPosition -1.1F4,2 ChildBlocks Get Player From Character1 ElseChildBlock nil Inputs ComparisonType 0 ~= Value 2 1  Nil Value 1 2 humanoid Outputs  Block Type IsA Name Is A1 VisualPosition -1.1F4,0.7D ChildBlocks If1 ElseChildBlock nil Inputs Object 0 child Class 0 Model Outputs Result type  Block Type FindFirstChildNew Name Find First Child1 VisualPosition -1.1F4,1.177 ChildBlocks If2 ElseChildBlock nil Inputs Parent 0 child ChildName 0 Humanoid Recursive 0 0 CanReturnNil 0 1 Outputs Result humanoid  Block Type If Name If1 VisualPosition -1.1F4,0.2EE ChildBlocks Find First Child1 ElseChildBlock nil Inputs ComparisonType 0 == Value 2 1 Model String Value 1 2 type Outputs
+
+--------------------
+
+Workspace.AI Examples.Basic.Comment:
+  Editor CameraPosition -0.188,-0.42 CameraZoom 0.1C2  Block Type Comment2 Name Comment1 VisualPosition -1.FA,-0.FA ChildBlocks ElseChildBlock nil Inputs Comment 0 my comment message Color 0 3E9 Outputs
+
+--------------------
+
+Workspace.AI Examples.Basic.Warn:
+  Editor CameraPosition 0.76,-0.9B CameraZoom 0.1C2  Block Type Warn Name Warn1 VisualPosition -1,-0.1F4 ChildBlocks ElseChildBlock nil Inputs Text 0 my warn message Outputs
+
+--------------------
+
+Workspace.AI Examples.Basic.Print Variable:
+  Editor CameraPosition 0.8D,0.1DE CameraZoom 0.1C2  Block Type SetVariable1 Name Set Variable1 VisualPosition -0.36B,-0.1F4 ChildBlocks Print1 ElseChildBlock nil Inputs Value 1 my text String Outputs VariableName my_var  Block Type Print Name Print1 VisualPosition -0.36B,0.7D ChildBlocks ElseChildBlock nil Inputs Text 2 my_var Outputs
+
+--------------------
+
+Workspace.AI Examples.Basic.Print Literal:
+  Editor CameraPosition -0.207,-0.13E CameraZoom 0.1C2  Block Type Print Name Print1 VisualPosition -1.1F4,-0.1F4 ChildBlocks ElseChildBlock nil Inputs Text 0 my text Outputs
+
+--------------------
+
+Workspace.AI Examples.Basic.Wait + print:
+  Editor CameraPosition 0.135,0.2D8 CameraZoom 0.1C2  Block Type Wait Name Wait1 VisualPosition -0.2EE,0 ChildBlocks Print1 ElseChildBlock nil Inputs Time 0 1 Outputs  Block Type Print Name Print1 VisualPosition -0.2EE,0.271 ChildBlocks ElseChildBlock nil Inputs Text 0 my message Outputs
+
+--------------------
+
+Workspace.AI Examples.Basic.Error:
+  Editor CameraPosition 0,0 CameraZoom 0.1C2  Block Type Error Name Error1 VisualPosition -1,-0.177 ChildBlocks ElseChildBlock nil Inputs Text 0 my error message Outputs
+
+--------------------
+
+Workspace.AI Examples.Strings.split strings:
+  Editor CameraPosition 0.119,-0.1CD CameraZoom 0.1C2  Block Type Comment2 Name Comment1 VisualPosition -0.271,-0.2EE ChildBlocks Split String1 ElseChildBlock nil Inputs Comment 0 the result is a table Color 0 3E9 Outputs  Block Type Print Name Print1 VisualPosition -0.271,0.1F4 ChildBlocks ElseChildBlock nil Inputs Text 2 result Outputs  Block Type SplitString Name Split String1 VisualPosition -0.271,-0.7D ChildBlocks Print1 ElseChildBlock nil Inputs Seperator 0 / String 0 my/super/string Outputs Result result
+
+--------------------
+
+Workspace.AI Examples.Strings.combine number and strings:
+  Editor CameraPosition -0.104,0.209 CameraZoom 0.1C2  Block Type CombineStringWithNumber Name Combine String With Number1 VisualPosition -1.177,-0.FA ChildBlocks Print2 ElseChildBlock nil Inputs Number 0 1 String 0 my string AddSpace 0  Outputs Combined result  Block Type Print Name Print2 VisualPosition -1.177,0.177 ChildBlocks ElseChildBlock nil Inputs Text 2 result Outputs  Block Type CombineNumberWithString Name Combine Number With String1 VisualPosition -0.FA,-0.FA ChildBlocks Print1 ElseChildBlock nil Inputs Number 0 1 String 0 my string AddSpace 0  Outputs Combined result  Block Type Print Name Print1 VisualPosition -0.FA,0.177 ChildBlocks ElseChildBlock nil Inputs Text 2 result Outputs
+
+--------------------
+
+Workspace.AI Examples.Strings.find strings:
+  Editor CameraPosition -0.7D,0.13F CameraZoom 0.1C2  Block Type Print Name Print1 VisualPosition -0.36B,0.FA ChildBlocks ElseChildBlock nil Inputs Text 2 result Outputs  Block Type FindString Name Find String1 VisualPosition -0.36B,-0.177 ChildBlocks Print1 ElseChildBlock nil Inputs Pattern 0 po String 0 my super powerful string Outputs Result result
+
+--------------------
+
+Workspace.AI Examples.Strings.combine strings:
+  Editor CameraPosition 0.16D,0.F2 CameraZoom 0.1C2  Block Type Print Name Print1 VisualPosition -0.271,0.7D ChildBlocks ElseChildBlock nil Inputs Text 2 result Outputs  Block Type Concatenate Name Combine Strings1 VisualPosition -0.271,-0.1F4 ChildBlocks Print1 ElseChildBlock nil Inputs FirstString 0 string 1 SecondString 0 string 2 Outputs Result result
+

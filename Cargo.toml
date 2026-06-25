@@ -1,0 +1,6 @@
+[package]
+name = "visual-source-rs"
+version = "4.0.0"
+edition = "2024"
+
+[dependencies]
