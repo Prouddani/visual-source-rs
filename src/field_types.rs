@@ -6,7 +6,6 @@ pub mod number;
 pub mod vector2;
 pub mod vector3;
 pub mod bool;
-pub mod udim2;
 pub mod tuple;
 pub mod brickcolor;
 

@@ -1,4 +1,4 @@
-use visual_source_rs::{U_001A, U_001B, VSObjectType, VisualSource, block::{Block, BlockInput, BlockInputVisibility, BlockOutput}, editor::Editor, field_types::{VSFieldType, bool::VSBool, brickcolor::VSBrickColor, number::VSNumber, object::VSObject, string::VSString, tuple::{self, VSTuple}, vector2::VSVector2, vector3::VSVector3}, hex::{self, Hex}, vs_bool, vs_num, vs_obj, vs_str, vs_tuple, vs_udim2, vs_vec2, vs_vec3};
+use visual_source_rs::{U_001A, U_001B, VSObjectType, VisualSource, block::{Block, BlockInput, BlockInputVisibility, BlockOutput}, editor::Editor, field_types::{VSFieldType, bool::VSBool, brickcolor::VSBrickColor, number::VSNumber, object::VSObject, string::VSString, tuple::{self, VSTuple}, vector2::VSVector2, vector3::VSVector3}, hex::{self, Hex}, vs_bool, vs_num, vs_obj, vs_str, vs_tuple, vs_vec2, vs_vec3};
 
 fn main() {
     let visual_source = VisualSource {
@@ -25,7 +25,7 @@ fn main() {
     println!("{}", visual_source.to_string());
 
     println!(
-        "{} {} {} {} {} {} {} {}",
+        "{} {} {} {} {} {} {}",
         vs_str!("hi"),
         vs_num!(3),
         vs_obj!("game.Workspace.RedButton"),
@@ -33,7 +33,6 @@ fn main() {
         vs_vec2!(2, 3),
         vs_vec3!(2, 3, 4),
         vs_tuple!["TUPLEPARAM1", "TUPLEPARAM2"],
-        vs_udim2!(1, 2, 3, 4)
     );
 
     // let tuple_vs_properties = "TUPLEPARAM_Parameters_315NumberTUPLEPARAM_Parameters_11hello world!StringTUPLEPARAM_Parameters_2118BrickColor";
