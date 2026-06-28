@@ -1,4 +1,4 @@
-use std::fmt::{Debug, Display};
+use std::fmt::{Debug, Display, write};
 
 use crate::field_types::VSFieldType;
 
@@ -26,9 +26,19 @@ impl Display for VisualSource {
         write!(f, "{}", vs_root_objects.join(""))
     }
 }
+impl Debug for VisualSource {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.to_string().escape_debug())
+    }
+}
 
+impl Display for Box<dyn VSFieldType> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.into_vs().escape_debug())
+    }
+}
 impl Debug for Box<dyn VSFieldType> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "No debug for Box<dyn VSFieldType> :-)")
+        write!(f, "{}", self.into_vs().escape_debug())
     }
 }

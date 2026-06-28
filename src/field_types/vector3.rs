@@ -1,4 +1,6 @@
-use crate::{U_001A, U_001B, field_types::{VSFieldType, VisualSourceParserError, number::VSNumber}, hex::Hex};
+use std::fmt::Display;
+
+use crate::{U_001A, U_001B, field_types::{VSFieldType, number::VSNumber}, hex::Hex};
 
 #[derive(Clone, Copy, Debug)]
 pub struct VSVector3 {
@@ -15,12 +17,15 @@ impl VSVector3 {
         }
     }
 }
-impl From<(f64, f64, f64)> for VSVector3 {
-    fn from(value: (f64, f64, f64)) -> Self {
+impl<T> From<(T, T, T)> for VSVector3
+where
+    T: Into<Hex>
+{
+    fn from(value: (T, T, T)) -> Self {
         Self {
-            x: Hex(value.0).into(),
-            y: Hex(value.1).into(),
-            z: Hex(value.2).into(),
+            x: value.0.into().into(),
+            y: value.1.into().into(),
+            z: value.2.into().into()
         }
     }
 }
@@ -53,5 +58,17 @@ impl VSFieldType for VSVector3 {
 
     fn get_type(&self) -> &'static str {
         "Vector3"
+    }
+}
+impl Display for VSVector3 {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.into_vs())
+    }
+}
+
+#[macro_export]
+macro_rules! vs_vec3 {
+    ($x:literal, $y:literal, $z:literal) => {
+        VSVector3::from(($x, $y, $z))
     }
 }

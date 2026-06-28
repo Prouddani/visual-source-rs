@@ -1,5 +1,7 @@
 use std::{fmt::Display, ops::{Deref, DerefMut}};
 
+use crate::field_types::number::VSNumber;
+
 #[derive(Clone, Copy, Debug)]
 pub struct Hex(pub f64);
 impl Hex {
@@ -26,14 +28,17 @@ impl Hex {
         Some(Self(decimal))
     }
 }
-impl From<f64> for Hex {
-    fn from(value: f64) -> Self {
-        Self(value)
+impl Into<VSNumber> for Hex {
+    fn into(self) -> VSNumber {
+        VSNumber(self)
     }
 }
-impl Into<f64> for Hex {
-    fn into(self) -> f64 {
-        self.0
+impl<T> From<T> for Hex
+where
+    T: Into<f64>
+{
+    fn from(value: T) -> Self {
+        Self(value.into())
     }
 }
 impl Deref for Hex {

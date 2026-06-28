@@ -1,19 +1,15 @@
-use crate::field_types::{VSFieldType, VisualSourceParserError};
+use std::fmt::Display;
+
+use crate::field_types::{VSFieldType};
 
 pub struct VSObject(pub String);
 impl VSObject {
     pub fn new() -> Self {
         Self(String::new())
     }
-}
-impl From<&str> for VSObject {
-    fn from(value: &str) -> Self {
-        Self(value.to_string())
-    }
-}
-impl From<String> for VSObject {
-    fn from(value: String) -> Self {
-        Self(value)
+
+    pub fn from_path(path: impl Into<String>) -> Self {
+        Self(path.into())
     }
 }
 impl VSFieldType for VSObject {
@@ -29,5 +25,17 @@ impl VSFieldType for VSObject {
 
     fn get_type(&self) -> &'static str {
         "Object"
+    }
+}
+impl Display for VSObject {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.into_vs())
+    }
+}
+
+#[macro_export]
+macro_rules! vs_obj {
+    ($path:literal) => {
+        VSObject::from_path($path)
     }
 }

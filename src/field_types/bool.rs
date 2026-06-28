@@ -1,4 +1,6 @@
-use crate::field_types::{VSFieldType, VisualSourceParserError};
+use std::fmt::Display;
+
+use crate::field_types::{VSFieldType};
 
 #[derive(Clone, Copy, Debug)]
 pub struct VSBool(pub bool);
@@ -33,5 +35,17 @@ impl VSFieldType for VSBool {
 
     fn get_type(&self) -> &'static str {
         "Bool"
+    }
+}
+impl Display for VSBool {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.into_vs())
+    }
+}
+
+#[macro_export]
+macro_rules! vs_bool {
+    ($b:literal) => {
+        VSBool::from($b)
     }
 }

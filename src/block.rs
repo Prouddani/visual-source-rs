@@ -1,8 +1,8 @@
-use std::{fmt::Display};
+use std::{fmt::Display, process::Output};
 
-use serde_json::Value;
+use serde_json::{Value, value};
 
-use crate::{U_001A, U_001B, VSObjectType, field_types::{self, VSFieldType, VisualSourceParserError, bool::VSBool, new_field_from_vs_type, number::VSNumber, string::VSString, vector2::VSVector2}, hex::Hex};
+use crate::{U_001A, U_001B, VSObjectType, field_types::{self, VSFieldType, bool::VSBool, new_field_from_vs_type, number::VSNumber, string::VSString, vector2::VSVector2}, hex::Hex};
 
 #[derive(Clone, Copy, Debug)]
 pub enum BlockInputVisibility {
@@ -35,8 +35,20 @@ pub struct BlockInput {
     pub visibility: BlockInputVisibility, // 0, this is a literal value; 1, this is a typed literal; 2, this is a variable name holding the value, and the Type must be ommited even it set to "any"
     pub value: Box<dyn VSFieldType>,
 }
-impl BlockInput {
-    fn into_vs(&self) -> String {
+impl BlockInput
+{
+    pub fn new<T>(name: impl Into<VSString>, visibility: BlockInputVisibility, value: T) -> Self
+    where
+        T: VSFieldType + 'static,
+    {
+        Self {
+            name: name.into(),
+            visibility,
+            value: Box::new(value)
+        }
+    }
+
+    pub fn into_vs(&self) -> String {
 
         format!(
             "{}{U_001B}{}{U_001B}{}{}{}",
@@ -48,10 +60,19 @@ impl BlockInput {
         )
     }
 
-    fn from_vs<'a>(src: &'a str) -> Result<(Self, &'a str), &'static str> {
+    pub fn from_vs<'a>(src: &'a str) -> Result<(Self, &'a str), &'static str> {
         let vs_end = 0;
 
         todo!()
+    }
+}
+impl<I, T> From<(I, BlockInputVisibility, T)> for BlockInput
+where
+    I: Into<VSString>,
+    T: VSFieldType + 'static
+{
+    fn from(value: (I, BlockInputVisibility, T)) -> Self {
+        Self::new(value.0, value.1, value.2)
     }
 }
 impl Display for BlockInput {
@@ -80,6 +101,32 @@ pub struct Block {
     pub else_child_block: Option<VSString>,
     pub inputs: Vec<BlockInput>,
     pub outputs: Vec<BlockOutput>
+}
+impl Block {
+    fn new(
+        internal: impl Into<VSString>,
+        name: impl Into<VSString>,
+        visual_position: impl Into<VSVector2>,
+        child_blocks: Vec<impl Into<VSString>>,
+        else_child_block: Option<impl Into<VSString>>,
+        inputs: Vec<impl Into<BlockInput>>,
+        outputs: Vec<impl Into<BlockOutput>>
+    ) -> Self {
+        Self {
+            internal: internal.into(),
+            name: name.into(),
+            visual_position: visual_position.into(),
+            child_blocks: child_blocks.into_iter().map(Into::into).collect::<Vec<_>>(),
+            else_child_block: match else_child_block {
+                Some(block_id) => {
+                    Some(block_id.into())
+                },
+                None => None
+            },
+            inputs: inputs.into_iter().map(Into::into).collect::<Vec<_>>(),
+            outputs: outputs.into_iter().map(Into::into).collect::<Vec<_>>()
+        }
+    }
 }
 impl VSObjectType for Block {
     fn into_vs(&self) -> String {

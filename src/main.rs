@@ -1,4 +1,4 @@
-use visual_source_rs::{U_001A, U_001B, VSObjectType, VisualSource, block::{Block, BlockInput, BlockInputVisibility, BlockOutput}, editor::Editor, field_types::{VSFieldType, brickcolor::VSBrickColor, number::VSNumber, object::VSObject, string::VSString, tuple::VSTuple, vector2::VSVector2, vector3::VSVector3}, hex::{self, Hex}};
+use visual_source_rs::{U_001A, U_001B, VSObjectType, VisualSource, block::{Block, BlockInput, BlockInputVisibility, BlockOutput}, editor::Editor, field_types::{VSFieldType, bool::VSBool, brickcolor::VSBrickColor, number::VSNumber, object::VSObject, string::VSString, tuple::{self, VSTuple}, vector2::VSVector2, vector3::VSVector3}, hex::{self, Hex}, vs_bool, vs_num, vs_obj, vs_str, vs_tuple, vs_udim2, vs_vec2, vs_vec3};
 
 fn main() {
     let visual_source = VisualSource {
@@ -14,33 +14,27 @@ fn main() {
                 child_blocks: vec![],
                 else_child_block: None,
                 inputs: vec![
-                    BlockInput {
-                        name: "Function".into(),
-                        visibility: BlockInputVisibility::Implicit,
-                        value: Box::<VSString>::new("foo".into())
-                    },
-                    BlockInput {
-                        name: "Parameters".into(),
-                        visibility: BlockInputVisibility::Implicit,
-                        value: Box::new(VSTuple::from(vec!["TUPLEPARAM_Parameters_1", "TUPLEPARAM_Parameters_2"]))
-                    },
-                    BlockInput {
-                        name: "TUPLEPARAM_Parameters_1".into(),
-                        visibility: BlockInputVisibility::Explicit,
-                        value: Box::new(VSString::from("bar"))
-                    },
-                    BlockInput {
-                        name: "TUPLEPARAM_Parameters_2".into(),
-                        visibility: BlockInputVisibility::Explicit,
-                        value: Box::new(VSNumber::from(1.4))
-                    }
+                    BlockInput::new("Function", BlockInputVisibility::Implicit, vs_str!("h")),
+                    BlockInput::new("Parameters", BlockInputVisibility::Implicit, vs_tuple!["hi"])
                 ],
                 outputs: vec![]
             }),
         ]
     };
 
-    println!("{}", visual_source.to_string().escape_debug());
+    println!("{}", visual_source.to_string());
+
+    println!(
+        "{} {} {} {} {} {} {} {}",
+        vs_str!("hi"),
+        vs_num!(3),
+        vs_obj!("game.Workspace.RedButton"),
+        vs_bool!(true),
+        vs_vec2!(2, 3),
+        vs_vec3!(2, 3, 4),
+        vs_tuple!["TUPLEPARAM1", "TUPLEPARAM2"],
+        vs_udim2!(1, 2, 3, 4)
+    );
 
     // let tuple_vs_properties = "TUPLEPARAM_Parameters_315NumberTUPLEPARAM_Parameters_11hello world!StringTUPLEPARAM_Parameters_2118BrickColor";
     // let mut tuple = VSTuple::new();

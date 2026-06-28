@@ -1,8 +1,8 @@
-use std::any::{Any, TypeId};
+use std::{any::{Any, TypeId}, fmt::Display};
 
 use serde_json::Value;
 
-use crate::{U_001A, U_001B, block::{BlockInput, BlockInputVisibility}, field_types::{VSFieldType, VisualSourceParserError, new_field_from_vs_type, number::VSNumber, string::VSString}};
+use crate::{U_001A, U_001B, block::{BlockInput, BlockInputVisibility}, field_types::{VSFieldType, new_field_from_vs_type, number::VSNumber, string::VSString}};
 pub struct VSTuple(pub Vec<VSString>);
 impl VSTuple {
     pub fn new() -> Self {
@@ -46,5 +46,23 @@ impl VSFieldType for VSTuple {
 
     fn get_type(&self) -> &'static str {
         "Tuple"
+    }
+}
+impl Display for VSTuple {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.into_vs())
+    }
+}
+
+#[macro_export]
+macro_rules! vs_tuple {
+    ($($x:expr),*) => {
+        {
+            let mut tuple = vec![];
+            $(
+                tuple.push($x);
+            )*
+            VSTuple::from(tuple)
+        }
     }
 }

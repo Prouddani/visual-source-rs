@@ -1,6 +1,6 @@
 use std::{fmt::Display, ops::{Deref, DerefMut}};
 
-use crate::field_types::{VSFieldType, VisualSourceParserError};
+use crate::field_types::{VSFieldType};
 
 #[derive(Clone, Debug)]
 pub struct VSString(pub String);
@@ -49,5 +49,12 @@ impl VSFieldType for VSString {
 impl Display for VSString {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{}", self.0)
+    }
+}
+
+#[macro_export]
+macro_rules! vs_str {
+    ($s:literal) => {
+        VSString::from($s)
     }
 }

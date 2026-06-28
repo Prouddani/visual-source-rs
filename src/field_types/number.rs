@@ -1,4 +1,6 @@
-use crate::{field_types::{VSFieldType, VisualSourceParserError}, hex::Hex};
+use std::fmt::Display;
+
+use crate::{field_types::{VSFieldType}, hex::Hex};
 
 #[derive(Clone, Copy, Debug)]
 pub struct VSNumber(pub Hex);
@@ -7,14 +9,12 @@ impl VSNumber {
         Self(Hex(0.0))
     }
 }
-impl From<f64> for VSNumber {
-    fn from(value: f64) -> Self {
-        Self(Hex(value))
-    }
-}
-impl From<Hex> for VSNumber {
-    fn from(value: Hex) -> Self {
-        Self(value)
+impl<T> From<T> for VSNumber
+where 
+    T: Into<f64>
+{
+    fn from(value: T) -> Self {
+        Self(Hex(value.into()))
     }
 }
 impl VSFieldType for VSNumber {
@@ -30,5 +30,17 @@ impl VSFieldType for VSNumber {
 
     fn get_type(&self) -> &'static str {
         "Number"
+    }
+}
+impl Display for VSNumber {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.into_vs())
+    }
+}
+
+#[macro_export]
+macro_rules! vs_num {
+    ($n:literal) => {
+        VSNumber::from($n)
     }
 }
