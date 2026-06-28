@@ -30,14 +30,14 @@ impl VSFieldType for VSVector2 {
         )
     }
 
-    fn from_vs(&mut self, vs: &str) -> Result<(), VisualSourceParserError> {
+    fn from_vs(&mut self, vs: &str) -> Result<(), &'static str> {
         let split = vs.split(',');
         for (i, sub) in split.enumerate() {
             let field;
             match i {
                 0 => field = &mut self.x,
                 1 => field = &mut self.y,
-                _ => return Err(VisualSourceParserError::IncorrectType)
+                _ => return Err("There is more than two axis for Vector2 input")
             }
             
             let _ = field.from_vs(sub)?;

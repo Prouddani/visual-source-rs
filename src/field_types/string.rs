@@ -1,4 +1,4 @@
-use std::fmt::Display;
+use std::{fmt::Display, ops::{Deref, DerefMut}};
 
 use crate::field_types::{VSFieldType, VisualSourceParserError};
 
@@ -19,12 +19,24 @@ impl From<&str> for VSString {
         Self(value.to_string())
     }
 }
+impl Deref for VSString {
+    type Target = String;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl DerefMut for VSString {
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
 impl VSFieldType for VSString {
     fn into_vs(&self) -> String {
         format!("{}", &self.0)
     }
 
-    fn from_vs(&mut self, vs: &str) -> Result<(), VisualSourceParserError> {
+    fn from_vs(&mut self, vs: &str) -> Result<(), &'static str> {
         self.0 = vs.to_string();
 
         Ok(())

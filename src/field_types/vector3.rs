@@ -34,7 +34,7 @@ impl VSFieldType for VSVector3 {
         )
     }
 
-    fn from_vs(&mut self, vs: &str) -> Result<(), VisualSourceParserError> {
+    fn from_vs(&mut self, vs: &str) -> Result<(), &'static str> {
         let split = vs.split(',');
         for (i, sub) in split.enumerate() {
             let field;
@@ -42,7 +42,7 @@ impl VSFieldType for VSVector3 {
                 0 => field = &mut self.x,
                 1 => field = &mut self.y,
                 2 => field = &mut self.z,
-                _ => return Err(VisualSourceParserError::IncorrectType)
+                _ => return Err("There are more than three axis for Vector3 input")
             }
             
             let _ = field.from_vs(sub)?;

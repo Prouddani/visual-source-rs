@@ -1,31 +1,50 @@
-use crate::{U_001B, field_types::{VSFieldType, VisualSourceParserError, new_field_from_vs_type, string::VSString}};
+use std::any::{Any, TypeId};
 
-pub struct VSTuple(Vec<Box<dyn VSFieldType>>);
-impl VSFieldType for VSTuple {
-    fn into_vs(&self) -> String {
-        format!(
-            "{}",
-            self.0.iter().map(|v| {
-                v.into_vs()
-            }).collect::<Vec<String>>().join(U_001B)
-        )
+use serde_json::Value;
+
+use crate::{U_001A, U_001B, block::{BlockInput, BlockInputVisibility}, field_types::{VSFieldType, VisualSourceParserError, new_field_from_vs_type, number::VSNumber, string::VSString}};
+pub struct VSTuple(pub Vec<VSString>);
+impl VSTuple {
+    pub fn new() -> Self {
+        Self(vec![])
     }
 
-    fn from_vs(&mut self, vs: &str) -> Result<(), VisualSourceParserError> {
-        self.0.clear();
-        let mut data_buffer = String::new();
+    pub fn get_from_input_vec<'a>(&self, inputs: &'a Vec<BlockInput>) -> Vec<&'a BlockInput> {
+        inputs.iter().filter(|i| {
+            self.0.iter().find(|input_name| i.name.to_string() == input_name.to_string()).is_some()
+        }).collect::<Vec<&BlockInput>>()
+    }
+}
+impl From<Vec<&str>> for VSTuple {
+    fn from(value: Vec<&str>) -> Self {
+        Self(value.into_iter().map(Into::into).collect::<Vec<VSString>>())
+    }
+}
+impl From<Vec<String>> for VSTuple {
+    fn from(value: Vec<String>) -> Self {
+        Self(value.into_iter().map(Into::into).collect::<Vec<VSString>>())
+    }
+}
+impl From<Vec<VSString>> for VSTuple {
+    fn from(value: Vec<VSString>) -> Self {
+        Self(value)
+    }
+}
+impl VSFieldType for VSTuple {
+    fn into_vs(&self) -> String {
+        // entry order
+        self.0.iter().map(VSFieldType::into_vs).collect::<Vec<String>>().join(",")
+    }
 
-        for c in vs.chars() {
-            if c.to_string() == U_001B {
-                if !data_buffer.is_empty() {
-                    let result = new_matching_vs_type(&data_buffer).ok_or(VisualSourceParserError::IncorrectType)?;
-                    self.0.push(result);
-                }
+    fn from_vs(&mut self, vs: &str) -> Result<(), &'static str> {
+        use std::mem;
 
-                data_buffer.clear();
-            }
-        }
+        self.0 = vs.split(",").map(|s| { s.into() }).collect::<Vec<VSString>>();
 
         Ok(())
+    }
+
+    fn get_type(&self) -> &'static str {
+        "Tuple"
     }
 }

@@ -1,28 +1,30 @@
 use std::{fmt::Display};
 
+use serde_json::Value;
+
 use crate::{U_001A, U_001B, VSObjectType, field_types::{self, VSFieldType, VisualSourceParserError, bool::VSBool, new_field_from_vs_type, number::VSNumber, string::VSString, vector2::VSVector2}, hex::Hex};
 
 #[derive(Clone, Copy, Debug)]
-pub enum BlockInputType {
-    Explicit, // doesn't use variable
+pub enum BlockInputVisibility {
     Implicit, // doesn't use variable, but type is already defined in the block's blueprint
+    Explicit, // doesn't use variable, and we choose the type
     Variable  // uses variable 
 }
-impl BlockInputType {
+impl BlockInputVisibility {
     pub fn into_vs(&self) -> String {
         match self {
-            Self::Explicit => "0",
-            Self::Implicit => "1",
+            Self::Implicit => "0",
+            Self::Explicit => "1",
             Self::Variable => "2",
         }.to_string()
     }
 
-    pub fn from_vs(vs: &str) -> Result<Self, field_types::VisualSourceParserError> {
+    pub fn from_vs(vs: &str) -> Result<Self, &'static str> {
         match vs {
-            "0" => Ok(Self::Explicit),
-            "1" => Ok(Self::Implicit),
+            "0" => Ok(Self::Implicit),
+            "1" => Ok(Self::Explicit),
             "2" => Ok(Self::Variable),
-            _ => Err(VisualSourceParserError::IncorrectType)
+            _ => Err("Invalid BlockInputVisibility")
         }
     }
 }
@@ -30,18 +32,19 @@ impl BlockInputType {
 #[derive(Debug)]
 pub struct BlockInput {
     pub name: VSString,
-    pub visibility: BlockInputType, // 0, this is a literal value; 1, this is a typed literal; 2, this is a variable name holding the value, and the Type must be ommited even it set to "any"
+    pub visibility: BlockInputVisibility, // 0, this is a literal value; 1, this is a typed literal; 2, this is a variable name holding the value, and the Type must be ommited even it set to "any"
     pub value: Box<dyn VSFieldType>,
 }
 impl BlockInput {
     fn into_vs(&self) -> String {
+
         format!(
             "{}{U_001B}{}{U_001B}{}{}{}",
             self.name.into_vs(),
             self.visibility.into_vs(),
             self.value.into_vs(),
-            if let BlockInputType::Explicit = self.visibility { U_001B } else { "" },
-            if let BlockInputType::Explicit = self.visibility { self.value.get_type() } else { "" },
+            if let BlockInputVisibility::Explicit = self.visibility { U_001B } else { "" },
+            if let BlockInputVisibility::Explicit = self.visibility { self.value.get_type() } else { "" },
         )
     }
 
@@ -85,9 +88,10 @@ impl VSObjectType for Block {
             self.internal.into_vs(), self.name.into_vs(), // internal_type and name
             self.visual_position.into_vs(), // visual position
             if self.child_blocks.len() <= 0 {""} else {U_001B}, // if there are no child blocks, there should be no u+001B characters
-            self.child_blocks.iter().map(VSFieldType::into_vs).collect::<Vec<String>>().join(U_001B), self.else_child_block.clone().unwrap_or("nil".into()), // else child blocks
+            self.child_blocks.iter().map(VSFieldType::into_vs).collect::<Vec<String>>().join(U_001B),
+            self.else_child_block.clone().unwrap_or("nil".into()), // else child blocks
             if self.inputs.len() <= 0 {""} else {U_001B}, // if there are no child blocks, there should be no u+001B characters
-            self.inputs.iter().map(BlockInput::to_string).collect::<Vec<String>>().join(U_001B), // inputs
+            self.inputs.iter().map(BlockInput::into_vs).collect::<Vec<String>>().join(U_001B), // inputs
             if self.outputs.len() <= 0 {""} else {U_001B},
             self.outputs.iter().map(BlockOutput::to_string).collect::<Vec<String>>().join(U_001B), // outputs
         )
@@ -176,6 +180,7 @@ impl VSObjectType for Block {
 
                         use std::mem;
 
+                        let mut n_input = 0;
                         let mut vs_name = None;
                         let mut vs_visibility = None;
 
@@ -196,7 +201,7 @@ impl VSObjectType for Block {
                                     mem::take(in_visibility)
                                 };
                                 
-                                let temp_vs_visibility = BlockInputType::from_vs(&in_visibility)
+                                let temp_vs_visibility = BlockInputVisibility::from_vs(&in_visibility)
                                     .or(Err("Unable to identify Input Value visibility (Uses Variable)"))?;
                             
                                 vs_visibility = Some(temp_vs_visibility)
@@ -208,7 +213,7 @@ impl VSObjectType for Block {
 
                                 let visibility = vs_visibility.as_ref().unwrap();
                                 let temp_vs_value = match visibility {
-                                    BlockInputType::Explicit => {
+                                    BlockInputVisibility::Explicit => {
                                         let in_value_type = &mut property_values[i + 1];
                                         let mut vs_value = new_field_from_vs_type(in_value_type.as_str())
                                             .ok_or("Input value does not match with explicit type")?;
@@ -218,15 +223,41 @@ impl VSObjectType for Block {
 
                                         vs_value
                                     },
-                                    BlockInputType::Implicit => {
+                                    BlockInputVisibility::Implicit => {
                                         // TODO:
                                         /*
                                          * Get Block Input Types in /vs_blocks.json
                                          */
 
-                                        todo!("must get Block Input Types in /vs_blocks.json")
+                                        //todo!("must get Block Input Types in /vs_blocks.json");
+
+                                        let json_data = include_bytes!("vs_blocks.json");
+                                        let parsed_json = serde_json::from_slice::<'_, Value>(json_data).or(Err("Unable to parse vs_blocks.json"))?;
+                                        if let Some(block) = parsed_json.get(self.internal.into_vs()) {
+                                            // block
+                                            if let Some(entry) = block["Inputs"].get(n_input) {
+                                                // input
+                                                let mut value_type = entry.get("value_type")
+                                                                        .ok_or("Unable to find input type")?.as_str()
+                                                                        .ok_or("Unable to parse input type into string")?;
+                                                
+                                                match value_type {
+                                                    "EventConnection" | "Table" | "CFrame" | "Function" => {
+                                                        vs_visibility = Some(BlockInputVisibility::Variable);
+                                                        value_type = "String"
+                                                    },
+                                                    _ => {}
+                                                }
+
+                                                new_field_from_vs_type(value_type).ok_or("Unable to create a new value for input of input type")?
+                                            } else {
+                                                return Err("Input out of bounds. Make sure evert VisualSource block has the correct number of inputs");
+                                            }
+                                        } else {
+                                            return Err(Box::leak(format!("Blueprint of {} hasn't been found in vs_blocks.json", self.internal).into_boxed_str()));
+                                        }
                                     },
-                                    BlockInputType::Variable => {
+                                    BlockInputVisibility::Variable => {
                                         let mut vs_value = VSString::new();
                                         vs_value.from_vs(&in_value).or(Err("Unable to find variable name in input"))?;
 
@@ -240,6 +271,8 @@ impl VSObjectType for Block {
                                     value: temp_vs_value
                                 })
                             }
+
+                            n_input += 1;
                         }
                     },
                     "Outputs" => {

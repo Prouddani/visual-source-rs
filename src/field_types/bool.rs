@@ -22,11 +22,11 @@ impl VSFieldType for VSBool {
         )
     }
 
-    fn from_vs(&mut self, vs: &str) -> Result<(), VisualSourceParserError> {
+    fn from_vs(&mut self, vs: &str) -> Result<(), &'static str> {
         match vs {
             "0" => self.0 = false,
             "1" => self.0 = true,
-            _ => return Err(VisualSourceParserError::IncorrectType)
+            _ => return Err("Bool has incorrect value. Must be 0 or 1 (true or false)")
         }
         Ok(())
     }

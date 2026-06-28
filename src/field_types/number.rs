@@ -22,8 +22,8 @@ impl VSFieldType for VSNumber {
         format!("{}", self.0)
     }
 
-    fn from_vs(&mut self, vs: &str) -> Result<(), VisualSourceParserError> {
-        self.0 = Hex::from_hex(vs).ok_or(VisualSourceParserError::IncorrectType)?; // throws the result, in case the option is None
+    fn from_vs(&mut self, vs: &str) -> Result<(), &'static str> {
+        self.0 = Hex::from_hex(vs).ok_or("Error parsing hexadecimal into decimal")?; // throws the result, in case the option is None
 
         Ok(())
     }
