@@ -5,6 +5,7 @@ use crate::field_types::{VSFieldType};
 #[derive(Clone, Debug)]
 pub struct VSString(pub String);
 impl VSString {
+    /// Creates a new String instance
     pub fn new() -> Self {
         Self(String::new())
     }
@@ -55,6 +56,6 @@ impl Display for VSString {
 #[macro_export]
 macro_rules! vs_str {
     ($s:literal) => {
-        VSString::from($s)
+        $crate::field_types::string::VSString::from($s)
     }
 }

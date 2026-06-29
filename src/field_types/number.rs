@@ -5,8 +5,14 @@ use crate::{field_types::{VSFieldType}, hex::Hex};
 #[derive(Clone, Copy, Debug)]
 pub struct VSNumber(pub Hex);
 impl VSNumber {
+    /// Creates a new Number instance
     pub fn new() -> Self {
         Self(Hex(0.0))
+    }
+}
+impl Into<isize> for VSNumber {
+    fn into(self) -> isize {
+        self.0.into()
     }
 }
 impl<T> From<T> for VSNumber
@@ -41,6 +47,6 @@ impl Display for VSNumber {
 #[macro_export]
 macro_rules! vs_num {
     ($n:literal) => {
-        VSNumber::from($n)
+        $crate::field_types::number::VSNumber::from($n)
     }
 }

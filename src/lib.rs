@@ -1,4 +1,4 @@
-use std::fmt::{Debug, Display, write};
+use std::fmt::{Debug, Display};
 
 use crate::field_types::VSFieldType;
 
@@ -8,8 +8,8 @@ pub mod block;
 
 pub mod hex;
 
-pub const U_001A: &str = "\u{001A}";
-pub const U_001B: &str = "\u{001B}";
+const U_001A: &str = "\u{001A}";
+const U_001B: &str = "\u{001B}";
 
 pub trait VSObjectType {
     fn into_vs(&self) -> String;
@@ -17,6 +17,7 @@ pub trait VSObjectType {
 }
 
 pub struct VisualSource {
+    pub version: u8,
     pub root_objects: Vec<Box<dyn VSObjectType>>,
 }
 impl Display for VisualSource {

@@ -1,16 +1,17 @@
 use std::fmt::Display;
 
-use crate::{field_types::{VSFieldType, number::VSNumber}, hex::Hex};
+use crate::field_types::{VSFieldType, number::VSNumber};
 
 pub struct VSBrickColor(pub VSNumber);
 impl VSBrickColor {
+    /// Creates a new BrickColor instance
     pub fn new() -> Self {
         Self(1.into())
     }
 }
 impl From<usize> for VSBrickColor {
     fn from(value: usize) -> Self {
-        Self(1.into())
+        Self((value as u32).into())
     }
 }
 impl VSFieldType for VSBrickColor {
@@ -22,7 +23,7 @@ impl VSFieldType for VSBrickColor {
         // we get the whole number, since BrickColors don't have fractional part
         let (whole, _) = vs.split_once(".").unwrap_or(("0", ""));
 
-        self.0 = Hex(whole.parse::<f64>().or(Err("Unable to parse number from hexadecimal"))?).into();
+        self.0 = whole.parse::<f64>().or(Err("Unable to parse number from hexadecimal"))?.into();
 
         Ok(())
     }
@@ -40,6 +41,6 @@ impl Display for VSBrickColor {
 #[macro_export]
 macro_rules! vs_brickcolor {
     ($i:literal) => {
-        VSBrickColor::from($i)
+        $crate::field_types::brickcolor::VSBrickColor::from($i)
     }
 }

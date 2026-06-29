@@ -4,10 +4,12 @@ use crate::field_types::{VSFieldType};
 
 pub struct VSObject(pub String);
 impl VSObject {
+    /// Creates a new Object instance
     pub fn new() -> Self {
         Self(String::new())
     }
 
+    /// Sets the value of the Object as the path
     pub fn from_path(path: impl Into<String>) -> Self {
         Self(path.into())
     }
@@ -36,6 +38,6 @@ impl Display for VSObject {
 #[macro_export]
 macro_rules! vs_obj {
     ($path:literal) => {
-        VSObject::from_path($path)
+        $crate::field_types::object::VSObject::from_path($path)
     }
 }

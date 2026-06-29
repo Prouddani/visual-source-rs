@@ -5,6 +5,18 @@ pub struct Editor {
     pub camera_position: VSVector2,
     pub camera_zoom: VSNumber,
 }
+impl Editor {
+    /// Creates a new Editor instance
+    pub fn new(
+        camera_position: impl Into<VSVector2>,
+        camera_zoom: impl Into<VSNumber>
+    ) -> Box<Self> {
+        Box::new(Self {
+            camera_position: camera_position.into(),
+            camera_zoom: camera_zoom.into()
+        })
+    }
+}
 impl VSObjectType for Editor {
     fn into_vs(&self) -> String {
         format!(

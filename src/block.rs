@@ -1,14 +1,21 @@
-use std::{fmt::Display, process::Output};
+use std::{fmt::Display};
 
-use serde_json::{Value, value};
+use serde_json::{Value};
 
-use crate::{U_001A, U_001B, VSObjectType, field_types::{self, VSFieldType, bool::VSBool, new_field_from_vs_type, number::VSNumber, string::VSString, vector2::VSVector2}, hex::Hex};
+use crate::{U_001A, U_001B, VSObjectType, field_types::{VSFieldType, new_field_from_vs_type, number::VSNumber, string::VSString, vector2::VSVector2}};
 
 #[derive(Clone, Copy, Debug)]
+/// Depicts how an input value type is stored in the RetroStudio block database. In this case, whether an input of a block already has its type determined
+/// (implicit, because doesn't show up in Visual Source), or the user must determine its type (any), or if its a variable (string)
 pub enum BlockInputVisibility {
-    Implicit, // doesn't use variable, but type is already defined in the block's blueprint | Appears as 0 in Visual Source
-    Explicit, // doesn't use variable, and we choose the type                               | Appears as 1 in Visual Source
-    Variable  // uses variable                                                              | Appears as 2 in Visual Source
+    /// The value type of an input is already pre-determined inside the RetroStudio block database
+    Implicit,
+    
+    /// The value type must be explicitly shown in Visual Source (any), since the Retro Studio block database doesn't cover it up
+    Explicit,
+
+    // The value is referenced through a variable name. In this case, the value type WILL be a string
+    Variable
 }
 impl BlockInputVisibility {
     pub fn into_vs(&self) -> String {
@@ -59,12 +66,6 @@ impl BlockInput
             if let BlockInputVisibility::Explicit = self.visibility { self.value.get_type() } else { "" },
         )
     }
-
-    pub fn from_vs<'a>(src: &'a str) -> Result<(Self, &'a str), &'static str> {
-        let vs_end = 0;
-
-        todo!()
-    }
 }
 impl<I, T> From<(I, BlockInputVisibility, T)> for BlockInput
 where
@@ -81,25 +82,83 @@ impl Display for BlockInput {
     }
 }
 
+
+#[derive(Clone, Debug)]
+pub enum BlockOutputValueType {
+    Tuple(VSNumber),
+    String(VSString)
+}
+impl BlockOutputValueType {
+    fn into_vs(&self) -> String {
+        match self {
+            Self::Tuple(number) => number.into_vs(),
+            Self::String(string) => string.into_vs()
+        }
+    }
+
+    fn is_tuple(&self) -> bool {
+        match self {
+            Self::Tuple(_) => true,
+            Self::String(_) => false
+        }
+    }
+
+    fn is_tuple_from_name(name: &str) -> bool {
+        name.contains("TUPLE_")
+    }
+}
+
 #[derive(Debug)]
 pub struct BlockOutput {
     pub name: VSString,
-    pub var_names: Vec<VSString>, // we use Vec<T>, because of tuple outputs
+    pub value: BlockOutputValueType,
 }
 impl BlockOutput {
     pub fn new(
         name: impl Into<VSString>,
-        var_names: Vec<VSString>
-    ) -> Self {
-        Self {
+        value: BlockOutputValueType, // we use Vec<T>, because of tuple outputs
+    ) -> Result<Self, &'static str> {
+        let name = name.into();
+
+        match value {
+            BlockOutputValueType::String(_) => {},
+            BlockOutputValueType::Tuple(_) if name.contains("TUPLE_") => {},
+            _ => return Err("The value doesn't match the output type, given by the name (tuple or not)")
+        };
+
+        Ok(Self {
             name: name.into(),
-            var_names,
+            value,
+        })
+    }
+
+    pub fn is_tuple(&self) -> bool {
+        self.value.is_tuple()
+    }
+
+    /// Returns the tuple parameters' name. However, if the block output
+    pub fn get_tuple_param_names(&self) -> Option<Vec<String>> {
+        let raw_name = self.name.to_string();
+        let (_, root_name) = raw_name.split_once("TUPLE_")?;
+
+        match self.value {
+            BlockOutputValueType::Tuple(num_params) => {
+                let num_params: isize = num_params.into();
+                
+                let mut param_names = vec![];
+                for i in 1..=num_params {
+                    param_names.push(format!("TUPLEPARAM_{root_name}_{i}"))
+                }
+
+                Some(param_names)
+            },
+            BlockOutputValueType::String(_) => return None
         }
     }
 }
 impl Display for BlockOutput {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}{U_001B}{}", self.name.into_vs(), self.var_names.iter().map(VSFieldType::into_vs).collect::<Vec<String>>().join(U_001B))
+        write!(f, "{}{U_001B}{}", self.name.into_vs(), self.value.into_vs())
     }
 }
 
@@ -114,6 +173,7 @@ pub struct Block {
     pub outputs: Vec<BlockOutput>
 }
 impl Block {
+    /// Creates a new Block instance
     pub fn new(
         internal: impl Into<VSString>,
         name: impl Into<VSString>,
@@ -342,14 +402,26 @@ impl VSObjectType for Block {
                             };
 
                             let mut vs_name = VSString::new();
-                            let mut vs_value = VSString::new();
+                            vs_name.from_vs(in_name.as_str())?;
 
-                            let _ = vs_name.from_vs(in_name.as_str());
-                            let _ = vs_value.from_vs(in_value.as_str());
+                            let vs_value = match BlockOutputValueType::is_tuple_from_name(vs_name.as_str()) {
+                                true => {
+                                    let mut vs_value = VSNumber::new();
+                                    vs_value.from_vs(in_value.as_str())?;
+
+                                    BlockOutputValueType::Tuple(vs_value)
+                                }
+                                false => {
+                                    let mut vs_value = VSString::new();
+                                    vs_value.from_vs(in_value.as_str())?;
+
+                                    BlockOutputValueType::String(vs_value)
+                                }
+                            };
 
                             self.outputs.push(BlockOutput {
                                 name: vs_name,
-                                var_names: vec![vs_value]
+                                value: vs_value
                             });
                         }
                     },

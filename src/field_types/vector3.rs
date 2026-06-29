@@ -1,6 +1,6 @@
 use std::fmt::Display;
 
-use crate::{U_001A, U_001B, field_types::{VSFieldType, number::VSNumber}, hex::Hex};
+use crate::{field_types::{VSFieldType, number::VSNumber}};
 
 #[derive(Clone, Copy, Debug)]
 pub struct VSVector3 {
@@ -9,23 +9,24 @@ pub struct VSVector3 {
     pub z: VSNumber,
 }
 impl VSVector3 {
+    /// Creates a new Vector3 instance
     pub fn new() -> Self {
         Self {
-            x: Hex(0.0).into(),
-            y: Hex(0.0).into(),
-            z: Hex(0.0).into()
+            x: 0.0.into(),
+            y: 0.0.into(),
+            z: 0.0.into()
         }
     }
 }
 impl<T> From<(T, T, T)> for VSVector3
 where
-    T: Into<Hex>
+    T: Into<VSNumber>
 {
     fn from(value: (T, T, T)) -> Self {
         Self {
-            x: value.0.into().into(),
-            y: value.1.into().into(),
-            z: value.2.into().into()
+            x: value.0.into(),
+            y: value.1.into(),
+            z: value.2.into()
         }
     }
 }
@@ -69,6 +70,6 @@ impl Display for VSVector3 {
 #[macro_export]
 macro_rules! vs_vec3 {
     ($x:literal, $y:literal, $z:literal) => {
-        VSVector3::from(($x, $y, $z))
+        $crate::field_types::vector3::VSVector3::from(($x, $y, $z))
     }
 }

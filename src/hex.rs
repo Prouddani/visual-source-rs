@@ -1,10 +1,10 @@
 use std::{fmt::Display, ops::{Deref, DerefMut}};
 
-use crate::field_types::number::VSNumber;
-
 #[derive(Clone, Copy, Debug)]
+/// Tuple struct type that manages fractional hexadecimal numbers. Use ToString::to_string() to get the hexadecimal form as a String
 pub struct Hex(pub f64);
 impl Hex {
+    /// Gets a hexadecimal number in a string, returning a Hex
     pub fn from_hex(src: &str) -> Option<Self> {
         let (int_part, frac_part) = src.split_once('.').unwrap_or((src, ""));
 
@@ -28,9 +28,9 @@ impl Hex {
         Some(Self(decimal))
     }
 }
-impl Into<VSNumber> for Hex {
-    fn into(self) -> VSNumber {
-        VSNumber(self)
+impl Into<isize> for Hex {
+    fn into(self) -> isize {
+        self.0 as isize
     }
 }
 impl<T> From<T> for Hex

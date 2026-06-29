@@ -1,14 +1,14 @@
-use std::{any::{Any, TypeId}, fmt::Display};
+use std::{fmt::Display};
+use crate::{block::{BlockInput}, field_types::{VSFieldType, string::VSString}};
 
-use serde_json::Value;
-
-use crate::{U_001A, U_001B, block::{BlockInput, BlockInputVisibility}, field_types::{VSFieldType, new_field_from_vs_type, number::VSNumber, string::VSString}};
 pub struct VSTuple(pub Vec<VSString>);
 impl VSTuple {
+    /// Creates a new Tuple instance
     pub fn new() -> Self {
         Self(vec![])
     }
 
+    /// Returns the inputs that camoflage as tuple parameters (each input inside a tuple)
     pub fn get_from_input_vec<'a>(&self, inputs: &'a Vec<BlockInput>) -> Vec<&'a BlockInput> {
         inputs.iter().filter(|i| {
             self.0.iter().find(|input_name| i.name.to_string() == input_name.to_string()).is_some()
@@ -37,8 +37,6 @@ impl VSFieldType for VSTuple {
     }
 
     fn from_vs(&mut self, vs: &str) -> Result<(), &'static str> {
-        use std::mem;
-
         self.0 = vs.split(",").map(|s| { s.into() }).collect::<Vec<VSString>>();
 
         Ok(())
@@ -62,7 +60,7 @@ macro_rules! vs_tuple {
             $(
                 tuple.push($x);
             )*
-            VSTuple::from(tuple)
+            $crate::field_types::tuple::VSTuple::from(tuple)
         }
     }
 }

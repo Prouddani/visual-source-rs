@@ -10,13 +10,19 @@ pub mod udim2;
 pub mod tuple;
 pub mod brickcolor;
 
+/// Trait used for all Visual Source values.
 pub trait VSFieldType {
+    /// Converts the Visual Source value into an actual Visual Source string
     fn into_vs(&self) -> String;
+
+    /// Parses Visual Source into a Visual Source value
     fn from_vs(&mut self, vs: &str) -> Result<(), &'static str>;
 
+    /// Returns a string depicting the Visual Source type
     fn get_type(&self) -> &'static str;
 }
 
+/// Given a Visual Source type, let's call it VS_t, from string, it'll return a initialized Visual Source value with VS_t as a type from VSFieldType::get_type
 pub fn new_field_from_vs_type(t: &str) -> Option<Box<dyn VSFieldType>> {
     Some(match t {
         "String" | "String?" | "Function" | "Table" | "CFrame" => Box::new(VSString::new()),

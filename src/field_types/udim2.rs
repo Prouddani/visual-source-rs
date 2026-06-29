@@ -8,6 +8,17 @@ pub struct VSUDim2 {
     pub yscale: VSNumber,
     pub yoffset: VSNumber
 }
+impl VSUDim2 {
+    /// Creates a new UDim2 instance
+    pub fn new() -> Self {
+        Self {
+            xscale: 0.0.into(),
+            xoffset: 0.0.into(),
+            yscale: 0.0.into(),
+            yoffset: 0.0.into()
+        }
+    }
+}
 impl<T> From<(T, T, T, T)> for VSUDim2
 where 
     T: Into<VSNumber>

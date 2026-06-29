@@ -5,6 +5,7 @@ use crate::field_types::{VSFieldType};
 #[derive(Clone, Copy, Debug)]
 pub struct VSBool(pub bool);
 impl VSBool {
+    /// Creates a new Bool instance
     pub fn new() -> Self {
         Self(false)
     }
@@ -46,6 +47,6 @@ impl Display for VSBool {
 #[macro_export]
 macro_rules! vs_bool {
     ($b:literal) => {
-        VSBool::from($b)
+        $crate::field_types::bool::VSBool::from($b)
     }
 }
