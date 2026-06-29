@@ -6,9 +6,9 @@ use crate::{U_001A, U_001B, VSObjectType, field_types::{self, VSFieldType, bool:
 
 #[derive(Clone, Copy, Debug)]
 pub enum BlockInputVisibility {
-    Implicit, // doesn't use variable, but type is already defined in the block's blueprint
-    Explicit, // doesn't use variable, and we choose the type
-    Variable  // uses variable 
+    Implicit, // doesn't use variable, but type is already defined in the block's blueprint | Appears as 0 in Visual Source
+    Explicit, // doesn't use variable, and we choose the type                               | Appears as 1 in Visual Source
+    Variable  // uses variable                                                              | Appears as 2 in Visual Source
 }
 impl BlockInputVisibility {
     pub fn into_vs(&self) -> String {
@@ -32,7 +32,7 @@ impl BlockInputVisibility {
 #[derive(Debug)]
 pub struct BlockInput {
     pub name: VSString,
-    pub visibility: BlockInputVisibility, // 0, this is a literal value; 1, this is a typed literal; 2, this is a variable name holding the value, and the Type must be ommited even it set to "any"
+    pub visibility: BlockInputVisibility,
     pub value: Box<dyn VSFieldType>,
 }
 impl BlockInput
@@ -86,6 +86,17 @@ pub struct BlockOutput {
     pub name: VSString,
     pub var_names: Vec<VSString>, // we use Vec<T>, because of tuple outputs
 }
+impl BlockOutput {
+    pub fn new(
+        name: impl Into<VSString>,
+        var_names: Vec<VSString>
+    ) -> Self {
+        Self {
+            name: name.into(),
+            var_names,
+        }
+    }
+}
 impl Display for BlockOutput {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{}{U_001B}{}", self.name.into_vs(), self.var_names.iter().map(VSFieldType::into_vs).collect::<Vec<String>>().join(U_001B))
@@ -103,29 +114,24 @@ pub struct Block {
     pub outputs: Vec<BlockOutput>
 }
 impl Block {
-    fn new(
+    pub fn new(
         internal: impl Into<VSString>,
         name: impl Into<VSString>,
         visual_position: impl Into<VSVector2>,
-        child_blocks: Vec<impl Into<VSString>>,
-        else_child_block: Option<impl Into<VSString>>,
-        inputs: Vec<impl Into<BlockInput>>,
-        outputs: Vec<impl Into<BlockOutput>>
-    ) -> Self {
-        Self {
+        child_blocks: Vec<VSString>,
+        else_child_block: Option<VSString>,
+        inputs: Vec<BlockInput>,
+        outputs: Vec<BlockOutput>
+    ) -> Box<Self> {
+        Box::new(Self {
             internal: internal.into(),
             name: name.into(),
             visual_position: visual_position.into(),
-            child_blocks: child_blocks.into_iter().map(Into::into).collect::<Vec<_>>(),
-            else_child_block: match else_child_block {
-                Some(block_id) => {
-                    Some(block_id.into())
-                },
-                None => None
-            },
-            inputs: inputs.into_iter().map(Into::into).collect::<Vec<_>>(),
-            outputs: outputs.into_iter().map(Into::into).collect::<Vec<_>>()
-        }
+            child_blocks,
+            else_child_block,
+            inputs,
+            outputs
+        })
     }
 }
 impl VSObjectType for Block {
