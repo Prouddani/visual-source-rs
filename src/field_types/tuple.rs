@@ -1,4 +1,6 @@
 use std::{fmt::Display};
+use serde_json::json;
+
 use crate::{block::{BlockInput}, field_types::{VSFieldType, string::VSString}};
 
 pub struct VSTuple(pub Vec<VSString>);
@@ -38,6 +40,32 @@ impl VSFieldType for VSTuple {
 
     fn from_vs(&mut self, vs: &str) -> Result<(), &'static str> {
         self.0 = vs.split(",").map(|s| { s.into() }).collect::<Vec<VSString>>();
+
+        Ok(())
+    }
+
+    fn into_json(&self) -> serde_json::Value {
+        json!(self.0.iter().map(VSFieldType::into_vs).collect::<Vec<String>>())
+    }
+
+    fn from_json(&mut self, json: serde_json::Value) -> Result<(), &'static str> {
+        self.0.clear();
+        if let serde_json::Value::Array(array) = json {
+            for value in array {
+                if let serde_json::Value::String(_) = value {
+                    self.0.push({
+                        let mut vsstring = VSString::new();
+                        vsstring.from_json(value)?;
+
+                        vsstring
+                    })
+                } else {
+                    return Err("A tuple parameter input name is not a string. idk how but, somehow you broke the easiest thing to do ;-;");
+                }
+            }
+        } else {
+            return Err("Given json is not an array. Therefore, cannot be converted into a VSString")
+        }
 
         Ok(())
     }

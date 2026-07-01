@@ -1,13 +1,20 @@
 use std::{fmt::Display, ops::{Deref, DerefMut}};
 
-use crate::field_types::{VSFieldType};
+use crate::{field_types::VSFieldType};
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord)]
 pub struct VSString(pub String);
 impl VSString {
     /// Creates a new String instance
     pub fn new() -> Self {
         Self(String::new())
+    }
+
+    pub fn from_json(json: serde_json::Value) -> Result<Self, &'static str> {
+        let mut string = Self::new();
+        string.from_json(json)?;
+
+        Ok(string)
     }
 }
 impl From<String> for VSString {
@@ -39,6 +46,20 @@ impl VSFieldType for VSString {
 
     fn from_vs(&mut self, vs: &str) -> Result<(), &'static str> {
         self.0 = vs.to_string();
+
+        Ok(())
+    }
+
+    fn into_json(&self) -> serde_json::Value {
+        serde_json::Value::String(self.into_vs())
+    }
+
+    fn from_json(&mut self, json: serde_json::Value) -> Result<(), &'static str> {
+        if let serde_json::Value::String(string) = json {
+            self.0 = string
+        } else {
+            return Err("Given json is not a string. Therefore, cannot be converted into a VSString")
+        }
 
         Ok(())
     }

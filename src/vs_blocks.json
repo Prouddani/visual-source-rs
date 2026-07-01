@@ -3093,7 +3093,7 @@
             }
         ],
         "Outputs": [
-            "TUPLE_ReturnedValues"
+            ["TUPLE_ReturnedValues"]
         ],
         "Category": "Logic"
     },
@@ -3267,7 +3267,7 @@
         "Outputs": [],
         "Category": "Logic"
     },
-    "PackTable": {
+    "TablePack": {
         "Inputs": [
             {
                 "name": "Values",
@@ -3279,7 +3279,7 @@
         ],
         "Category": "Logic"
     },
-    "UnpackTable": {
+    "TableUnpack": {
         "Inputs": [
             {
                 "name": "Table",
@@ -3287,7 +3287,7 @@
             }
         ],
         "Outputs": [
-            "TUPLE_Values"
+            ["TUPLE_Values"]
         ],
         "Category": "Logic"
     },

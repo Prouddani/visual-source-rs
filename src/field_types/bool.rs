@@ -1,5 +1,7 @@
 use std::fmt::Display;
 
+use serde_json::json;
+
 use crate::field_types::{VSFieldType};
 
 #[derive(Clone, Copy, Debug)]
@@ -31,6 +33,20 @@ impl VSFieldType for VSBool {
             "1" => self.0 = true,
             _ => return Err("Bool has incorrect value. Must be 0 or 1 (true or false)")
         }
+        Ok(())
+    }
+
+    fn into_json(&self) -> serde_json::Value {
+        json!(true)
+    }
+
+    fn from_json(&mut self, json: serde_json::Value) -> Result<(), &'static str> {
+        if let serde_json::Value::Bool(bool) = json {
+            self.0 = bool
+        } else {
+            return Err("Given json is not a string. Therefore, cannot be converted into a VSString")
+        }
+
         Ok(())
     }
 

@@ -1,5 +1,7 @@
 use std::fmt::Display;
 
+use serde_json::{json, value::Serializer};
+
 use crate::{field_types::{VSFieldType, number::VSNumber}};
 
 #[derive(Clone, Copy, Debug)]
@@ -14,6 +16,13 @@ impl VSVector2 {
             x: 0.0.into(),
             y: 0.0.into()
         }
+    }
+
+    pub fn from_json(json: serde_json::Value) -> Result<Self, &'static str> {
+        let mut vec2 = Self::new();
+        vec2.from_json(json)?;
+
+        Ok(vec2)
     }
 }
 impl<T> From<(T, T)> for VSVector2
@@ -48,6 +57,31 @@ impl VSFieldType for VSVector2 {
             
             let _ = field.from_vs(sub)?;
         }
+
+        Ok(())
+    }
+
+    fn into_json(&self) -> serde_json::Value {
+        json!({
+            "x": self.x.into_json(),
+            "y": self.y.into_json(),
+            "_ValueType": self.get_type(),
+        })
+    }
+
+    fn from_json(&mut self, json: serde_json::Value) -> Result<(), &'static str> {
+        let x = match json.get("x").ok_or("Error getting X axis in json for VSVector2")? {
+            serde_json::Value::Number(x) => x.as_f64().ok_or("Error converting json number of x axis of VSVector2 into built-in type f64")?,
+            _ => return Err("Given value for x axis of VSVector2 is not a number")
+        };
+
+        let y = match json.get("y").ok_or("Error getting y axis in json for VSVector2")? {
+            serde_json::Value::Number(y) => y.as_f64().ok_or("Error converting json number of y axis of VSVector2 into built-in type f64")?,
+            _ => return Err("Given value for y axis of VSVector2 is not a number")
+        };
+
+        self.x.0.0 = x;
+        self.y.0.0 = y;
 
         Ok(())
     }

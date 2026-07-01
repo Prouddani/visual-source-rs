@@ -1,0 +1,3890 @@
+{
+	"BrickColors": [
+		{
+			"Color": [
+				0.9490196704864502,
+				0.9529412388801575,
+				0.9529412388801575
+			],
+			"Color8": [
+				242,
+				243,
+				243
+			],
+			"IndexColor": 1,
+			"IndexColor3": 1,
+			"IndexName": 1,
+			"IndexNumber": 1,
+			"Name": "White",
+			"Number": 1
+		},
+		{
+			"Color": [
+				0.6313725709915161,
+				0.6470588445663452,
+				0.6352941393852234
+			],
+			"Color8": [
+				161,
+				165,
+				162
+			],
+			"IndexColor": 2,
+			"IndexColor3": 2,
+			"IndexName": 2,
+			"IndexNumber": 2,
+			"Name": "Grey",
+			"Number": 2
+		},
+		{
+			"Color": [
+				0.9764706492424011,
+				0.9137255549430847,
+				0.6000000238418579
+			],
+			"Color8": [
+				249,
+				233,
+				153
+			],
+			"IndexColor": 3,
+			"IndexColor3": 3,
+			"IndexName": 3,
+			"IndexNumber": 3,
+			"Name": "Light yellow",
+			"Number": 3
+		},
+		{
+			"Color": [
+				0.8431373238563538,
+				0.7725490927696228,
+				0.6039215922355652
+			],
+			"Color8": [
+				215,
+				197,
+				154
+			],
+			"IndexColor": 5,
+			"IndexColor3": 5,
+			"IndexName": 5,
+			"IndexNumber": 5,
+			"Name": "Brick yellow",
+			"Number": 5
+		},
+		{
+			"Color": [
+				0.760784387588501,
+				0.8549020290374756,
+				0.7215686440467834
+			],
+			"Color8": [
+				194,
+				218,
+				184
+			],
+			"IndexColor": 6,
+			"IndexColor3": 6,
+			"IndexName": 6,
+			"IndexNumber": 6,
+			"Name": "Light green (Mint)",
+			"Number": 6
+		},
+		{
+			"Color": [
+				0.9098039865493774,
+				0.729411780834198,
+				0.7843137979507446
+			],
+			"Color8": [
+				232,
+				186,
+				200
+			],
+			"IndexColor": 9,
+			"IndexColor3": 9,
+			"IndexName": 9,
+			"IndexNumber": 9,
+			"Name": "Light reddish violet",
+			"Number": 9
+		},
+		{
+			"Color": [
+				0.501960813999176,
+				0.7333333492279053,
+				0.8588235974311829
+			],
+			"Color8": [
+				128,
+				187,
+				219
+			],
+			"IndexColor": 11,
+			"IndexColor3": 11,
+			"IndexName": 11,
+			"IndexNumber": 11,
+			"Name": "Pastel Blue",
+			"Number": 11
+		},
+		{
+			"Color": [
+				0.7960785031318665,
+				0.5176470875740051,
+				0.25882354378700256
+			],
+			"Color8": [
+				203,
+				132,
+				66
+			],
+			"IndexColor": 12,
+			"IndexColor3": 12,
+			"IndexName": 12,
+			"IndexNumber": 12,
+			"Name": "Light orange brown",
+			"Number": 12
+		},
+		{
+			"Color": [
+				0.8000000715255737,
+				0.5568627715110779,
+				0.4117647409439087
+			],
+			"Color8": [
+				204,
+				142,
+				105
+			],
+			"IndexColor": 18,
+			"IndexColor3": 18,
+			"IndexName": 18,
+			"IndexNumber": 18,
+			"Name": "Nougat",
+			"Number": 18
+		},
+		{
+			"Color": [
+				0.7686275243759155,
+				0.1568627506494522,
+				0.1098039299249649
+			],
+			"Color8": [
+				196,
+				40,
+				28
+			],
+			"IndexColor": 21,
+			"IndexColor3": 21,
+			"IndexName": 21,
+			"IndexNumber": 21,
+			"Name": "Bright red",
+			"Number": 21
+		},
+		{
+			"Color": [
+				0.7686275243759155,
+				0.4392157196998596,
+				0.6274510025978088
+			],
+			"Color8": [
+				196,
+				112,
+				160
+			],
+			"IndexColor": 22,
+			"IndexColor3": 22,
+			"IndexName": 22,
+			"IndexNumber": 22,
+			"Name": "Med. reddish violet",
+			"Number": 22
+		},
+		{
+			"Color": [
+				0.05098039656877518,
+				0.4117647409439087,
+				0.6745098233222961
+			],
+			"Color8": [
+				13,
+				105,
+				172
+			],
+			"IndexColor": 23,
+			"IndexColor3": 23,
+			"IndexName": 23,
+			"IndexNumber": 23,
+			"Name": "Bright blue",
+			"Number": 23
+		},
+		{
+			"Color": [
+				0.960784375667572,
+				0.803921639919281,
+				0.1882353127002716
+			],
+			"Color8": [
+				245,
+				205,
+				48
+			],
+			"IndexColor": 24,
+			"IndexColor3": 24,
+			"IndexName": 24,
+			"IndexNumber": 24,
+			"Name": "Bright yellow",
+			"Number": 24
+		},
+		{
+			"Color": [
+				0.38431376218795776,
+				0.27843138575553894,
+				0.19607844948768616
+			],
+			"Color8": [
+				98,
+				71,
+				50
+			],
+			"IndexColor": 25,
+			"IndexColor3": 25,
+			"IndexName": 25,
+			"IndexNumber": 25,
+			"Name": "Earth orange",
+			"Number": 25
+		},
+		{
+			"Color": [
+				0.10588236153125763,
+				0.16470588743686676,
+				0.20784315466880798
+			],
+			"Color8": [
+				27,
+				42,
+				53
+			],
+			"IndexColor": 26,
+			"IndexColor3": 26,
+			"IndexName": 26,
+			"IndexNumber": 26,
+			"Name": "Black",
+			"Number": 26
+		},
+		{
+			"Color": [
+				0.4274510145187378,
+				0.43137258291244507,
+				0.4235294461250305
+			],
+			"Color8": [
+				109,
+				110,
+				108
+			],
+			"IndexColor": 27,
+			"IndexColor3": 27,
+			"IndexName": 27,
+			"IndexNumber": 27,
+			"Name": "Dark grey",
+			"Number": 27
+		},
+		{
+			"Color": [
+				0.1568627506494522,
+				0.49803924560546875,
+				0.27843138575553894
+			],
+			"Color8": [
+				40,
+				127,
+				71
+			],
+			"IndexColor": 28,
+			"IndexColor3": 28,
+			"IndexName": 28,
+			"IndexNumber": 28,
+			"Name": "Dark green",
+			"Number": 28
+		},
+		{
+			"Color": [
+				0.6313725709915161,
+				0.7686275243759155,
+				0.5490196347236633
+			],
+			"Color8": [
+				161,
+				196,
+				140
+			],
+			"IndexColor": 29,
+			"IndexColor3": 29,
+			"IndexName": 29,
+			"IndexNumber": 29,
+			"Name": "Medium green",
+			"Number": 29
+		},
+		{
+			"Color": [
+				0.9529412388801575,
+				0.8117647767066956,
+				0.6078431606292725
+			],
+			"Color8": [
+				243,
+				207,
+				155
+			],
+			"IndexColor": 36,
+			"IndexColor3": 36,
+			"IndexName": 36,
+			"IndexNumber": 36,
+			"Name": "Lig. Yellowich orange",
+			"Number": 36
+		},
+		{
+			"Color": [
+				0.29411765933036804,
+				0.5921568870544434,
+				0.29411765933036804
+			],
+			"Color8": [
+				75,
+				151,
+				75
+			],
+			"IndexColor": 37,
+			"IndexColor3": 37,
+			"IndexName": 37,
+			"IndexNumber": 37,
+			"Name": "Bright green",
+			"Number": 37
+		},
+		{
+			"Color": [
+				0.6274510025978088,
+				0.37254902720451355,
+				0.20784315466880798
+			],
+			"Color8": [
+				160,
+				95,
+				53
+			],
+			"IndexColor": 38,
+			"IndexColor3": 38,
+			"IndexName": 38,
+			"IndexNumber": 38,
+			"Name": "Dark orange",
+			"Number": 38
+		},
+		{
+			"Color": [
+				0.7568628191947937,
+				0.7921569347381592,
+				0.8705883026123047
+			],
+			"Color8": [
+				193,
+				202,
+				222
+			],
+			"IndexColor": 39,
+			"IndexColor3": 39,
+			"IndexName": 39,
+			"IndexNumber": 39,
+			"Name": "Light bluish violet",
+			"Number": 39
+		},
+		{
+			"Color": [
+				0.9254902601242065,
+				0.9254902601242065,
+				0.9254902601242065
+			],
+			"Color8": [
+				236,
+				236,
+				236
+			],
+			"IndexColor": 40,
+			"IndexColor3": 40,
+			"IndexName": 40,
+			"IndexNumber": 40,
+			"Name": "Transparent",
+			"Number": 40
+		},
+		{
+			"Color": [
+				0.803921639919281,
+				0.3294117748737335,
+				0.29411765933036804
+			],
+			"Color8": [
+				205,
+				84,
+				75
+			],
+			"IndexColor": 41,
+			"IndexColor3": 41,
+			"IndexName": 41,
+			"IndexNumber": 41,
+			"Name": "Tr. Red",
+			"Number": 41
+		},
+		{
+			"Color": [
+				0.7568628191947937,
+				0.874509871006012,
+				0.9411765336990356
+			],
+			"Color8": [
+				193,
+				223,
+				240
+			],
+			"IndexColor": 42,
+			"IndexColor3": 42,
+			"IndexName": 42,
+			"IndexNumber": 42,
+			"Name": "Tr. Lg blue",
+			"Number": 42
+		},
+		{
+			"Color": [
+				0.48235297203063965,
+				0.7137255072593689,
+				0.9098039865493774
+			],
+			"Color8": [
+				123,
+				182,
+				232
+			],
+			"IndexColor": 43,
+			"IndexColor3": 43,
+			"IndexName": 43,
+			"IndexNumber": 43,
+			"Name": "Tr. Blue",
+			"Number": 43
+		},
+		{
+			"Color": [
+				0.9686275124549866,
+				0.9450981020927429,
+				0.5529412031173706
+			],
+			"Color8": [
+				247,
+				241,
+				141
+			],
+			"IndexColor": 44,
+			"IndexColor3": 44,
+			"IndexName": 44,
+			"IndexNumber": 44,
+			"Name": "Tr. Yellow",
+			"Number": 44
+		},
+		{
+			"Color": [
+				0.7058823704719543,
+				0.8235294818878174,
+				0.8941177129745483
+			],
+			"Color8": [
+				180,
+				210,
+				228
+			],
+			"IndexColor": 45,
+			"IndexColor3": 45,
+			"IndexName": 45,
+			"IndexNumber": 45,
+			"Name": "Light blue",
+			"Number": 45
+		},
+		{
+			"Color": [
+				0.8509804606437683,
+				0.5215686559677124,
+				0.4235294461250305
+			],
+			"Color8": [
+				217,
+				133,
+				108
+			],
+			"IndexColor": 47,
+			"IndexColor3": 47,
+			"IndexName": 47,
+			"IndexNumber": 47,
+			"Name": "Tr. Flu. Reddish orange",
+			"Number": 47
+		},
+		{
+			"Color": [
+				0.5176470875740051,
+				0.7137255072593689,
+				0.5529412031173706
+			],
+			"Color8": [
+				132,
+				182,
+				141
+			],
+			"IndexColor": 48,
+			"IndexColor3": 48,
+			"IndexName": 48,
+			"IndexNumber": 48,
+			"Name": "Tr. Green",
+			"Number": 48
+		},
+		{
+			"Color": [
+				0.9725490808486938,
+				0.9450981020927429,
+				0.5176470875740051
+			],
+			"Color8": [
+				248,
+				241,
+				132
+			],
+			"IndexColor": 49,
+			"IndexColor3": 49,
+			"IndexName": 49,
+			"IndexNumber": 49,
+			"Name": "Tr. Flu. Green",
+			"Number": 49
+		},
+		{
+			"Color": [
+				0.9254902601242065,
+				0.9098039865493774,
+				0.8705883026123047
+			],
+			"Color8": [
+				236,
+				232,
+				222
+			],
+			"IndexColor": 50,
+			"IndexColor3": 50,
+			"IndexName": 50,
+			"IndexNumber": 50,
+			"Name": "Phosph. White",
+			"Number": 50
+		},
+		{
+			"Color": [
+				0.9333333969116211,
+				0.7686275243759155,
+				0.7137255072593689
+			],
+			"Color8": [
+				238,
+				196,
+				182
+			],
+			"IndexColor": 100,
+			"IndexColor3": 100,
+			"IndexName": 100,
+			"IndexNumber": 100,
+			"Name": "Light red",
+			"Number": 100
+		},
+		{
+			"Color": [
+				0.8549020290374756,
+				0.5254902243614197,
+				0.4784314036369324
+			],
+			"Color8": [
+				218,
+				134,
+				122
+			],
+			"IndexColor": 101,
+			"IndexColor3": 101,
+			"IndexName": 101,
+			"IndexNumber": 101,
+			"Name": "Medium red",
+			"Number": 101
+		},
+		{
+			"Color": [
+				0.43137258291244507,
+				0.6000000238418579,
+				0.7921569347381592
+			],
+			"Color8": [
+				110,
+				153,
+				202
+			],
+			"IndexColor": 102,
+			"IndexColor3": 102,
+			"IndexName": 102,
+			"IndexNumber": 102,
+			"Name": "Medium blue",
+			"Number": 102
+		},
+		{
+			"Color": [
+				0.7803922295570374,
+				0.7568628191947937,
+				0.7176470756530762
+			],
+			"Color8": [
+				199,
+				193,
+				183
+			],
+			"IndexColor": 103,
+			"IndexColor3": 103,
+			"IndexName": 103,
+			"IndexNumber": 103,
+			"Name": "Light grey",
+			"Number": 103
+		},
+		{
+			"Color": [
+				0.41960787773132324,
+				0.19607844948768616,
+				0.4862745404243469
+			],
+			"Color8": [
+				107,
+				50,
+				124
+			],
+			"IndexColor": 104,
+			"IndexColor3": 104,
+			"IndexName": 104,
+			"IndexNumber": 104,
+			"Name": "Bright violet",
+			"Number": 104
+		},
+		{
+			"Color": [
+				0.8862745761871338,
+				0.6078431606292725,
+				0.250980406999588
+			],
+			"Color8": [
+				226,
+				155,
+				64
+			],
+			"IndexColor": 105,
+			"IndexColor3": 105,
+			"IndexName": 105,
+			"IndexNumber": 105,
+			"Name": "Br. yellowish orange",
+			"Number": 105
+		},
+		{
+			"Color": [
+				0.8549020290374756,
+				0.5215686559677124,
+				0.2549019753932953
+			],
+			"Color8": [
+				218,
+				133,
+				65
+			],
+			"IndexColor": 106,
+			"IndexColor3": 106,
+			"IndexName": 106,
+			"IndexNumber": 106,
+			"Name": "Bright orange",
+			"Number": 106
+		},
+		{
+			"Color": [
+				0,
+				0.5607843399047852,
+				0.6117647290229797
+			],
+			"Color8": [
+				0,
+				143,
+				156
+			],
+			"IndexColor": 107,
+			"IndexColor3": 107,
+			"IndexName": 107,
+			"IndexNumber": 107,
+			"Name": "Bright bluish green",
+			"Number": 107
+		},
+		{
+			"Color": [
+				0.4078431725502014,
+				0.3607843220233917,
+				0.26274511218070984
+			],
+			"Color8": [
+				104,
+				92,
+				67
+			],
+			"IndexColor": 108,
+			"IndexColor3": 108,
+			"IndexName": 108,
+			"IndexNumber": 108,
+			"Name": "Earth yellow",
+			"Number": 108
+		},
+		{
+			"Color": [
+				0.26274511218070984,
+				0.3294117748737335,
+				0.5764706134796143
+			],
+			"Color8": [
+				67,
+				84,
+				147
+			],
+			"IndexColor": 110,
+			"IndexColor3": 110,
+			"IndexName": 110,
+			"IndexNumber": 110,
+			"Name": "Bright bluish violet",
+			"Number": 110
+		},
+		{
+			"Color": [
+				0.7490196228027344,
+				0.7176470756530762,
+				0.6941176652908325
+			],
+			"Color8": [
+				191,
+				183,
+				177
+			],
+			"IndexColor": 111,
+			"IndexColor3": 111,
+			"IndexName": 111,
+			"IndexNumber": 111,
+			"Name": "Tr. Brown",
+			"Number": 111
+		},
+		{
+			"Color": [
+				0.4078431725502014,
+				0.4549019932746887,
+				0.6745098233222961
+			],
+			"Color8": [
+				104,
+				116,
+				172
+			],
+			"IndexColor": 112,
+			"IndexColor3": 112,
+			"IndexName": 112,
+			"IndexNumber": 112,
+			"Name": "Medium bluish violet",
+			"Number": 112
+		},
+		{
+			"Color": [
+				0.8980392813682556,
+				0.6784313917160034,
+				0.7843137979507446
+			],
+			"Color8": [
+				229,
+				173,
+				200
+			],
+			"IndexColor": 113,
+			"IndexColor3": 113,
+			"IndexName": 113,
+			"IndexNumber": 113,
+			"Name": "Tr. Medi. reddish violet",
+			"Number": 113
+		},
+		{
+			"Color": [
+				0.7803922295570374,
+				0.8235294818878174,
+				0.2352941334247589
+			],
+			"Color8": [
+				199,
+				210,
+				60
+			],
+			"IndexColor": 115,
+			"IndexColor3": 115,
+			"IndexName": 115,
+			"IndexNumber": 115,
+			"Name": "Med. yellowish green",
+			"Number": 115
+		},
+		{
+			"Color": [
+				0.3333333432674408,
+				0.6470588445663452,
+				0.686274528503418
+			],
+			"Color8": [
+				85,
+				165,
+				175
+			],
+			"IndexColor": 116,
+			"IndexColor3": 116,
+			"IndexName": 116,
+			"IndexNumber": 116,
+			"Name": "Med. bluish green",
+			"Number": 116
+		},
+		{
+			"Color": [
+				0.7176470756530762,
+				0.8431373238563538,
+				0.8352941870689392
+			],
+			"Color8": [
+				183,
+				215,
+				213
+			],
+			"IndexColor": 118,
+			"IndexColor3": 118,
+			"IndexName": 118,
+			"IndexNumber": 118,
+			"Name": "Light bluish green",
+			"Number": 118
+		},
+		{
+			"Color": [
+				0.6431372761726379,
+				0.7411764860153198,
+				0.27843138575553894
+			],
+			"Color8": [
+				164,
+				189,
+				71
+			],
+			"IndexColor": 119,
+			"IndexColor3": 119,
+			"IndexName": 119,
+			"IndexNumber": 119,
+			"Name": "Br. yellowish green",
+			"Number": 119
+		},
+		{
+			"Color": [
+				0.8509804606437683,
+				0.8941177129745483,
+				0.6549019813537598
+			],
+			"Color8": [
+				217,
+				228,
+				167
+			],
+			"IndexColor": 120,
+			"IndexColor3": 120,
+			"IndexName": 120,
+			"IndexNumber": 120,
+			"Name": "Lig. yellowish green",
+			"Number": 120
+		},
+		{
+			"Color": [
+				0.9058824181556702,
+				0.6745098233222961,
+				0.3450980484485626
+			],
+			"Color8": [
+				231,
+				172,
+				88
+			],
+			"IndexColor": 121,
+			"IndexColor3": 121,
+			"IndexName": 121,
+			"IndexNumber": 121,
+			"Name": "Med. yellowish orange",
+			"Number": 121
+		},
+		{
+			"Color": [
+				0.8274510502815247,
+				0.43529415130615234,
+				0.2980392277240753
+			],
+			"Color8": [
+				211,
+				111,
+				76
+			],
+			"IndexColor": 123,
+			"IndexColor3": 123,
+			"IndexName": 123,
+			"IndexNumber": 123,
+			"Name": "Br. reddish orange",
+			"Number": 123
+		},
+		{
+			"Color": [
+				0.572549045085907,
+				0.22352942824363708,
+				0.4705882668495178
+			],
+			"Color8": [
+				146,
+				57,
+				120
+			],
+			"IndexColor": 124,
+			"IndexColor3": 124,
+			"IndexName": 124,
+			"IndexNumber": 124,
+			"Name": "Bright reddish violet",
+			"Number": 124
+		},
+		{
+			"Color": [
+				0.917647123336792,
+				0.7215686440467834,
+				0.572549045085907
+			],
+			"Color8": [
+				234,
+				184,
+				146
+			],
+			"IndexColor": 125,
+			"IndexColor3": 125,
+			"IndexName": 125,
+			"IndexNumber": 125,
+			"Name": "Light orange",
+			"Number": 125
+		},
+		{
+			"Color": [
+				0.6470588445663452,
+				0.6470588445663452,
+				0.7960785031318665
+			],
+			"Color8": [
+				165,
+				165,
+				203
+			],
+			"IndexColor": 126,
+			"IndexColor3": 126,
+			"IndexName": 126,
+			"IndexNumber": 126,
+			"Name": "Tr. Bright bluish violet",
+			"Number": 126
+		},
+		{
+			"Color": [
+				0.8627451658248901,
+				0.7372549176216125,
+				0.5058823823928833
+			],
+			"Color8": [
+				220,
+				188,
+				129
+			],
+			"IndexColor": 127,
+			"IndexColor3": 127,
+			"IndexName": 333,
+			"IndexNumber": 127,
+			"Name": "Gold",
+			"Number": 127
+		},
+		{
+			"Color": [
+				0.6823529601097107,
+				0.4784314036369324,
+				0.3490196168422699
+			],
+			"Color8": [
+				174,
+				122,
+				89
+			],
+			"IndexColor": 128,
+			"IndexColor3": 128,
+			"IndexName": 128,
+			"IndexNumber": 128,
+			"Name": "Dark nougat",
+			"Number": 128
+		},
+		{
+			"Color": [
+				0.6117647290229797,
+				0.6392157077789307,
+				0.658823549747467
+			],
+			"Color8": [
+				156,
+				163,
+				168
+			],
+			"IndexColor": 131,
+			"IndexColor3": 131,
+			"IndexName": 131,
+			"IndexNumber": 131,
+			"Name": "Silver",
+			"Number": 131
+		},
+		{
+			"Color": [
+				0.8352941870689392,
+				0.45098042488098145,
+				0.2392157018184662
+			],
+			"Color8": [
+				213,
+				115,
+				61
+			],
+			"IndexColor": 133,
+			"IndexColor3": 133,
+			"IndexName": 133,
+			"IndexNumber": 133,
+			"Name": "Neon orange",
+			"Number": 133
+		},
+		{
+			"Color": [
+				0.847058892250061,
+				0.8666667342185974,
+				0.33725491166114807
+			],
+			"Color8": [
+				216,
+				221,
+				86
+			],
+			"IndexColor": 134,
+			"IndexColor3": 134,
+			"IndexName": 134,
+			"IndexNumber": 134,
+			"Name": "Neon green",
+			"Number": 134
+		},
+		{
+			"Color": [
+				0.4549019932746887,
+				0.5254902243614197,
+				0.615686297416687
+			],
+			"Color8": [
+				116,
+				134,
+				157
+			],
+			"IndexColor": 135,
+			"IndexColor3": 135,
+			"IndexName": 135,
+			"IndexNumber": 135,
+			"Name": "Sand blue",
+			"Number": 135
+		},
+		{
+			"Color": [
+				0.529411792755127,
+				0.4862745404243469,
+				0.5647059082984924
+			],
+			"Color8": [
+				135,
+				124,
+				144
+			],
+			"IndexColor": 136,
+			"IndexColor3": 136,
+			"IndexName": 136,
+			"IndexNumber": 136,
+			"Name": "Sand violet",
+			"Number": 136
+		},
+		{
+			"Color": [
+				0.8784314393997192,
+				0.5960784554481506,
+				0.3921568989753723
+			],
+			"Color8": [
+				224,
+				152,
+				100
+			],
+			"IndexColor": 137,
+			"IndexColor3": 137,
+			"IndexName": 137,
+			"IndexNumber": 137,
+			"Name": "Medium orange",
+			"Number": 137
+		},
+		{
+			"Color": [
+				0.5843137502670288,
+				0.5411764979362488,
+				0.45098042488098145
+			],
+			"Color8": [
+				149,
+				138,
+				115
+			],
+			"IndexColor": 138,
+			"IndexColor3": 138,
+			"IndexName": 138,
+			"IndexNumber": 138,
+			"Name": "Sand yellow",
+			"Number": 138
+		},
+		{
+			"Color": [
+				0.125490203499794,
+				0.22745099663734436,
+				0.33725491166114807
+			],
+			"Color8": [
+				32,
+				58,
+				86
+			],
+			"IndexColor": 140,
+			"IndexColor3": 140,
+			"IndexName": 140,
+			"IndexNumber": 140,
+			"Name": "Earth blue",
+			"Number": 140
+		},
+		{
+			"Color": [
+				0.15294118225574493,
+				0.27450981736183167,
+				0.1764705926179886
+			],
+			"Color8": [
+				39,
+				70,
+				45
+			],
+			"IndexColor": 141,
+			"IndexColor3": 141,
+			"IndexName": 141,
+			"IndexNumber": 141,
+			"Name": "Earth green",
+			"Number": 141
+		},
+		{
+			"Color": [
+				0.8117647767066956,
+				0.8862745761871338,
+				0.9686275124549866
+			],
+			"Color8": [
+				207,
+				226,
+				247
+			],
+			"IndexColor": 143,
+			"IndexColor3": 143,
+			"IndexName": 143,
+			"IndexNumber": 143,
+			"Name": "Tr. Flu. Blue",
+			"Number": 143
+		},
+		{
+			"Color": [
+				0.4745098352432251,
+				0.5333333611488342,
+				0.6313725709915161
+			],
+			"Color8": [
+				121,
+				136,
+				161
+			],
+			"IndexColor": 145,
+			"IndexColor3": 145,
+			"IndexName": 145,
+			"IndexNumber": 145,
+			"Name": "Sand blue metallic",
+			"Number": 145
+		},
+		{
+			"Color": [
+				0.5843137502670288,
+				0.5568627715110779,
+				0.6392157077789307
+			],
+			"Color8": [
+				149,
+				142,
+				163
+			],
+			"IndexColor": 146,
+			"IndexColor3": 146,
+			"IndexName": 146,
+			"IndexNumber": 146,
+			"Name": "Sand violet metallic",
+			"Number": 146
+		},
+		{
+			"Color": [
+				0.5764706134796143,
+				0.529411792755127,
+				0.40392160415649414
+			],
+			"Color8": [
+				147,
+				135,
+				103
+			],
+			"IndexColor": 147,
+			"IndexColor3": 147,
+			"IndexName": 147,
+			"IndexNumber": 147,
+			"Name": "Sand yellow metallic",
+			"Number": 147
+		},
+		{
+			"Color": [
+				0.34117648005485535,
+				0.3450980484485626,
+				0.34117648005485535
+			],
+			"Color8": [
+				87,
+				88,
+				87
+			],
+			"IndexColor": 148,
+			"IndexColor3": 148,
+			"IndexName": 148,
+			"IndexNumber": 148,
+			"Name": "Dark grey metallic",
+			"Number": 148
+		},
+		{
+			"Color": [
+				0.08627451211214066,
+				0.11372549831867218,
+				0.19607844948768616
+			],
+			"Color8": [
+				22,
+				29,
+				50
+			],
+			"IndexColor": 149,
+			"IndexColor3": 149,
+			"IndexName": 149,
+			"IndexNumber": 149,
+			"Name": "Black metallic",
+			"Number": 149
+		},
+		{
+			"Color": [
+				0.6705882549285889,
+				0.6784313917160034,
+				0.6745098233222961
+			],
+			"Color8": [
+				171,
+				173,
+				172
+			],
+			"IndexColor": 150,
+			"IndexColor3": 150,
+			"IndexName": 150,
+			"IndexNumber": 150,
+			"Name": "Light grey metallic",
+			"Number": 150
+		},
+		{
+			"Color": [
+				0.4705882668495178,
+				0.5647059082984924,
+				0.5098039507865906
+			],
+			"Color8": [
+				120,
+				144,
+				130
+			],
+			"IndexColor": 151,
+			"IndexColor3": 151,
+			"IndexName": 151,
+			"IndexNumber": 151,
+			"Name": "Sand green",
+			"Number": 151
+		},
+		{
+			"Color": [
+				0.5843137502670288,
+				0.4745098352432251,
+				0.46666669845581055
+			],
+			"Color8": [
+				149,
+				121,
+				119
+			],
+			"IndexColor": 153,
+			"IndexColor3": 153,
+			"IndexName": 153,
+			"IndexNumber": 153,
+			"Name": "Sand red",
+			"Number": 153
+		},
+		{
+			"Color": [
+				0.48235297203063965,
+				0.18039216101169586,
+				0.18431372940540314
+			],
+			"Color8": [
+				123,
+				46,
+				47
+			],
+			"IndexColor": 154,
+			"IndexColor3": 154,
+			"IndexName": 154,
+			"IndexNumber": 154,
+			"Name": "Dark red",
+			"Number": 154
+		},
+		{
+			"Color": [
+				1,
+				0.9647059440612793,
+				0.48235297203063965
+			],
+			"Color8": [
+				255,
+				246,
+				123
+			],
+			"IndexColor": 157,
+			"IndexColor3": 157,
+			"IndexName": 157,
+			"IndexNumber": 157,
+			"Name": "Tr. Flu. Yellow",
+			"Number": 157
+		},
+		{
+			"Color": [
+				0.8823530077934265,
+				0.6431372761726379,
+				0.760784387588501
+			],
+			"Color8": [
+				225,
+				164,
+				194
+			],
+			"IndexColor": 158,
+			"IndexColor3": 158,
+			"IndexName": 158,
+			"IndexNumber": 158,
+			"Name": "Tr. Flu. Red",
+			"Number": 158
+		},
+		{
+			"Color": [
+				0.458823561668396,
+				0.4235294461250305,
+				0.38431376218795776
+			],
+			"Color8": [
+				117,
+				108,
+				98
+			],
+			"IndexColor": 168,
+			"IndexColor3": 168,
+			"IndexName": 168,
+			"IndexNumber": 168,
+			"Name": "Gun metallic",
+			"Number": 168
+		},
+		{
+			"Color": [
+				0.5921568870544434,
+				0.4117647409439087,
+				0.35686275362968445
+			],
+			"Color8": [
+				151,
+				105,
+				91
+			],
+			"IndexColor": 176,
+			"IndexColor3": 176,
+			"IndexName": 176,
+			"IndexNumber": 176,
+			"Name": "Red flip/flop",
+			"Number": 176
+		},
+		{
+			"Color": [
+				0.7058823704719543,
+				0.5176470875740051,
+				0.3333333432674408
+			],
+			"Color8": [
+				180,
+				132,
+				85
+			],
+			"IndexColor": 178,
+			"IndexColor3": 178,
+			"IndexName": 178,
+			"IndexNumber": 178,
+			"Name": "Yellow flip/flop",
+			"Number": 178
+		},
+		{
+			"Color": [
+				0.5372549295425415,
+				0.529411792755127,
+				0.5333333611488342
+			],
+			"Color8": [
+				137,
+				135,
+				136
+			],
+			"IndexColor": 179,
+			"IndexColor3": 179,
+			"IndexName": 179,
+			"IndexNumber": 179,
+			"Name": "Silver flip/flop",
+			"Number": 179
+		},
+		{
+			"Color": [
+				0.8431373238563538,
+				0.6627451181411743,
+				0.29411765933036804
+			],
+			"Color8": [
+				215,
+				169,
+				75
+			],
+			"IndexColor": 180,
+			"IndexColor3": 180,
+			"IndexName": 180,
+			"IndexNumber": 180,
+			"Name": "Curry",
+			"Number": 180
+		},
+		{
+			"Color": [
+				0.9764706492424011,
+				0.8392157554626465,
+				0.18039216101169586
+			],
+			"Color8": [
+				249,
+				214,
+				46
+			],
+			"IndexColor": 190,
+			"IndexColor3": 190,
+			"IndexName": 190,
+			"IndexNumber": 190,
+			"Name": "Fire Yellow",
+			"Number": 190
+		},
+		{
+			"Color": [
+				0.9098039865493774,
+				0.6705882549285889,
+				0.1764705926179886
+			],
+			"Color8": [
+				232,
+				171,
+				45
+			],
+			"IndexColor": 191,
+			"IndexColor3": 191,
+			"IndexName": 191,
+			"IndexNumber": 191,
+			"Name": "Flame yellowish orange",
+			"Number": 191
+		},
+		{
+			"Color": [
+				0.4117647409439087,
+				0.250980406999588,
+				0.1568627506494522
+			],
+			"Color8": [
+				105,
+				64,
+				40
+			],
+			"IndexColor": 192,
+			"IndexColor3": 192,
+			"IndexName": 192,
+			"IndexNumber": 192,
+			"Name": "Reddish brown",
+			"Number": 192
+		},
+		{
+			"Color": [
+				0.8117647767066956,
+				0.3764706254005432,
+				0.1411764770746231
+			],
+			"Color8": [
+				207,
+				96,
+				36
+			],
+			"IndexColor": 193,
+			"IndexColor3": 193,
+			"IndexName": 193,
+			"IndexNumber": 193,
+			"Name": "Flame reddish orange",
+			"Number": 193
+		},
+		{
+			"Color": [
+				0.6392157077789307,
+				0.6352941393852234,
+				0.6470588445663452
+			],
+			"Color8": [
+				163,
+				162,
+				165
+			],
+			"IndexColor": 194,
+			"IndexColor3": 194,
+			"IndexName": 194,
+			"IndexNumber": 194,
+			"Name": "Medium stone grey",
+			"Number": 194
+		},
+		{
+			"Color": [
+				0.27450981736183167,
+				0.40392160415649414,
+				0.6431372761726379
+			],
+			"Color8": [
+				70,
+				103,
+				164
+			],
+			"IndexColor": 195,
+			"IndexColor3": 195,
+			"IndexName": 195,
+			"IndexNumber": 195,
+			"Name": "Royal blue",
+			"Number": 195
+		},
+		{
+			"Color": [
+				0.13725490868091583,
+				0.27843138575553894,
+				0.545098066329956
+			],
+			"Color8": [
+				35,
+				71,
+				139
+			],
+			"IndexColor": 196,
+			"IndexColor3": 196,
+			"IndexName": 196,
+			"IndexNumber": 196,
+			"Name": "Dark Royal blue",
+			"Number": 196
+		},
+		{
+			"Color": [
+				0.5568627715110779,
+				0.25882354378700256,
+				0.5215686559677124
+			],
+			"Color8": [
+				142,
+				66,
+				133
+			],
+			"IndexColor": 198,
+			"IndexColor3": 198,
+			"IndexName": 198,
+			"IndexNumber": 198,
+			"Name": "Bright reddish lilac",
+			"Number": 198
+		},
+		{
+			"Color": [
+				0.38823533058166504,
+				0.37254902720451355,
+				0.38431376218795776
+			],
+			"Color8": [
+				99,
+				95,
+				98
+			],
+			"IndexColor": 199,
+			"IndexColor3": 199,
+			"IndexName": 199,
+			"IndexNumber": 199,
+			"Name": "Dark stone grey",
+			"Number": 199
+		},
+		{
+			"Color": [
+				0.5098039507865906,
+				0.5411764979362488,
+				0.364705890417099
+			],
+			"Color8": [
+				130,
+				138,
+				93
+			],
+			"IndexColor": 200,
+			"IndexColor3": 200,
+			"IndexName": 200,
+			"IndexNumber": 200,
+			"Name": "Lemon metalic",
+			"Number": 200
+		},
+		{
+			"Color": [
+				0.8980392813682556,
+				0.8941177129745483,
+				0.874509871006012
+			],
+			"Color8": [
+				229,
+				228,
+				223
+			],
+			"IndexColor": 208,
+			"IndexColor3": 208,
+			"IndexName": 208,
+			"IndexNumber": 208,
+			"Name": "Light stone grey",
+			"Number": 208
+		},
+		{
+			"Color": [
+				0.6901960968971252,
+				0.5568627715110779,
+				0.2666666805744171
+			],
+			"Color8": [
+				176,
+				142,
+				68
+			],
+			"IndexColor": 209,
+			"IndexColor3": 209,
+			"IndexName": 209,
+			"IndexNumber": 209,
+			"Name": "Dark Curry",
+			"Number": 209
+		},
+		{
+			"Color": [
+				0.4392157196998596,
+				0.5843137502670288,
+				0.4705882668495178
+			],
+			"Color8": [
+				112,
+				149,
+				120
+			],
+			"IndexColor": 210,
+			"IndexColor3": 210,
+			"IndexName": 210,
+			"IndexNumber": 210,
+			"Name": "Faded green",
+			"Number": 210
+		},
+		{
+			"Color": [
+				0.4745098352432251,
+				0.7098039388656616,
+				0.7098039388656616
+			],
+			"Color8": [
+				121,
+				181,
+				181
+			],
+			"IndexColor": 211,
+			"IndexColor3": 211,
+			"IndexName": 211,
+			"IndexNumber": 211,
+			"Name": "Turquoise",
+			"Number": 211
+		},
+		{
+			"Color": [
+				0.6235294342041016,
+				0.7647059559822083,
+				0.9137255549430847
+			],
+			"Color8": [
+				159,
+				195,
+				233
+			],
+			"IndexColor": 212,
+			"IndexColor3": 212,
+			"IndexName": 212,
+			"IndexNumber": 212,
+			"Name": "Light Royal blue",
+			"Number": 212
+		},
+		{
+			"Color": [
+				0.4235294461250305,
+				0.5058823823928833,
+				0.7176470756530762
+			],
+			"Color8": [
+				108,
+				129,
+				183
+			],
+			"IndexColor": 213,
+			"IndexColor3": 213,
+			"IndexName": 213,
+			"IndexNumber": 213,
+			"Name": "Medium Royal blue",
+			"Number": 213
+		},
+		{
+			"Color": [
+				0.5647059082984924,
+				0.2980392277240753,
+				0.16470588743686676
+			],
+			"Color8": [
+				144,
+				76,
+				42
+			],
+			"IndexColor": 216,
+			"IndexColor3": 216,
+			"IndexName": 345,
+			"IndexNumber": 216,
+			"Name": "Rust",
+			"Number": 216
+		},
+		{
+			"Color": [
+				0.4862745404243469,
+				0.3607843220233917,
+				0.27450981736183167
+			],
+			"Color8": [
+				124,
+				92,
+				70
+			],
+			"IndexColor": 217,
+			"IndexColor3": 217,
+			"IndexName": 217,
+			"IndexNumber": 217,
+			"Name": "Brown",
+			"Number": 217
+		},
+		{
+			"Color": [
+				0.5882353186607361,
+				0.4392157196998596,
+				0.6235294342041016
+			],
+			"Color8": [
+				150,
+				112,
+				159
+			],
+			"IndexColor": 218,
+			"IndexColor3": 218,
+			"IndexName": 218,
+			"IndexNumber": 218,
+			"Name": "Reddish lilac",
+			"Number": 218
+		},
+		{
+			"Color": [
+				0.41960787773132324,
+				0.38431376218795776,
+				0.6078431606292725
+			],
+			"Color8": [
+				107,
+				98,
+				155
+			],
+			"IndexColor": 219,
+			"IndexColor3": 219,
+			"IndexName": 321,
+			"IndexNumber": 219,
+			"Name": "Lilac",
+			"Number": 219
+		},
+		{
+			"Color": [
+				0.6549019813537598,
+				0.6627451181411743,
+				0.8078432083129883
+			],
+			"Color8": [
+				167,
+				169,
+				206
+			],
+			"IndexColor": 220,
+			"IndexColor3": 220,
+			"IndexName": 220,
+			"IndexNumber": 220,
+			"Name": "Light lilac",
+			"Number": 220
+		},
+		{
+			"Color": [
+				0.803921639919281,
+				0.38431376218795776,
+				0.5960784554481506
+			],
+			"Color8": [
+				205,
+				98,
+				152
+			],
+			"IndexColor": 221,
+			"IndexColor3": 221,
+			"IndexName": 221,
+			"IndexNumber": 221,
+			"Name": "Bright purple",
+			"Number": 221
+		},
+		{
+			"Color": [
+				0.8941177129745483,
+				0.6784313917160034,
+				0.7843137979507446
+			],
+			"Color8": [
+				228,
+				173,
+				200
+			],
+			"IndexColor": 222,
+			"IndexColor3": 222,
+			"IndexName": 222,
+			"IndexNumber": 222,
+			"Name": "Light purple",
+			"Number": 222
+		},
+		{
+			"Color": [
+				0.8627451658248901,
+				0.5647059082984924,
+				0.5843137502670288
+			],
+			"Color8": [
+				220,
+				144,
+				149
+			],
+			"IndexColor": 223,
+			"IndexColor3": 223,
+			"IndexName": 223,
+			"IndexNumber": 223,
+			"Name": "Light pink",
+			"Number": 223
+		},
+		{
+			"Color": [
+				0.9411765336990356,
+				0.8352941870689392,
+				0.6274510025978088
+			],
+			"Color8": [
+				240,
+				213,
+				160
+			],
+			"IndexColor": 224,
+			"IndexColor3": 224,
+			"IndexName": 224,
+			"IndexNumber": 224,
+			"Name": "Light brick yellow",
+			"Number": 224
+		},
+		{
+			"Color": [
+				0.9215686917304993,
+				0.7215686440467834,
+				0.49803924560546875
+			],
+			"Color8": [
+				235,
+				184,
+				127
+			],
+			"IndexColor": 225,
+			"IndexColor3": 225,
+			"IndexName": 225,
+			"IndexNumber": 225,
+			"Name": "Warm yellowish orange",
+			"Number": 225
+		},
+		{
+			"Color": [
+				0.9921569228172302,
+				0.917647123336792,
+				0.5529412031173706
+			],
+			"Color8": [
+				253,
+				234,
+				141
+			],
+			"IndexColor": 226,
+			"IndexColor3": 226,
+			"IndexName": 226,
+			"IndexNumber": 226,
+			"Name": "Cool yellow",
+			"Number": 226
+		},
+		{
+			"Color": [
+				0.4901961088180542,
+				0.7333333492279053,
+				0.8666667342185974
+			],
+			"Color8": [
+				125,
+				187,
+				221
+			],
+			"IndexColor": 232,
+			"IndexColor3": 232,
+			"IndexName": 232,
+			"IndexNumber": 232,
+			"Name": "Dove blue",
+			"Number": 232
+		},
+		{
+			"Color": [
+				0.2039215862751007,
+				0.16862745583057404,
+				0.458823561668396
+			],
+			"Color8": [
+				52,
+				43,
+				117
+			],
+			"IndexColor": 268,
+			"IndexColor3": 268,
+			"IndexName": 268,
+			"IndexNumber": 268,
+			"Name": "Medium lilac",
+			"Number": 268
+		},
+		{
+			"Color": [
+				0.3137255012989044,
+				0.4274510145187378,
+				0.3294117748737335
+			],
+			"Color8": [
+				80,
+				109,
+				84
+			],
+			"IndexColor": 301,
+			"IndexColor3": 301,
+			"IndexName": 301,
+			"IndexNumber": 301,
+			"Name": "Slime green",
+			"Number": 301
+		},
+		{
+			"Color": [
+				0.35686275362968445,
+				0.364705890417099,
+				0.4117647409439087
+			],
+			"Color8": [
+				91,
+				93,
+				105
+			],
+			"IndexColor": 302,
+			"IndexColor3": 302,
+			"IndexName": 302,
+			"IndexNumber": 302,
+			"Name": "Smoky grey",
+			"Number": 302
+		},
+		{
+			"Color": [
+				0,
+				0.062745101749897,
+				0.6901960968971252
+			],
+			"Color8": [
+				0,
+				16,
+				176
+			],
+			"IndexColor": 303,
+			"IndexColor3": 303,
+			"IndexName": 303,
+			"IndexNumber": 303,
+			"Name": "Dark blue",
+			"Number": 303
+		},
+		{
+			"Color": [
+				0.1725490242242813,
+				0.3960784673690796,
+				0.11372549831867218
+			],
+			"Color8": [
+				44,
+				101,
+				29
+			],
+			"IndexColor": 304,
+			"IndexColor3": 304,
+			"IndexName": 304,
+			"IndexNumber": 304,
+			"Name": "Parsley green",
+			"Number": 304
+		},
+		{
+			"Color": [
+				0.32156863808631897,
+				0.4862745404243469,
+				0.6823529601097107
+			],
+			"Color8": [
+				82,
+				124,
+				174
+			],
+			"IndexColor": 305,
+			"IndexColor3": 305,
+			"IndexName": 305,
+			"IndexNumber": 305,
+			"Name": "Steel blue",
+			"Number": 305
+		},
+		{
+			"Color": [
+				0.20000001788139343,
+				0.3450980484485626,
+				0.5098039507865906
+			],
+			"Color8": [
+				51,
+				88,
+				130
+			],
+			"IndexColor": 306,
+			"IndexColor3": 306,
+			"IndexName": 306,
+			"IndexNumber": 306,
+			"Name": "Storm blue",
+			"Number": 306
+		},
+		{
+			"Color": [
+				0.062745101749897,
+				0.16470588743686676,
+				0.8627451658248901
+			],
+			"Color8": [
+				16,
+				42,
+				220
+			],
+			"IndexColor": 307,
+			"IndexColor3": 307,
+			"IndexName": 307,
+			"IndexNumber": 307,
+			"Name": "Lapis",
+			"Number": 307
+		},
+		{
+			"Color": [
+				0.2392157018184662,
+				0.08235294371843338,
+				0.5215686559677124
+			],
+			"Color8": [
+				61,
+				21,
+				133
+			],
+			"IndexColor": 308,
+			"IndexColor3": 308,
+			"IndexName": 308,
+			"IndexNumber": 308,
+			"Name": "Dark indigo",
+			"Number": 308
+		},
+		{
+			"Color": [
+				0.2039215862751007,
+				0.5568627715110779,
+				0.250980406999588
+			],
+			"Color8": [
+				52,
+				142,
+				64
+			],
+			"IndexColor": 309,
+			"IndexColor3": 309,
+			"IndexName": 309,
+			"IndexNumber": 309,
+			"Name": "Sea green",
+			"Number": 309
+		},
+		{
+			"Color": [
+				0.35686275362968445,
+				0.6039215922355652,
+				0.2980392277240753
+			],
+			"Color8": [
+				91,
+				154,
+				76
+			],
+			"IndexColor": 310,
+			"IndexColor3": 310,
+			"IndexName": 310,
+			"IndexNumber": 310,
+			"Name": "Shamrock",
+			"Number": 310
+		},
+		{
+			"Color": [
+				0.6235294342041016,
+				0.6313725709915161,
+				0.6745098233222961
+			],
+			"Color8": [
+				159,
+				161,
+				172
+			],
+			"IndexColor": 311,
+			"IndexColor3": 311,
+			"IndexName": 311,
+			"IndexNumber": 311,
+			"Name": "Fossil",
+			"Number": 311
+		},
+		{
+			"Color": [
+				0.3490196168422699,
+				0.13333334028720856,
+				0.3490196168422699
+			],
+			"Color8": [
+				89,
+				34,
+				89
+			],
+			"IndexColor": 312,
+			"IndexColor3": 312,
+			"IndexName": 312,
+			"IndexNumber": 312,
+			"Name": "Mulberry",
+			"Number": 312
+		},
+		{
+			"Color": [
+				0.12156863510608673,
+				0.501960813999176,
+				0.11372549831867218
+			],
+			"Color8": [
+				31,
+				128,
+				29
+			],
+			"IndexColor": 313,
+			"IndexColor3": 313,
+			"IndexName": 313,
+			"IndexNumber": 313,
+			"Name": "Forest green",
+			"Number": 313
+		},
+		{
+			"Color": [
+				0.6235294342041016,
+				0.6784313917160034,
+				0.7529412508010864
+			],
+			"Color8": [
+				159,
+				173,
+				192
+			],
+			"IndexColor": 314,
+			"IndexColor3": 314,
+			"IndexName": 314,
+			"IndexNumber": 314,
+			"Name": "Cadet blue",
+			"Number": 314
+		},
+		{
+			"Color": [
+				0.03529411926865578,
+				0.5372549295425415,
+				0.8117647767066956
+			],
+			"Color8": [
+				9,
+				137,
+				207
+			],
+			"IndexColor": 315,
+			"IndexColor3": 315,
+			"IndexName": 315,
+			"IndexNumber": 315,
+			"Name": "Electric blue",
+			"Number": 315
+		},
+		{
+			"Color": [
+				0.48235297203063965,
+				0,
+				0.48235297203063965
+			],
+			"Color8": [
+				123,
+				0,
+				123
+			],
+			"IndexColor": 316,
+			"IndexColor3": 316,
+			"IndexName": 316,
+			"IndexNumber": 316,
+			"Name": "Eggplant",
+			"Number": 316
+		},
+		{
+			"Color": [
+				0.4862745404243469,
+				0.6117647290229797,
+				0.41960787773132324
+			],
+			"Color8": [
+				124,
+				156,
+				107
+			],
+			"IndexColor": 317,
+			"IndexColor3": 317,
+			"IndexName": 317,
+			"IndexNumber": 317,
+			"Name": "Moss",
+			"Number": 317
+		},
+		{
+			"Color": [
+				0.5411764979362488,
+				0.6705882549285889,
+				0.5215686559677124
+			],
+			"Color8": [
+				138,
+				171,
+				133
+			],
+			"IndexColor": 318,
+			"IndexColor3": 318,
+			"IndexName": 318,
+			"IndexNumber": 318,
+			"Name": "Artichoke",
+			"Number": 318
+		},
+		{
+			"Color": [
+				0.7254902124404907,
+				0.7686275243759155,
+				0.6941176652908325
+			],
+			"Color8": [
+				185,
+				196,
+				177
+			],
+			"IndexColor": 319,
+			"IndexColor3": 319,
+			"IndexName": 319,
+			"IndexNumber": 319,
+			"Name": "Sage green",
+			"Number": 319
+		},
+		{
+			"Color": [
+				0.7921569347381592,
+				0.7960785031318665,
+				0.8196079134941101
+			],
+			"Color8": [
+				202,
+				203,
+				209
+			],
+			"IndexColor": 320,
+			"IndexColor3": 320,
+			"IndexName": 320,
+			"IndexNumber": 320,
+			"Name": "Ghost grey",
+			"Number": 320
+		},
+		{
+			"Color": [
+				0.6549019813537598,
+				0.3686274588108063,
+				0.6078431606292725
+			],
+			"Color8": [
+				167,
+				94,
+				155
+			],
+			"IndexColor": 321,
+			"IndexColor3": 321,
+			"IndexName": 321,
+			"IndexNumber": 321,
+			"Name": "Lilac",
+			"Number": 321
+		},
+		{
+			"Color": [
+				0.48235297203063965,
+				0.18431372940540314,
+				0.48235297203063965
+			],
+			"Color8": [
+				123,
+				47,
+				123
+			],
+			"IndexColor": 322,
+			"IndexColor3": 322,
+			"IndexName": 322,
+			"IndexNumber": 322,
+			"Name": "Plum",
+			"Number": 322
+		},
+		{
+			"Color": [
+				0.5803921818733215,
+				0.7450980544090271,
+				0.5058823823928833
+			],
+			"Color8": [
+				148,
+				190,
+				129
+			],
+			"IndexColor": 323,
+			"IndexColor3": 323,
+			"IndexName": 323,
+			"IndexNumber": 323,
+			"Name": "Olivine",
+			"Number": 323
+		},
+		{
+			"Color": [
+				0.658823549747467,
+				0.7411764860153198,
+				0.6000000238418579
+			],
+			"Color8": [
+				168,
+				189,
+				153
+			],
+			"IndexColor": 324,
+			"IndexColor3": 324,
+			"IndexName": 324,
+			"IndexNumber": 324,
+			"Name": "Laurel green",
+			"Number": 324
+		},
+		{
+			"Color": [
+				0.874509871006012,
+				0.874509871006012,
+				0.8705883026123047
+			],
+			"Color8": [
+				223,
+				223,
+				222
+			],
+			"IndexColor": 325,
+			"IndexColor3": 325,
+			"IndexName": 325,
+			"IndexNumber": 325,
+			"Name": "Quill grey",
+			"Number": 325
+		},
+		{
+			"Color": [
+				0.5921568870544434,
+				0,
+				0
+			],
+			"Color8": [
+				151,
+				0,
+				0
+			],
+			"IndexColor": 327,
+			"IndexColor3": 327,
+			"IndexName": 327,
+			"IndexNumber": 327,
+			"Name": "Crimson",
+			"Number": 327
+		},
+		{
+			"Color": [
+				0.6941176652908325,
+				0.8980392813682556,
+				0.6509804129600525
+			],
+			"Color8": [
+				177,
+				229,
+				166
+			],
+			"IndexColor": 328,
+			"IndexColor3": 328,
+			"IndexName": 328,
+			"IndexNumber": 328,
+			"Name": "Mint",
+			"Number": 328
+		},
+		{
+			"Color": [
+				0.5960784554481506,
+				0.760784387588501,
+				0.8588235974311829
+			],
+			"Color8": [
+				152,
+				194,
+				219
+			],
+			"IndexColor": 329,
+			"IndexColor3": 329,
+			"IndexName": 329,
+			"IndexNumber": 329,
+			"Name": "Baby blue",
+			"Number": 329
+		},
+		{
+			"Color": [
+				1,
+				0.5960784554481506,
+				0.8627451658248901
+			],
+			"Color8": [
+				255,
+				152,
+				220
+			],
+			"IndexColor": 330,
+			"IndexColor3": 330,
+			"IndexName": 330,
+			"IndexNumber": 330,
+			"Name": "Carnation pink",
+			"Number": 330
+		},
+		{
+			"Color": [
+				1,
+				0.3490196168422699,
+				0.3490196168422699
+			],
+			"Color8": [
+				255,
+				89,
+				89
+			],
+			"IndexColor": 331,
+			"IndexColor3": 331,
+			"IndexName": 331,
+			"IndexNumber": 331,
+			"Name": "Persimmon",
+			"Number": 331
+		},
+		{
+			"Color": [
+				0.458823561668396,
+				0,
+				0
+			],
+			"Color8": [
+				117,
+				0,
+				0
+			],
+			"IndexColor": 332,
+			"IndexColor3": 332,
+			"IndexName": 332,
+			"IndexNumber": 332,
+			"Name": "Maroon",
+			"Number": 332
+		},
+		{
+			"Color": [
+				0.9372549653053284,
+				0.7215686440467834,
+				0.2196078598499298
+			],
+			"Color8": [
+				239,
+				184,
+				56
+			],
+			"IndexColor": 333,
+			"IndexColor3": 333,
+			"IndexName": 333,
+			"IndexNumber": 333,
+			"Name": "Gold",
+			"Number": 333
+		},
+		{
+			"Color": [
+				0.9725490808486938,
+				0.8509804606437683,
+				0.4274510145187378
+			],
+			"Color8": [
+				248,
+				217,
+				109
+			],
+			"IndexColor": 334,
+			"IndexColor3": 334,
+			"IndexName": 334,
+			"IndexNumber": 334,
+			"Name": "Daisy orange",
+			"Number": 334
+		},
+		{
+			"Color": [
+				0.9058824181556702,
+				0.9058824181556702,
+				0.9254902601242065
+			],
+			"Color8": [
+				231,
+				231,
+				236
+			],
+			"IndexColor": 335,
+			"IndexColor3": 335,
+			"IndexName": 335,
+			"IndexNumber": 335,
+			"Name": "Pearl",
+			"Number": 335
+		},
+		{
+			"Color": [
+				0.7803922295570374,
+				0.8313726186752319,
+				0.8941177129745483
+			],
+			"Color8": [
+				199,
+				212,
+				228
+			],
+			"IndexColor": 336,
+			"IndexColor3": 336,
+			"IndexName": 336,
+			"IndexNumber": 336,
+			"Name": "Fog",
+			"Number": 336
+		},
+		{
+			"Color": [
+				1,
+				0.5803921818733215,
+				0.5803921818733215
+			],
+			"Color8": [
+				255,
+				148,
+				148
+			],
+			"IndexColor": 337,
+			"IndexColor3": 337,
+			"IndexName": 337,
+			"IndexNumber": 337,
+			"Name": "Salmon",
+			"Number": 337
+		},
+		{
+			"Color": [
+				0.7450980544090271,
+				0.4078431725502014,
+				0.38431376218795776
+			],
+			"Color8": [
+				190,
+				104,
+				98
+			],
+			"IndexColor": 338,
+			"IndexColor3": 338,
+			"IndexName": 338,
+			"IndexNumber": 338,
+			"Name": "Terra Cotta",
+			"Number": 338
+		},
+		{
+			"Color": [
+				0.33725491166114807,
+				0.1411764770746231,
+				0.1411764770746231
+			],
+			"Color8": [
+				86,
+				36,
+				36
+			],
+			"IndexColor": 339,
+			"IndexColor3": 339,
+			"IndexName": 339,
+			"IndexNumber": 339,
+			"Name": "Cocoa",
+			"Number": 339
+		},
+		{
+			"Color": [
+				0.9450981020927429,
+				0.9058824181556702,
+				0.7803922295570374
+			],
+			"Color8": [
+				241,
+				231,
+				199
+			],
+			"IndexColor": 340,
+			"IndexColor3": 340,
+			"IndexName": 340,
+			"IndexNumber": 340,
+			"Name": "Wheat",
+			"Number": 340
+		},
+		{
+			"Color": [
+				0.9960784912109375,
+				0.9529412388801575,
+				0.7333333492279053
+			],
+			"Color8": [
+				254,
+				243,
+				187
+			],
+			"IndexColor": 341,
+			"IndexColor3": 341,
+			"IndexName": 341,
+			"IndexNumber": 341,
+			"Name": "Buttermilk",
+			"Number": 341
+		},
+		{
+			"Color": [
+				0.8784314393997192,
+				0.6980392336845398,
+				0.8156863451004028
+			],
+			"Color8": [
+				224,
+				178,
+				208
+			],
+			"IndexColor": 342,
+			"IndexColor3": 342,
+			"IndexName": 342,
+			"IndexNumber": 342,
+			"Name": "Mauve",
+			"Number": 342
+		},
+		{
+			"Color": [
+				0.8313726186752319,
+				0.5647059082984924,
+				0.7411764860153198
+			],
+			"Color8": [
+				212,
+				144,
+				189
+			],
+			"IndexColor": 343,
+			"IndexColor3": 343,
+			"IndexName": 343,
+			"IndexNumber": 343,
+			"Name": "Sunrise",
+			"Number": 343
+		},
+		{
+			"Color": [
+				0.5882353186607361,
+				0.3333333432674408,
+				0.3333333432674408
+			],
+			"Color8": [
+				150,
+				85,
+				85
+			],
+			"IndexColor": 344,
+			"IndexColor3": 344,
+			"IndexName": 344,
+			"IndexNumber": 344,
+			"Name": "Tawny",
+			"Number": 344
+		},
+		{
+			"Color": [
+				0.5607843399047852,
+				0.2980392277240753,
+				0.16470588743686676
+			],
+			"Color8": [
+				143,
+				76,
+				42
+			],
+			"IndexColor": 345,
+			"IndexColor3": 345,
+			"IndexName": 345,
+			"IndexNumber": 345,
+			"Name": "Rust",
+			"Number": 345
+		},
+		{
+			"Color": [
+				0.8274510502815247,
+				0.7450980544090271,
+				0.5882353186607361
+			],
+			"Color8": [
+				211,
+				190,
+				150
+			],
+			"IndexColor": 346,
+			"IndexColor3": 346,
+			"IndexName": 346,
+			"IndexNumber": 346,
+			"Name": "Cashmere",
+			"Number": 346
+		},
+		{
+			"Color": [
+				0.8862745761871338,
+				0.8627451658248901,
+				0.7372549176216125
+			],
+			"Color8": [
+				226,
+				220,
+				188
+			],
+			"IndexColor": 347,
+			"IndexColor3": 347,
+			"IndexName": 347,
+			"IndexNumber": 347,
+			"Name": "Khaki",
+			"Number": 347
+		},
+		{
+			"Color": [
+				0.9294118285179138,
+				0.917647123336792,
+				0.917647123336792
+			],
+			"Color8": [
+				237,
+				234,
+				234
+			],
+			"IndexColor": 348,
+			"IndexColor3": 348,
+			"IndexName": 348,
+			"IndexNumber": 348,
+			"Name": "Lily white",
+			"Number": 348
+		},
+		{
+			"Color": [
+				0.9137255549430847,
+				0.8549020290374756,
+				0.8549020290374756
+			],
+			"Color8": [
+				233,
+				218,
+				218
+			],
+			"IndexColor": 349,
+			"IndexColor3": 349,
+			"IndexName": 349,
+			"IndexNumber": 349,
+			"Name": "Seashell",
+			"Number": 349
+		},
+		{
+			"Color": [
+				0.5333333611488342,
+				0.24313727021217346,
+				0.24313727021217346
+			],
+			"Color8": [
+				136,
+				62,
+				62
+			],
+			"IndexColor": 350,
+			"IndexColor3": 350,
+			"IndexName": 350,
+			"IndexNumber": 350,
+			"Name": "Burgundy",
+			"Number": 350
+		},
+		{
+			"Color": [
+				0.7372549176216125,
+				0.6078431606292725,
+				0.364705890417099
+			],
+			"Color8": [
+				188,
+				155,
+				93
+			],
+			"IndexColor": 351,
+			"IndexColor3": 351,
+			"IndexName": 351,
+			"IndexNumber": 351,
+			"Name": "Cork",
+			"Number": 351
+		},
+		{
+			"Color": [
+				0.7803922295570374,
+				0.6745098233222961,
+				0.4705882668495178
+			],
+			"Color8": [
+				199,
+				172,
+				120
+			],
+			"IndexColor": 352,
+			"IndexColor3": 352,
+			"IndexName": 352,
+			"IndexNumber": 352,
+			"Name": "Burlap",
+			"Number": 352
+		},
+		{
+			"Color": [
+				0.7921569347381592,
+				0.7490196228027344,
+				0.6392157077789307
+			],
+			"Color8": [
+				202,
+				191,
+				163
+			],
+			"IndexColor": 353,
+			"IndexColor3": 353,
+			"IndexName": 353,
+			"IndexNumber": 353,
+			"Name": "Beige",
+			"Number": 353
+		},
+		{
+			"Color": [
+				0.7333333492279053,
+				0.7019608020782471,
+				0.6980392336845398
+			],
+			"Color8": [
+				187,
+				179,
+				178
+			],
+			"IndexColor": 354,
+			"IndexColor3": 354,
+			"IndexName": 354,
+			"IndexNumber": 354,
+			"Name": "Oyster",
+			"Number": 354
+		},
+		{
+			"Color": [
+				0.4235294461250305,
+				0.3450980484485626,
+				0.29411765933036804
+			],
+			"Color8": [
+				108,
+				88,
+				75
+			],
+			"IndexColor": 355,
+			"IndexColor3": 355,
+			"IndexName": 355,
+			"IndexNumber": 355,
+			"Name": "Pine Cone",
+			"Number": 355
+		},
+		{
+			"Color": [
+				0.6274510025978088,
+				0.5176470875740051,
+				0.30980393290519714
+			],
+			"Color8": [
+				160,
+				132,
+				79
+			],
+			"IndexColor": 356,
+			"IndexColor3": 356,
+			"IndexName": 356,
+			"IndexNumber": 356,
+			"Name": "Fawn brown",
+			"Number": 356
+		},
+		{
+			"Color": [
+				0.5843137502670288,
+				0.5372549295425415,
+				0.5333333611488342
+			],
+			"Color8": [
+				149,
+				137,
+				136
+			],
+			"IndexColor": 357,
+			"IndexColor3": 357,
+			"IndexName": 357,
+			"IndexNumber": 357,
+			"Name": "Hurricane grey",
+			"Number": 357
+		},
+		{
+			"Color": [
+				0.6705882549285889,
+				0.658823549747467,
+				0.6196078658103943
+			],
+			"Color8": [
+				171,
+				168,
+				158
+			],
+			"IndexColor": 358,
+			"IndexColor3": 358,
+			"IndexName": 358,
+			"IndexNumber": 358,
+			"Name": "Cloudy grey",
+			"Number": 358
+		},
+		{
+			"Color": [
+				0.686274528503418,
+				0.5803921818733215,
+				0.5137255191802979
+			],
+			"Color8": [
+				175,
+				148,
+				131
+			],
+			"IndexColor": 359,
+			"IndexColor3": 359,
+			"IndexName": 359,
+			"IndexNumber": 359,
+			"Name": "Linen",
+			"Number": 359
+		},
+		{
+			"Color": [
+				0.5882353186607361,
+				0.40392160415649414,
+				0.40000003576278687
+			],
+			"Color8": [
+				150,
+				103,
+				102
+			],
+			"IndexColor": 360,
+			"IndexColor3": 360,
+			"IndexName": 360,
+			"IndexNumber": 360,
+			"Name": "Copper",
+			"Number": 360
+		},
+		{
+			"Color": [
+				0.33725491166114807,
+				0.25882354378700256,
+				0.21176472306251526
+			],
+			"Color8": [
+				86,
+				66,
+				54
+			],
+			"IndexColor": 361,
+			"IndexColor3": 361,
+			"IndexName": 361,
+			"IndexNumber": 361,
+			"Name": "Dirt brown",
+			"Number": 361
+		},
+		{
+			"Color": [
+				0.4941176772117615,
+				0.4078431725502014,
+				0.24705883860588074
+			],
+			"Color8": [
+				126,
+				104,
+				63
+			],
+			"IndexColor": 362,
+			"IndexColor3": 362,
+			"IndexName": 362,
+			"IndexNumber": 362,
+			"Name": "Bronze",
+			"Number": 362
+		},
+		{
+			"Color": [
+				0.4117647409439087,
+				0.40000003576278687,
+				0.3607843220233917
+			],
+			"Color8": [
+				105,
+				102,
+				92
+			],
+			"IndexColor": 363,
+			"IndexColor3": 363,
+			"IndexName": 363,
+			"IndexNumber": 363,
+			"Name": "Flint",
+			"Number": 363
+		},
+		{
+			"Color": [
+				0.3529411852359772,
+				0.2980392277240753,
+				0.25882354378700256
+			],
+			"Color8": [
+				90,
+				76,
+				66
+			],
+			"IndexColor": 364,
+			"IndexColor3": 364,
+			"IndexName": 364,
+			"IndexNumber": 364,
+			"Name": "Dark taupe",
+			"Number": 364
+		},
+		{
+			"Color": [
+				0.41568630933761597,
+				0.22352942824363708,
+				0.03529411926865578
+			],
+			"Color8": [
+				106,
+				57,
+				9
+			],
+			"IndexColor": 365,
+			"IndexColor3": 365,
+			"IndexName": 365,
+			"IndexNumber": 365,
+			"Name": "Burnt Sienna",
+			"Number": 365
+		},
+		{
+			"Color": [
+				0.9725490808486938,
+				0.9725490808486938,
+				0.9725490808486938
+			],
+			"Color8": [
+				248,
+				248,
+				248
+			],
+			"IndexColor": 1001,
+			"IndexColor3": 1001,
+			"IndexName": 1001,
+			"IndexNumber": 1001,
+			"Name": "Institutional white",
+			"Number": 1001
+		},
+		{
+			"Color": [
+				0.803921639919281,
+				0.803921639919281,
+				0.803921639919281
+			],
+			"Color8": [
+				205,
+				205,
+				205
+			],
+			"IndexColor": 1002,
+			"IndexColor3": 1002,
+			"IndexName": 1002,
+			"IndexNumber": 1002,
+			"Name": "Mid gray",
+			"Number": 1002
+		},
+		{
+			"Color": [
+				0.06666667014360428,
+				0.06666667014360428,
+				0.06666667014360428
+			],
+			"Color8": [
+				17,
+				17,
+				17
+			],
+			"IndexColor": 1003,
+			"IndexColor3": 1003,
+			"IndexName": 1003,
+			"IndexNumber": 1003,
+			"Name": "Really black",
+			"Number": 1003
+		},
+		{
+			"Color": [
+				1,
+				0,
+				0
+			],
+			"Color8": [
+				255,
+				0,
+				0
+			],
+			"IndexColor": 1004,
+			"IndexColor3": 1004,
+			"IndexName": 1004,
+			"IndexNumber": 1004,
+			"Name": "Really red",
+			"Number": 1004
+		},
+		{
+			"Color": [
+				1,
+				0.6901960968971252,
+				0
+			],
+			"Color8": [
+				255,
+				176,
+				0
+			],
+			"IndexColor": 1005,
+			"IndexColor3": 1005,
+			"IndexName": 1005,
+			"IndexNumber": 1005,
+			"Name": "Deep orange",
+			"Number": 1005
+		},
+		{
+			"Color": [
+				0.7058823704719543,
+				0.501960813999176,
+				1
+			],
+			"Color8": [
+				180,
+				128,
+				255
+			],
+			"IndexColor": 1006,
+			"IndexColor3": 1006,
+			"IndexName": 1006,
+			"IndexNumber": 1006,
+			"Name": "Alder",
+			"Number": 1006
+		},
+		{
+			"Color": [
+				0.6392157077789307,
+				0.29411765933036804,
+				0.29411765933036804
+			],
+			"Color8": [
+				163,
+				75,
+				75
+			],
+			"IndexColor": 1007,
+			"IndexColor3": 1007,
+			"IndexName": 1007,
+			"IndexNumber": 1007,
+			"Name": "Dusty Rose",
+			"Number": 1007
+		},
+		{
+			"Color": [
+				0.7568628191947937,
+				0.7450980544090271,
+				0.25882354378700256
+			],
+			"Color8": [
+				193,
+				190,
+				66
+			],
+			"IndexColor": 1008,
+			"IndexColor3": 1008,
+			"IndexName": 1008,
+			"IndexNumber": 1008,
+			"Name": "Olive",
+			"Number": 1008
+		},
+		{
+			"Color": [
+				1,
+				1,
+				0
+			],
+			"Color8": [
+				255,
+				255,
+				0
+			],
+			"IndexColor": 1009,
+			"IndexColor3": 1009,
+			"IndexName": 1009,
+			"IndexNumber": 1009,
+			"Name": "New Yeller",
+			"Number": 1009
+		},
+		{
+			"Color": [
+				0,
+				0,
+				1
+			],
+			"Color8": [
+				0,
+				0,
+				255
+			],
+			"IndexColor": 1010,
+			"IndexColor3": 1010,
+			"IndexName": 1010,
+			"IndexNumber": 1010,
+			"Name": "Really blue",
+			"Number": 1010
+		},
+		{
+			"Color": [
+				0,
+				0.125490203499794,
+				0.3764706254005432
+			],
+			"Color8": [
+				0,
+				32,
+				96
+			],
+			"IndexColor": 1011,
+			"IndexColor3": 1011,
+			"IndexName": 1011,
+			"IndexNumber": 1011,
+			"Name": "Navy blue",
+			"Number": 1011
+		},
+		{
+			"Color": [
+				0.12941177189350128,
+				0.3294117748737335,
+				0.7254902124404907
+			],
+			"Color8": [
+				33,
+				84,
+				185
+			],
+			"IndexColor": 1012,
+			"IndexColor3": 1012,
+			"IndexName": 1012,
+			"IndexNumber": 1012,
+			"Name": "Deep blue",
+			"Number": 1012
+		},
+		{
+			"Color": [
+				0.01568627543747425,
+				0.686274528503418,
+				0.9254902601242065
+			],
+			"Color8": [
+				4,
+				175,
+				236
+			],
+			"IndexColor": 1013,
+			"IndexColor3": 1013,
+			"IndexName": 1013,
+			"IndexNumber": 1013,
+			"Name": "Cyan",
+			"Number": 1013
+		},
+		{
+			"Color": [
+				0.6666666865348816,
+				0.3333333432674408,
+				0
+			],
+			"Color8": [
+				170,
+				85,
+				0
+			],
+			"IndexColor": 1014,
+			"IndexColor3": 1014,
+			"IndexName": 1014,
+			"IndexNumber": 1014,
+			"Name": "CGA brown",
+			"Number": 1014
+		},
+		{
+			"Color": [
+				0.6666666865348816,
+				0,
+				0.6666666865348816
+			],
+			"Color8": [
+				170,
+				0,
+				170
+			],
+			"IndexColor": 1015,
+			"IndexColor3": 1015,
+			"IndexName": 1015,
+			"IndexNumber": 1015,
+			"Name": "Magenta",
+			"Number": 1015
+		},
+		{
+			"Color": [
+				1,
+				0.40000003576278687,
+				0.8000000715255737
+			],
+			"Color8": [
+				255,
+				102,
+				204
+			],
+			"IndexColor": 1016,
+			"IndexColor3": 1016,
+			"IndexName": 1016,
+			"IndexNumber": 1016,
+			"Name": "Pink",
+			"Number": 1016
+		},
+		{
+			"Color": [
+				1,
+				0.686274528503418,
+				0
+			],
+			"Color8": [
+				255,
+				175,
+				0
+			],
+			"IndexColor": 1017,
+			"IndexColor3": 1017,
+			"IndexName": 1005,
+			"IndexNumber": 1017,
+			"Name": "Deep orange",
+			"Number": 1017
+		},
+		{
+			"Color": [
+				0.07058823853731155,
+				0.9333333969116211,
+				0.8313726186752319
+			],
+			"Color8": [
+				18,
+				238,
+				212
+			],
+			"IndexColor": 1018,
+			"IndexColor3": 1018,
+			"IndexName": 1018,
+			"IndexNumber": 1018,
+			"Name": "Teal",
+			"Number": 1018
+		},
+		{
+			"Color": [
+				0,
+				1,
+				1
+			],
+			"Color8": [
+				0,
+				255,
+				255
+			],
+			"IndexColor": 1019,
+			"IndexColor3": 1019,
+			"IndexName": 1019,
+			"IndexNumber": 1019,
+			"Name": "Toothpaste",
+			"Number": 1019
+		},
+		{
+			"Color": [
+				0,
+				1,
+				0
+			],
+			"Color8": [
+				0,
+				255,
+				0
+			],
+			"IndexColor": 1020,
+			"IndexColor3": 1020,
+			"IndexName": 1020,
+			"IndexNumber": 1020,
+			"Name": "Lime green",
+			"Number": 1020
+		},
+		{
+			"Color": [
+				0.22745099663734436,
+				0.4901961088180542,
+				0.08235294371843338
+			],
+			"Color8": [
+				58,
+				125,
+				21
+			],
+			"IndexColor": 1021,
+			"IndexColor3": 1021,
+			"IndexName": 1021,
+			"IndexNumber": 1021,
+			"Name": "Camo",
+			"Number": 1021
+		},
+		{
+			"Color": [
+				0.49803924560546875,
+				0.5568627715110779,
+				0.3921568989753723
+			],
+			"Color8": [
+				127,
+				142,
+				100
+			],
+			"IndexColor": 1022,
+			"IndexColor3": 1022,
+			"IndexName": 1022,
+			"IndexNumber": 1022,
+			"Name": "Grime",
+			"Number": 1022
+		},
+		{
+			"Color": [
+				0.5490196347236633,
+				0.35686275362968445,
+				0.6235294342041016
+			],
+			"Color8": [
+				140,
+				91,
+				159
+			],
+			"IndexColor": 1023,
+			"IndexColor3": 1023,
+			"IndexName": 1023,
+			"IndexNumber": 1023,
+			"Name": "Lavender",
+			"Number": 1023
+		},
+		{
+			"Color": [
+				0.686274528503418,
+				0.8666667342185974,
+				1
+			],
+			"Color8": [
+				175,
+				221,
+				255
+			],
+			"IndexColor": 1024,
+			"IndexColor3": 1024,
+			"IndexName": 1024,
+			"IndexNumber": 1024,
+			"Name": "Pastel light blue",
+			"Number": 1024
+		},
+		{
+			"Color": [
+				1,
+				0.7882353663444519,
+				0.7882353663444519
+			],
+			"Color8": [
+				255,
+				201,
+				201
+			],
+			"IndexColor": 1025,
+			"IndexColor3": 1025,
+			"IndexName": 1025,
+			"IndexNumber": 1025,
+			"Name": "Pastel orange",
+			"Number": 1025
+		},
+		{
+			"Color": [
+				0.6941176652908325,
+				0.6549019813537598,
+				1
+			],
+			"Color8": [
+				177,
+				167,
+				255
+			],
+			"IndexColor": 1026,
+			"IndexColor3": 1026,
+			"IndexName": 1026,
+			"IndexNumber": 1026,
+			"Name": "Pastel violet",
+			"Number": 1026
+		},
+		{
+			"Color": [
+				0.6235294342041016,
+				0.9529412388801575,
+				0.9137255549430847
+			],
+			"Color8": [
+				159,
+				243,
+				233
+			],
+			"IndexColor": 1027,
+			"IndexColor3": 1027,
+			"IndexName": 1027,
+			"IndexNumber": 1027,
+			"Name": "Pastel blue-green",
+			"Number": 1027
+		},
+		{
+			"Color": [
+				0.8000000715255737,
+				1,
+				0.8000000715255737
+			],
+			"Color8": [
+				204,
+				255,
+				204
+			],
+			"IndexColor": 1028,
+			"IndexColor3": 1028,
+			"IndexName": 1028,
+			"IndexNumber": 1028,
+			"Name": "Pastel green",
+			"Number": 1028
+		},
+		{
+			"Color": [
+				1,
+				1,
+				0.8000000715255737
+			],
+			"Color8": [
+				255,
+				255,
+				204
+			],
+			"IndexColor": 1029,
+			"IndexColor3": 1029,
+			"IndexName": 1029,
+			"IndexNumber": 1029,
+			"Name": "Pastel yellow",
+			"Number": 1029
+		},
+		{
+			"Color": [
+				1,
+				0.8000000715255737,
+				0.6000000238418579
+			],
+			"Color8": [
+				255,
+				204,
+				153
+			],
+			"IndexColor": 1030,
+			"IndexColor3": 1030,
+			"IndexName": 1030,
+			"IndexNumber": 1030,
+			"Name": "Pastel brown",
+			"Number": 1030
+		},
+		{
+			"Color": [
+				0.38431376218795776,
+				0.14509804546833038,
+				0.8196079134941101
+			],
+			"Color8": [
+				98,
+				37,
+				209
+			],
+			"IndexColor": 1031,
+			"IndexColor3": 1031,
+			"IndexName": 1031,
+			"IndexNumber": 1031,
+			"Name": "Royal purple",
+			"Number": 1031
+		},
+		{
+			"Color": [
+				1,
+				0,
+				0.7490196228027344
+			],
+			"Color8": [
+				255,
+				0,
+				191
+			],
+			"IndexColor": 1032,
+			"IndexColor3": 1032,
+			"IndexName": 1032,
+			"IndexNumber": 1032,
+			"Name": "Hot pink",
+			"Number": 1032
+		}
+	],
+	"Constructors": {
+		"Black": 26,
+		"Blue": 23,
+		"DarkGray": 199,
+		"Gray": 194,
+		"Green": 28,
+		"Red": 21,
+		"White": 1,
+		"Yellow": 24
+	},
+	"Default": 194,
+	"New": 1003,
+	"Palette": [
+		141,
+		301,
+		107,
+		26,
+		1012,
+		303,
+		1011,
+		304,
+		28,
+		1018,
+		302,
+		305,
+		306,
+		307,
+		308,
+		1021,
+		309,
+		310,
+		1019,
+		135,
+		102,
+		23,
+		1010,
+		312,
+		313,
+		37,
+		1022,
+		1020,
+		1027,
+		311,
+		315,
+		1023,
+		1031,
+		316,
+		151,
+		317,
+		318,
+		319,
+		1024,
+		314,
+		1013,
+		1006,
+		321,
+		322,
+		104,
+		1008,
+		119,
+		323,
+		324,
+		325,
+		320,
+		11,
+		1026,
+		1016,
+		1032,
+		1015,
+		327,
+		1005,
+		1009,
+		29,
+		328,
+		1028,
+		208,
+		45,
+		329,
+		330,
+		331,
+		1004,
+		21,
+		332,
+		333,
+		24,
+		334,
+		226,
+		1029,
+		335,
+		336,
+		342,
+		343,
+		338,
+		1007,
+		339,
+		133,
+		106,
+		340,
+		341,
+		1001,
+		1,
+		9,
+		1025,
+		337,
+		344,
+		345,
+		1014,
+		105,
+		346,
+		347,
+		348,
+		349,
+		1030,
+		125,
+		101,
+		350,
+		192,
+		351,
+		352,
+		353,
+		354,
+		1002,
+		5,
+		18,
+		217,
+		355,
+		356,
+		153,
+		357,
+		358,
+		359,
+		360,
+		38,
+		361,
+		362,
+		199,
+		194,
+		363,
+		364,
+		365,
+		1003
+	]
+}

@@ -9,6 +9,7 @@ pub mod bool;
 pub mod udim2;
 pub mod tuple;
 pub mod brickcolor;
+pub mod color3;
 
 /// Trait used for all Visual Source values.
 pub trait VSFieldType {
@@ -17,6 +18,11 @@ pub trait VSFieldType {
 
     /// Parses Visual Source into a Visual Source value
     fn from_vs(&mut self, vs: &str) -> Result<(), &'static str>;
+
+    /// Converts the Visual Source value into json
+    fn into_json(&self) -> serde_json::Value;
+
+    fn from_json(&mut self, json: serde_json::Value) -> Result<(), &'static str>;
 
     /// Returns a string depicting the Visual Source type
     fn get_type(&self) -> &'static str;

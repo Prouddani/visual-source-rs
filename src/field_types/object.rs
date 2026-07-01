@@ -25,6 +25,20 @@ impl VSFieldType for VSObject {
         Ok(())
     }
 
+    fn into_json(&self) -> serde_json::Value {
+        serde_json::Value::String(self.into_vs())
+    }
+
+    fn from_json(&mut self, json: serde_json::Value) -> Result<(), &'static str> {
+        if let serde_json::Value::String(string) = json {
+            self.0 = string
+        } else {
+            return Err("Given json is not a string. Therefore, cannot be converted into a VSString")
+        }
+
+        Ok(())
+    }
+
     fn get_type(&self) -> &'static str {
         "Object"
     }

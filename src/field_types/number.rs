@@ -1,5 +1,7 @@
 use std::fmt::Display;
 
+use serde_json::json;
+
 use crate::{field_types::{VSFieldType}, hex::Hex};
 
 #[derive(Clone, Copy, Debug)]
@@ -8,6 +10,13 @@ impl VSNumber {
     /// Creates a new Number instance
     pub fn new() -> Self {
         Self(Hex(0.0))
+    }
+
+    pub fn from_json(json: serde_json::Value) -> Result<Self, &'static str> {
+        let mut number = Self::new();
+        number.from_json(json)?;
+
+        Ok(number)
     }
 }
 impl Into<isize> for VSNumber {
@@ -30,6 +39,20 @@ impl VSFieldType for VSNumber {
 
     fn from_vs(&mut self, vs: &str) -> Result<(), &'static str> {
         self.0 = Hex::from_hex(vs).ok_or("Error parsing hexadecimal into decimal")?; // throws the result, in case the option is None
+
+        Ok(())
+    }
+
+    fn into_json(&self) -> serde_json::Value {
+        json!(self.0.0)
+    }
+
+    fn from_json(&mut self, json: serde_json::Value) -> Result<(), &'static str> {
+        if let serde_json::Value::Number(number) = json {
+            self.0.0 = number.as_f64().ok_or("Given number cannot be transformed into an f64, and, therefore, cannot be converted into VSNumber")?;
+        } else {
+            return Err("Given serde_json::Value could not be converted into VSNumber, because it has a type other than Number");
+        }
 
         Ok(())
     }
