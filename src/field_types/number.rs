@@ -66,10 +66,3 @@ impl Display for VSNumber {
         write!(f, "{}", self.into_vs())
     }
 }
-
-#[macro_export]
-macro_rules! vs_num {
-    ($n:literal) => {
-        $crate::field_types::number::VSNumber::from($n)
-    }
-}

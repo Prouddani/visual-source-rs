@@ -95,10 +95,3 @@ impl Display for VSVector2 {
         write!(f, "{}", self.into_vs())
     }
 }
-
-#[macro_export]
-macro_rules! vs_vec2 {
-    ($x:literal, $y:literal) => {
-        $crate::field_types::vector2::VSVector2::from(($x, $y))
-    }
-}

@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use visual_source_rs::{VisualSource, block::{Block, BlockInput, BlockInputVisibility}, editor::Editor, field_types::{object::VSObject, string::VSString}, vs_brickcolor};
+use visual_source_rs::{VisualSource, block::{Block, BlockInput, BlockInputVisibility}, editor::Editor, field_types::{object::VSObject, string::VSString}, vs_brickcolor, vs_obj, vs_str};
 
 fn main() {
     let visual_source = VisualSource {
@@ -17,8 +17,8 @@ fn main() {
                 child_blocks: vec![],
                 else_child_block: None,
                 inputs: vec![
-                    BlockInput::new("Object", BlockInputVisibility::Implicit, VSObject::from_path("workspace.RedButton")),
-                    BlockInput::new("Property", BlockInputVisibility::Implicit, VSString::from("BrickColor")),
+                    BlockInput::new("Object", BlockInputVisibility::Implicit, vs_obj!("game.Workspace.RedButton")),
+                    BlockInput::new("Property", BlockInputVisibility::Implicit, vs_str!("BrickColor")),
                     BlockInput::new("Value", BlockInputVisibility::Explicit, vs_brickcolor!(40, 40, 40)),
                 ],
                 outputs: vec![]

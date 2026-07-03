@@ -73,10 +73,3 @@ impl Display for VSString {
         write!(f, "{}", self.0)
     }
 }
-
-#[macro_export]
-macro_rules! vs_str {
-    ($s:literal) => {
-        $crate::field_types::string::VSString::from($s)
-    }
-}

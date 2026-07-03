@@ -59,10 +59,3 @@ impl VSFieldType for VSColor3 {
         "Color3"
     }
 }
-
-#[macro_export]
-macro_rules! vs_col3 {
-    ($r:literal, $g:literal, $b:literal) => {
-        $crate::field_types::color3::VSColor3::from(($r, $g, $b))
-    }
-}

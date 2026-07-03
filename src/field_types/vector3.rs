@@ -107,10 +107,3 @@ impl Display for VSVector3 {
         write!(f, "{}", self.into_vs())
     }
 }
-
-#[macro_export]
-macro_rules! vs_vec3 {
-    ($x:literal, $y:literal, $z:literal) => {
-        $crate::field_types::vector3::VSVector3::from(($x, $y, $z))
-    }
-}

@@ -11,12 +11,14 @@ pub mod comment;
 
 mod hex;
 
+pub mod macros;
+
 const LATEST_VS_VERSION: u8 = 4;
 
 const U_001A: &str = "\u{001A}";
 const U_001B: &str = "\u{001B}";
 
-pub trait VSObjectType {
+trait VSObjectType {
     fn into_vs(&self) -> String;
     fn from_vs<'a>(&mut self, vs: &'a str) -> Result<&'a str, &'static str>;
     fn into_json(&self, visual_source: Option<&VisualSource>) -> serde_json::Value;

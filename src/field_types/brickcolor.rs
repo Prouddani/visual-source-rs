@@ -93,14 +93,3 @@ impl Display for VSBrickColor {
         write!(f, "{}", self.into_vs())
     }
 }
-
-#[macro_export]
-macro_rules! vs_brickcolor {
-    ($i:literal) => {
-        $crate::field_types::brickcolor::VSBrickColor::from($i)
-    };
-
-    ($r:literal, $g:literal, $b:literal) => {
-        $crate::field_types::brickcolor::VSBrickColor::from_rgb(($r, $g, $b))
-    }
-}

@@ -79,16 +79,3 @@ impl Display for VSTuple {
         write!(f, "{}", self.into_vs())
     }
 }
-
-#[macro_export]
-macro_rules! vs_tuple {
-    ($($x:expr),*) => {
-        {
-            let mut tuple = vec![];
-            $(
-                tuple.push($x);
-            )*
-            $crate::field_types::tuple::VSTuple::from(tuple)
-        }
-    }
-}

@@ -59,10 +59,3 @@ impl Display for VSBool {
         write!(f, "{}", self.into_vs())
     }
 }
-
-#[macro_export]
-macro_rules! vs_bool {
-    ($b:literal) => {
-        $crate::field_types::bool::VSBool::from($b)
-    }
-}

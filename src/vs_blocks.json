@@ -557,7 +557,7 @@
         "Outputs": [],
         "Category": "Actions"
     },
-    "SetModelPrimaryPartCFrame": {
+    "SetModelPrimaryPartCFrameNew": {
         "Inputs": [
             {
                 "name": "Model",
@@ -1101,7 +1101,7 @@
         "Outputs": [],
         "Category": "Actions"
     },
-    "UnbanPlayer": {
+    "UnbanPlayerUID": {
         "Inputs": [
             {
                 "name": "UserId",
@@ -1821,7 +1821,21 @@
         ],
         "Category": "Events"
     },
-    "FireRemoveEvent": {
+    "RemoteFireServer2": {
+        "Inputs": [
+            {
+                "name": "RemoteEvent",
+                "value_type": "Object"
+            },
+            {
+                "name": "Parameters",
+                "value_type": "Tuple"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Events"
+    },
+    "RemoteFireClient2": {
         "Inputs": [
             {
                 "name": "RemoteEvent",
@@ -1839,7 +1853,7 @@
         "Outputs": [],
         "Category": "Events"
     },
-    "FireRemoveToAllClients": {
+    "RemoteFireAllClients2": {
         "Inputs": [
             {
                 "name": "RemoteEvent",
@@ -1853,7 +1867,7 @@
         "Outputs": [],
         "Category": "Events"
     },
-    "ReceiveRemoteEvent": {
+    "RemoteReceiveServer2": {
         "Inputs": [
             {
                 "name": "RemoteEvent",
@@ -1866,7 +1880,19 @@
         ],
         "Category": "Events"
     },
-    "InvokeRemoteFunction": {
+    "RemoteReceiveClient2": {
+        "Inputs": [
+            {
+                "name": "RemoteEvent",
+                "value_type": "Object"
+            }
+        ],
+        "Outputs": [
+            "Parameters"
+        ],
+        "Category": "Events"
+    },
+    "RemoteFunctionInvokeClient": {
         "Inputs": [
             {
                 "name": "RemoteFunction",
@@ -1874,6 +1900,22 @@
             },
             {
                 "name": "Player",
+                "value_type": "Object"
+            },
+            {
+                "name": "Parameters",
+                "value_type": "Tuple"
+            }
+        ],
+        "Outputs": [
+            "Output"
+        ],
+        "Category": "Events"
+    },
+    "RemoteFunctionInvokeServer": {
+        "Inputs": [
+            {
+                "name": "RemoteFunction",
                 "value_type": "Object"
             },
             {
@@ -1899,7 +1941,7 @@
         ],
         "Category": "Events"
     },
-    "FireBindableEvent": {
+    "BindableFire2": {
         "Inputs": [
             {
                 "name": "BindableEvent",
@@ -1913,10 +1955,38 @@
         "Outputs": [],
         "Category": "Events"
     },
-    "ReceiveBindableEvent": {
+    "BindableReceive2": {
         "Inputs": [
             {
                 "name": "BindableEvent",
+                "value_type": "Object"
+            }
+        ],
+        "Outputs": [
+            "Parameters"
+        ],
+        "Category": "Events"
+    },
+    "BindableFunctionInvoke": {
+        "Inputs": [
+            {
+                "name": "BindableFunction",
+                "value_type": "Object"
+            },
+            {
+                "name": "Parameters",
+                "value_type": "Tuple"
+            }
+        ],
+        "Outputs": [
+            "Output"
+        ],
+        "Category": "Events"
+    },
+    "BindableFunctionOnInvoke": {
+        "Inputs": [
+            {
+                "name": "BindableFunction",
                 "value_type": "Object"
             }
         ],
@@ -2769,7 +2839,7 @@
         ],
         "Category": "Math"
     },
-    "Lerp": {
+    "Lerp2": {
         "Inputs": [
             {
                 "name": "StartCFrame",
@@ -2801,7 +2871,7 @@
         ],
         "Category": "Math"
     },
-    "ToObjectSpace": {
+    "ToObjectSpace1": {
         "Inputs": [
             {
                 "name": "CFrame",
@@ -2817,7 +2887,7 @@
         ],
         "Category": "Math"
     },
-    "ToWorldSpace": {
+    "ToWorldSpace1": {
         "Inputs": [
             {
                 "name": "CFrame",
@@ -2924,7 +2994,7 @@
         "Category": "Math"
     },
 
-    "SetVariable": {
+    "SetVariable1": {
         "Inputs": [
             {
                 "name": "Value",
@@ -2978,7 +3048,7 @@
         ],
         "Category": "Logic"
     },
-    "ForLoop": {
+    "ForLoop2": {
         "Inputs": [
             {
                 "name": "Initial",
@@ -2998,11 +3068,11 @@
         ],
         "Category": "Logic"
     },
-    "WhileLoop": {
+    "WhileLoop3": {
         "Inputs": [
             {
                 "name": "Value 1",
-                "value_type": "Vector3"
+                "value_type": "Any"
             },
             {
                 "name": "ComparisonType",
@@ -3010,7 +3080,7 @@
             },
             {
                 "name": "Value 2",
-                "value_type": "Vector3"
+                "value_type": "Any"
             }
         ],
         "Outputs": [],
@@ -3316,7 +3386,7 @@
         "Outputs": [],
         "Category": "Logic"
     },
-    "ORGate": {
+    "ORAny": {
         "Inputs": [
             {
                 "name": "A",
@@ -3332,7 +3402,7 @@
         ],
         "Category": "Logic"
     },
-    "ANDGate": {
+    "ANDAny": {
         "Inputs": [
             {
                 "name": "A",
@@ -3348,7 +3418,7 @@
         ],
         "Category": "Logic"
     },
-    "NOTGate": {
+    "NOTAny": {
         "Inputs": [
             {
                 "name": "A",
@@ -3520,7 +3590,7 @@
         ],
         "Category": "Logic"
     },
-    "ToNumber": {
+    "ToNumberAny": {
         "Inputs": [
             {
                 "name": "Input",
@@ -3532,7 +3602,7 @@
         ],
         "Category": "Logic"
     },
-    "ToString": {
+    "ToStringAny": {
         "Inputs": [
             {
                 "name": "Input",
@@ -3579,5 +3649,1323 @@
             "Result"
         ],
         "Category": "Logic"
+    },
+
+    "Print": {
+        "Inputs": [
+            {
+                "name": "Text",
+                "value_type": "String"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Miscellaneous"
+    },
+    "Warn": {
+        "Inputs": [
+            {
+                "name": "Text",
+                "value_type": "String"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Miscellaneous"
+    },
+    "Error": {
+        "Inputs": [
+            {
+                "name": "Text",
+                "value_type": "String"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Miscellaneous"
+    },
+    "Assert": {
+        "Inputs": [
+            {
+                "name": "Value",
+                "value_type": "Any"
+            },
+            {
+                "name": "ErrorMessage",
+                "value_type": "String"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Miscellaneous"
+    },
+    "SaveVariable": {
+        "Inputs": [
+            {
+                "name": "Value",
+                "value_type": "Any"
+            },
+            {
+                "name": "Key",
+                "value_type": "Any"
+            },
+            {
+                "name": "Shared",
+                "value_type": "Bool"
+            }
+        ],
+        "Outputs": [
+            "Success"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "LoadVariable": {
+        "Inputs": [
+            {
+                "name": "Key",
+                "value_type": "Any"
+            },
+            {
+                "name": "Shared",
+                "value_type": "Bool"
+            }
+        ],
+        "Outputs": [
+            "Success",
+            "LoadedData"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "SaveInstance": {
+        "Inputs": [
+            {
+                "name": "Model",
+                "value_type": "Object?"
+            },
+            {
+                "name": "Key",
+                "value_type": "Any"
+            },
+            {
+                "name": "Shared",
+                "value_type": "Bool"
+            }
+        ],
+        "Outputs": [
+            "Success"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "LoadInstance": {
+        "Inputs": [
+            {
+                "name": "Key",
+                "value_type": "Any"
+            },
+            {
+                "name": "Parent",
+                "value_type": "Object?"
+            },
+            {
+                "name": "Shared",
+                "value_type": "Bool"
+            }
+        ],
+        "Outputs": [
+            "Success",
+            "LoadedData"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "JsonEncode": {
+        "Inputs": [
+            {
+                "name": "Table",
+                "value_type": "Table"
+            }
+        ],
+        "Outputs": [
+            "JSON"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "JsonDecode": {
+        "Inputs": [
+            {
+                "name": "JSON",
+                "value_type": "String"
+            }
+        ],
+        "Outputs": [
+            "Table"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "CreateChatChannel": {
+        "Inputs": [],
+        "Outputs": [
+            "Channel"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "AddUserToChatChannel": {
+        "Inputs": [
+            {
+                "name": "Channel",
+                "value_type": "TextChannel"
+            },
+            {
+                "name": "UserId",
+                "value_type": "Number"
+            }
+        ],
+        "Outputs": [
+            "TextSource"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "SendChatMessage": {
+        "Inputs": [
+            {
+                "name": "Channel",
+                "value_type": "TextChannel"
+            },
+            {
+                "name": "Message",
+                "value_type": "String"
+            }
+        ],
+        "Outputs": [
+            "TextChatMessage"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "ReceiveChatMessage": {
+        "Inputs": [
+            {
+                "name": "Channel",
+                "value_type": "TextChannel"
+            }
+        ],
+        "Outputs": [
+            "TextChatMessage"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "GetDefaultChannel": {
+        "Inputs": [],
+        "Outputs": [
+            "Channel"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "AddToolbar": {
+        "Inputs": [
+            {
+                "name": "Name",
+                "value_type": "String"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Miscellaneous"
+    },
+    "AddButton": {
+        "Inputs": [
+            {
+                "name": "ToolbarName",
+                "value_type": "String"
+            },
+            {
+                "name": "ID",
+                "value_type": "String"
+            },
+            {
+                "name": "ToolTip",
+                "value_type": "String"
+            },
+            {
+                "name": "Icon",
+                "value_type": "String"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Miscellaneous"
+    },
+    "SetButtonActive": {
+        "Inputs": [
+            {
+                "name": "ToolbarName",
+                "value_type": "String"
+            },
+            {
+                "name": "ID",
+                "value_type": "String"
+            },
+            {
+                "name": "State",
+                "value_type": "Bool"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Miscellaneous"
+    },
+    "ButtonClicked": {
+        "Inputs": [
+            {
+                "name": "ToolbarName",
+                "value_type": "String"
+            },
+            {
+                "name": "ID",
+                "value_type": "String"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Miscellaneous"
+    },
+    "PluginDeactivating": {
+        "Inputs": [],
+        "Outputs": [],
+        "Category": "Miscellaneous"
+    },
+    "GetSelection": {
+        "Inputs": [],
+        "Outputs": [
+            "Selection"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "SelectionChanged": {
+        "Inputs": [],
+        "Outputs": [
+            "Selection"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "AddToSelection": {
+        "Inputs": [
+            {
+                "name": "Instances",
+                "value_type": "Table"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Miscellaneous"
+    },
+    "RemoveFromSelection": {
+        "Inputs": [
+            {
+                "name": "Instances",
+                "value_type": "Table"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Miscellaneous"
+    },
+    "GetStudioTheme": {
+        "Inputs": [],
+        "Outputs": [
+            "Design",
+            "Color"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "GetTestStatus": {
+        "Inputs": [],
+        "Outputs": [
+            "Status"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "TestStatusChanged": {
+        "Inputs": [],
+        "Outputs": [
+            "Status"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "IsGameLoaded": {
+        "Inputs": [],
+        "Outputs": [
+            "Answer"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "IsStudio": {
+        "Inputs": [],
+        "Outputs": [
+            "Answer"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "IsServer": {
+        "Inputs": [],
+        "Outputs": [
+            "Answer"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "IsClient": {
+        "Inputs": [],
+        "Outputs": [
+            "Answer"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "IsSolo": {
+        "Inputs": [],
+        "Outputs": [
+            "Answer"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "IsGuest": {
+        "Inputs": [],
+        "Outputs": [
+            "Answer"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "IsTouchscreen": {
+        "Inputs": [],
+        "Outputs": [
+            "Answer"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "GetRobloxVersion": {
+        "Inputs": [],
+        "Outputs": [
+            "Answer"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "GetGameBadges": {
+        "Inputs": [],
+        "Outputs": [
+            "Badges"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "GetGameInfo": {
+        "Inputs": [],
+        "Outputs": [
+            "GameInfo"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "GetGamepasses": {
+        "Inputs": [],
+        "Outputs": [
+            "Gamepasses"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "Comment2": {
+        "Inputs": [
+            {
+                "name": "Comment",
+                "value_type": "String"
+            },
+            {
+                "name": "Color",
+                "value_type": "BrickColor"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Miscellaneous"
+    },
+    "InsertModel": {
+        "Inputs": [
+            {
+                "name": "ID",
+                "value_type": "Number"
+            },
+            {
+                "name": "Parent",
+                "value_type": "Object?"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Miscellaneous"
+    },
+    "ModelInserted": {
+        "Inputs": [],
+        "Outputs": [
+            "SourceScript",
+            "ID",
+            "Success",
+            "LoadedModel"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "OsTime": {
+        "Inputs": [],
+        "Outputs": [
+            "Answer"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "OsClock": {
+        "Inputs": [],
+        "Outputs": [
+            "Answer"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "OsDate": {
+        "Inputs": [
+            {
+                "name": "Time",
+                "value_type": "Number"
+            },
+            {
+                "name": "Timezone",
+                "value_type": "String"
+            }
+        ],
+        "Outputs": [
+            "DataTable"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "AddItemToDebris": {
+        "Inputs": [
+            {
+                "name": "Object",
+                "value_type": "Object"
+            },
+            {
+                "name": "Time",
+                "value_type": "Number"
+            }
+        ],
+        "Outputs": [
+            "DataTable"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "IsFriendsWith": {
+        "Inputs": [
+            {
+                "name": "Player",
+                "value_type": "Object"
+            },
+            {
+                "name": "UserId",
+                "value_type": "Number"
+            }
+        ],
+        "Outputs": [
+            "Result"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "IsInGroup": {
+        "Inputs": [
+            {
+                "name": "Player",
+                "value_type": "Object"
+            },
+            {
+                "name": "GroupId",
+                "value_type": "Number"
+            }
+        ],
+        "Outputs": [
+            "Result"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "GetRankInGroup": {
+        "Inputs": [
+            {
+                "name": "Player",
+                "value_type": "Object"
+            },
+            {
+                "name": "GroupId",
+                "value_type": "Number"
+            }
+        ],
+        "Outputs": [
+            "Result"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "ReloadPlace": {
+        "Inputs": [],
+        "Outputs": [
+            "Result"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "GetUserThumbnail": {
+        "Inputs": [
+            {
+                "name": "UserId",
+                "value_type": "Number"
+            }
+        ],
+        "Outputs": [
+            "ImageId"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "InsertRetroStudioAvatar": {
+        "Inputs": [
+            {
+                "name": "ID",
+                "value_type": "Number"
+            },
+            {
+                "name": "CFrame",
+                "value_type": "CFrame"
+            }
+        ],
+        "Outputs": [
+            "Model"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "GetServerTimeNow": {
+        "Inputs": [],
+        "Outputs": [
+            "Answer"
+        ],
+        "Category": "Miscellaneous"
+    },
+    "DumpMemory": {
+        "Inputs": [],
+        "Outputs": [
+            "Answer"
+        ],
+        "Category": "Miscellaneous"
+    },
+
+    "ToString": {
+        "Inputs": [
+            {
+                "name": "Number",
+                "value_type": "Number"
+            }
+        ],
+        "Outputs": [
+            "String"
+        ],
+        "Category": "Deprecated"
+    },
+    "SetVariable": {
+        "Inputs": [
+            {
+                "name": "VariableName",
+                "value_type": "String"
+            },
+            {
+                "name": "Value",
+                "value_type": "Any"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Deprecated"
+    },
+    "SetBodyGyroDirection": {
+        "Inputs": [
+            {
+                "name": "BodyGyro",
+                "value_type": "Object"
+            },
+            {
+                "name": "Rotation",
+                "value_type": "Vector3"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Deprecated"
+    },
+    "RemoteReceiveClient": {
+        "Inputs": [
+            {
+                "name": "RemoteEvent",
+                "value_type": "Object"
+            }
+        ],
+        "Outputs": [
+            "Parameter1",
+            "Parameter2",
+            "Parameter3",
+            "Parameter4",
+            "Parameter5"
+        ],
+        "Category": "Deprecated"
+    },
+    "RemoteFireClient": {
+        "Inputs": [
+            {
+                "name": "RemoteEvent",
+                "value_type": "Object"
+            },
+            {
+                "name": "Player",
+                "value_type": "Object"
+            },
+            {
+                "name": "Parameter1",
+                "value_type": "Any"
+            },
+            {
+                "name": "Parameter2",
+                "value_type": "Any"
+            },
+            {
+                "name": "Parameter3",
+                "value_type": "Any"
+            },
+            {
+                "name": "Parameter4",
+                "value_type": "Any"
+            },
+            {
+                "name": "Parameter5",
+                "value_type": "Any"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Deprecated"
+    },
+    "PowerlangImport": {
+        "Inputs": [
+            {
+                "name": "VisualSource",
+                "value_type": "String"
+            },
+            {
+                "name": "ServerOrLocal",
+                "value_type": "Bool"
+            },
+            {
+                "name": "UseLocalVariables",
+                "value_type": "Bool"
+            },
+            {
+                "name": "InfoRemote",
+                "value_type": "Object"
+            },
+            {
+                "name": "FilterDelay",
+                "value_type": "Number"
+            },
+            {
+                "name": "RetryAmount",
+                "value_type": "Number"
+            },
+            {
+                "name": "NewParent",
+                "value_type": "Object"
+            }
+        ],
+        "Outputs": [
+            [ "Info" ] 
+        ],
+        "Category": "Deprecated"
+    },
+    "OR": {
+        "Inputs": [
+            {
+                "name": "A",
+                "value_type": "Bool"
+            },
+            {
+                "name": "B",
+                "value_type": "Bool"
+            }
+        ],
+        "Outputs": [
+            "Result"
+        ],
+        "Category": "Deprecated"
+    },
+    "NOT": {
+        "Inputs": [
+            {
+                "name": "A",
+                "value_type": "Bool"
+            }
+        ],
+        "Outputs": [
+            "Result"
+        ],
+        "Category": "Deprecated"
+    },
+    "MathPi": {
+        "Inputs": [],
+        "Outputs": [
+            "Pi"
+        ],
+        "Category": "Deprecated"
+    },
+    "Lerp": {
+        "Inputs": [
+            {
+                "name": "StartPosition",
+                "value_type": "Vector3"
+            },
+            {
+                "name": "StartRotation",
+                "value_type": "Vector3"
+            },
+            {
+                "name": "GoalPosition",
+                "value_type": "Vector3"
+            },
+            {
+                "name": "GoalRotation",
+                "value_type": "Vector3"
+            },
+            {
+                "name": "Alpha",
+                "value_type": "Number"
+            }
+        ],
+        "Outputs": [
+            "ResultPosition",
+            "ResultRotation"
+        ],
+        "Category": "Deprecated"
+    },
+    "ForLoop": {
+        "Inputs": [
+            {
+                "name": "Initial",
+                "value_type": "Number"
+            },
+            {
+                "name": "Increment",
+                "value_type": "Number"
+            },
+            {
+                "name": "Maximum",
+                "value_type": "Number"
+            }
+        ],
+        "Outputs": [
+            "Place"
+        ],
+        "Category": "Logic"
+    },
+    "DescendantRemoving": {
+        "Inputs": [
+            {
+                "name": "Object",
+                "value_type": "Object"
+            }
+        ],
+        "Outputs": [
+            "Descendant"
+        ],
+        "Category": "Deprecated"
+    },
+    "BindableFire": {
+        "Inputs": [
+            {
+                "name": "BindableEvent",
+                "value_type": "Object"
+            },
+            {
+                "name": "Parameter1",
+                "value_type": "Any"
+            },
+            {
+                "name": "Parameter2",
+                "value_type": "Any"
+            },
+            {
+                "name": "Parameter3",
+                "value_type": "Any"
+            },
+            {
+                "name": "Parameter4",
+                "value_type": "Any"
+            },
+            {
+                "name": "Parameter5",
+                "value_type": "Any"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Events"
+    },
+    "PowerlangImport2": {
+        "Inputs": [
+            {
+                "name": "VisualSource",
+                "value_type": "String"
+            },
+            {
+                "name": "ScriptClass",
+                "value_type": "String"
+            },
+            {
+                "name": "UseLocalVariables",
+                "value_type": "Bool"
+            },
+            {
+                "name": "InfoRemote",
+                "value_type": "Object"
+            },
+            {
+                "name": "FilterDelay",
+                "value_type": "Number"
+            },
+            {
+                "name": "RetryAmount",
+                "value_type": "Number"
+            },
+            {
+                "name": "NewParent",
+                "value_type": "Object"
+            }
+        ],
+        "Outputs": [
+            [ "Info" ] 
+        ],
+        "Category": "Deprecated"
+    },
+    "SetJoinAfterMoveTarget": {
+        "Inputs": [
+            {
+                "name": "Target",
+                "value_type": "Object"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Deprecated"
+    },
+    "ToWorldSpace": {
+        "Inputs": [
+            {
+                "name": "Position",
+                "value_type": "Vector3"
+            },
+            {
+                "name": "Rotation",
+                "value_type": "Vector3"
+            },
+            {
+                "name": "ObjectPosition",
+                "value_type": "Vector3"
+            },
+            {
+                "name": "ObjectRotation",
+                "value_type": "Vector3"
+            }
+        ],
+        "Outputs": [
+            "ResultPosition",
+            "ResultRotation"
+        ],
+        "Category": "Deprecated"
+    },
+    "UnbanPlayer": {
+        "Inputs": [
+            {
+                "name": "Username",
+                "value_type": "String"
+            }
+        ],
+        "Outputs": [
+            "ResultPosition",
+            "ResultRotation"
+        ],
+        "Category": "Deprecated"
+    },
+    "LegacyLeaderstatsSaverConversion": {
+        "Inputs": [
+            {
+                "name": "UserId",
+                "value_type": "Number"
+            }
+        ],
+        "Outputs": [
+            "Success",
+            "LoadedData"
+        ],
+        "Category": "Deprecated"
+    },
+    "RemoteFireServer": {
+        "Inputs": [
+            {
+                "name": "RemoteEvent",
+                "value_type": "Object"
+            },
+            {
+                "name": "Parameter1",
+                "value_type": "Any"
+            },
+            {
+                "name": "Parameter2",
+                "value_type": "Any"
+            },
+            {
+                "name": "Parameter3",
+                "value_type": "Any"
+            },
+            {
+                "name": "Parameter4",
+                "value_type": "Any"
+            },
+            {
+                "name": "Parameter5",
+                "value_type": "Any"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Deprecated"
+    },
+    "ClearJoinAfterMoveJoints": {
+        "Inputs": [],
+        "Outputs": [],
+        "Category": "Deprecated"
+    },
+    "AND": {
+        "Inputs": [
+            {
+                "name": "A",
+                "value_type": "Bool"
+            },
+            {
+                "name": "B",
+                "value_type": "Bool"
+            }
+        ],
+        "Outputs": [
+            "Result"
+        ],
+        "Category": "Deprecated"
+    },
+    "ShowPermissibleJoints": {
+        "Inputs": [],
+        "Outputs": [],
+        "Category": "Deprecated"
+    },
+    "InversePositionAndRotation": {
+        "Inputs": [
+            {
+                "name": "Position",
+                "value_type": "Vector3"
+            },
+            {
+                "name": "Rotation",
+                "value_type": "Vector3"
+            }
+        ],
+        "Outputs": [
+            "ResultPosition",
+            "ResultRotation"
+        ],
+        "Category": "Deprecated"
+    },
+    "Comment": {
+        "Inputs": [
+            {
+                "name": "Position",
+                "value_type": "Vector3"
+            }
+        ],
+        "Outputs": [
+            "ResultPosition",
+            "ResultRotation"
+        ],
+        "Category": "Deprecated"
+    },
+    "BindableReceive": {
+        "Inputs": [
+            {
+                "name": "BindableEvent",
+                "value_type": "Object"
+            }
+        ],
+        "Outputs": [
+            "Parameter1",
+            "Parameter2",
+            "Parameter3",
+            "Parameter4",
+            "Parameter5"
+        ],
+        "Category": "Deprecated"
+    },
+    "RemoteReceiveServer": {
+        "Inputs": [
+            {
+                "name": "RemoteEvent",
+                "value_type": "Object"
+            }
+        ],
+        "Outputs": [
+            "Player",
+            "Parameter1",
+            "Parameter2",
+            "Parameter3",
+            "Parameter4",
+            "Parameter5"
+        ],
+        "Category": "Deprecated"
+    },
+    "CreateJoinAfterMoveJoints": {
+        "Inputs": [],
+        "Outputs": [],
+        "Category": "Deprecated"
+    },
+    "ToNumber": {
+        "Inputs": [
+            {
+                "name": "String",
+                "value_type": "String"
+            }
+        ],
+        "Outputs": [
+            "Number"
+        ],
+        "Category": "Deprecated"
+    },
+    "WhileLoop": {
+        "Inputs": [
+            {
+                "name": "VariableName1",
+                "value_type": "String"
+            },
+            {
+                "name": "ComparisonType",
+                "value_type": "String"
+            },
+            {
+                "name": "VariableName2",
+                "value_type": "String"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Deprecated"
+    },
+    "GiveRetrobux": {
+        "Inputs": [
+            {
+                "name": "Player",
+                "value_type": "Object"
+            },
+            {
+                "name": "Amount",
+                "value_type": "Number"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Deprecated"
+    },
+    "MegaBlock": {
+        "Inputs": [
+            {
+                "name": "Player",
+                "value_type": "Object"
+            },
+            {
+                "name": "Amount",
+                "value_type": "Number"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Deprecated"
+    },
+    "SetModelPrimaryPartCFrame": {
+        "Inputs": [
+            {
+                "name": "Model",
+                "value_type": "Object"
+            },
+            {
+                "name": "Position",
+                "value_type": "Vector3"
+            },
+            {
+                "name": "Rotation",
+                "value_type": "Vector3"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Deprecated"
+    },
+    "ToObjectSpace": {
+        "Inputs": [
+            {
+                "name": "Position",
+                "value_type": "Vector3"
+            },
+            {
+                "name": "Rotation",
+                "value_type": "Vector3"
+            },
+            {
+                "name": "ObjectPosition",
+                "value_type": "Vector3"
+            },
+            {
+                "name": "ObjectRotation",
+                "value_type": "Vector3"
+            }
+        ],
+        "Outputs": [
+            "ResultPosition",
+            "ResultRotation"
+        ],
+        "Category": "Deprecated"
+    },
+    "RemoteFireAllClients": {
+        "Inputs": [
+            {
+                "name": "RemoteEvent",
+                "value_type": "Object"
+            },
+            {
+                "name": "Parameter1",
+                "value_type": "Any"
+            },
+            {
+                "name": "Parameter2",
+                "value_type": "Any"
+            },
+            {
+                "name": "Parameter3",
+                "value_type": "Any"
+            },
+            {
+                "name": "Parameter4",
+                "value_type": "Any"
+            },
+            {
+                "name": "Parameter5",
+                "value_type": "Any"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Deprecated"
+    },
+    "WhileLoop2": {
+        "Inputs": [
+            {
+                "name": "Value 1",
+                "value_type": "Any"
+            },
+            {
+                "name": "ComparisonType",
+                "value_type": "String"
+            },
+            {
+                "name": "Value 2",
+                "value_type": "Any"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Deprecated"
+    },
+    "ReverseMortalityEngine": {
+        "Inputs": [],
+        "Outputs": [],
+        "Category": "Deprecated"
+    },
+    "TweenGuiSize": {
+        "Inputs": [
+            {
+                "name": "Object",
+                "value_type": "Object"
+            },
+            {
+                "name": "Size",
+                "value_type": "UDim2"
+            },
+            {
+                "name": "Time",
+                "value_type": "Number"
+            },
+            {
+                "name": "EasingStyle",
+                "value_type": "String"
+            },
+            {
+                "name": "EasingDirection",
+                "value_type": "String"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Deprecated"
+    },
+    "TweenGuiPosition": {
+        "Inputs": [
+            {
+                "name": "Object",
+                "value_type": "Object"
+            },
+            {
+                "name": "Position",
+                "value_type": "UDim2"
+            },
+            {
+                "name": "Time",
+                "value_type": "Number"
+            },
+            {
+                "name": "EasingStyle",
+                "value_type": "String"
+            },
+            {
+                "name": "EasingDirection",
+                "value_type": "String"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Deprecated"
+    },
+    "RBXGuiCreateScrollingFrame": {
+        "Inputs": [
+            {
+                "name": "OrderList",
+                "value_type": "Table"
+            },
+            {
+                "name": "ScrollStyle",
+                "value_type": "Tuple"
+            }
+        ],
+        "Outputs": [
+            "ScrollFrame",
+            "ScrollUpButton",
+            "ScrollDownButton",
+            "RecalculateFunction"
+        ],
+        "Category": "Deprecated"
+    },
+    "RBXGuiCreateDropDownMenu": {
+        "Inputs": [
+            {
+                "name": "Items",
+                "value_type": "Table"
+            },
+            {
+                "name": "ScrollStyle",
+                "value_type": "Tuple"
+            }
+        ],
+        "Outputs": [
+            "DropDown",
+            "UpdateSelection"
+        ],
+        "Category": "Deprecated"
+    },
+    "GetModelThumbnail": {
+        "Inputs": [
+            {
+                "name": "Model",
+                "value_type": "Object"
+            },
+            {
+                "name": "Gui",
+                "value_type": "Object"
+            }
+        ],
+        "Outputs": [],
+        "Category": "Deprecated"
     }
 }

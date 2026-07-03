@@ -1,4 +1,4 @@
-use crate::field_types::{bool::VSBool, brickcolor::VSBrickColor, number::VSNumber, object::VSObject, string::VSString, tuple::VSTuple, vector2::VSVector2, vector3::VSVector3};
+use crate::field_types::{bool::VSBool, brickcolor::VSBrickColor, number::VSNumber, object::VSObject, string::VSString, tuple::VSTuple, udim2::VSUDim2, vector2::VSVector2, vector3::VSVector3};
 
 pub mod string;
 pub mod object;
@@ -10,6 +10,7 @@ pub mod udim2;
 pub mod tuple;
 pub mod brickcolor;
 pub mod color3;
+pub mod nil;
 
 /// Trait used for all Visual Source values.
 pub trait VSFieldType {
@@ -31,13 +32,14 @@ pub trait VSFieldType {
 /// Given a Visual Source type, let's call it VS_t, from string, it'll return a initialized Visual Source value with VS_t as a type from VSFieldType::get_type
 pub fn new_field_from_vs_type(t: &str) -> Option<Box<dyn VSFieldType>> {
     Some(match t {
-        "String" | "String?" | "Function" | "Table" | "CFrame" => Box::new(VSString::new()),
+        "String" | "String?" | "Function" | "Table" | "CFrame" | "TextChannel" => Box::new(VSString::new()),
         "Number" | "Number?" => Box::new(VSNumber::new()),
         "Bool" | "Bool?" => Box::new(VSBool::new()),
         "Vector2" | "Vector2?" => Box::new(VSVector2::new()),
         "Vector3" | "Vector3?" => Box::new(VSVector3::new()),
         "Object" | "Object?" => Box::new(VSObject::new()),
         "BrickColor" | "BrickColor?" => Box::new(VSBrickColor::new()),
+        "UDim2" | "UDim2?" => Box::new(VSUDim2::new()),
         "Tuple" => Box::new(VSTuple::new()),
         _ => return None
     })

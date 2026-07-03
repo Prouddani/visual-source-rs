@@ -91,10 +91,3 @@ impl Display for VSUDim2 {
         write!(f, "{}", self.into_vs())
     }
 }
-
-#[macro_export]
-macro_rules! vs_udim2 {
-    ($xscale:literal, $xoffset:literal, $yscale:literal, $yoffset:literal) => {
-        $crate::field_types::udim2::VSUDim2::from(($xscale, $xoffset, $yscale, $yoffset))
-    }
-}

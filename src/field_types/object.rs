@@ -48,10 +48,3 @@ impl Display for VSObject {
         write!(f, "{}", self.into_vs())
     }
 }
-
-#[macro_export]
-macro_rules! vs_obj {
-    ($path:literal) => {
-        $crate::field_types::object::VSObject::from_path($path)
-    }
-}
