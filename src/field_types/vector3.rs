@@ -40,12 +40,12 @@ where
     }
 }
 impl VSFieldType for VSVector3 {
-    fn into_vs(&self) -> String {
+    fn to_vs(&self) -> String {
         format!(
             "{},{},{}",
-            self.x.into_vs(),
-            self.y.into_vs(),
-            self.z.into_vs()
+            self.x.to_vs(),
+            self.y.to_vs(),
+            self.z.to_vs()
         )
     }
 
@@ -66,11 +66,11 @@ impl VSFieldType for VSVector3 {
         Ok(())
     }
 
-    fn into_json(&self) -> serde_json::Value {
+    fn to_json(&self) -> serde_json::Value {
         json!({
-            "x": self.x.into_json(),
-            "y": self.y.into_json(),
-            "z": self.z.into_json(),
+            "x": self.x.to_json(),
+            "y": self.y.to_json(),
+            "z": self.z.to_json(),
             "_ValueType": self.get_type(),
         })
     }
@@ -104,6 +104,6 @@ impl VSFieldType for VSVector3 {
 }
 impl Display for VSVector3 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.into_vs())
+        write!(f, "{}", self.to_vs())
     }
 }

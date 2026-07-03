@@ -16,6 +16,13 @@ impl VSTuple {
             self.0.iter().find(|input_name| i.name.to_string() == input_name.to_string()).is_some()
         }).collect::<Vec<&BlockInput>>()
     }
+
+    /// Returns the inputs that camoflage as tuple parameters (each input inside a tuple)
+    pub fn get_mut_from_input_vec<'a>(&self, inputs: &'a mut Vec<BlockInput>) -> Vec<&'a mut BlockInput> {
+        inputs.iter_mut().filter(|i| {
+            self.0.iter().find(|input_name| i.name.to_string() == input_name.to_string()).is_some()
+        }).collect::<Vec<&mut BlockInput>>()
+    }
 }
 impl From<Vec<&str>> for VSTuple {
     fn from(value: Vec<&str>) -> Self {
@@ -33,9 +40,9 @@ impl From<Vec<VSString>> for VSTuple {
     }
 }
 impl VSFieldType for VSTuple {
-    fn into_vs(&self) -> String {
+    fn to_vs(&self) -> String {
         // entry order
-        self.0.iter().map(VSFieldType::into_vs).collect::<Vec<String>>().join(",")
+        self.0.iter().map(VSFieldType::to_vs).collect::<Vec<String>>().join(",")
     }
 
     fn from_vs(&mut self, vs: &str) -> Result<(), &'static str> {
@@ -44,8 +51,8 @@ impl VSFieldType for VSTuple {
         Ok(())
     }
 
-    fn into_json(&self) -> serde_json::Value {
-        json!(self.0.iter().map(VSFieldType::into_vs).collect::<Vec<String>>())
+    fn to_json(&self) -> serde_json::Value {
+        json!(self.0.iter().map(VSFieldType::to_vs).collect::<Vec<String>>())
     }
 
     fn from_json(&mut self, json: serde_json::Value) -> Result<(), &'static str> {
@@ -76,6 +83,6 @@ impl VSFieldType for VSTuple {
 }
 impl Display for VSTuple {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.into_vs())
+        write!(f, "{}", self.to_vs())
     }
 }

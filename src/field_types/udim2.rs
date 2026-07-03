@@ -36,8 +36,8 @@ where
     }
 }
 impl VSFieldType for VSUDim2 {
-    fn into_vs(&self) -> String {
-        format!("{},{},{},{}", self.xscale.into_vs(), self.xoffset.into_vs(), self.yscale.into_vs(), self.yoffset.into_vs())
+    fn to_vs(&self) -> String {
+        format!("{},{},{},{}", self.xscale.to_vs(), self.xoffset.to_vs(), self.yscale.to_vs(), self.yoffset.to_vs())
     }
 
     fn from_vs(&mut self, vs: &str) -> Result<(), &'static str> {
@@ -58,12 +58,12 @@ impl VSFieldType for VSUDim2 {
         Ok(())
     }
 
-    fn into_json(&self) -> serde_json::Value {
+    fn to_json(&self) -> serde_json::Value {
         json!({
-            "xS": self.xscale.into_json(),
-            "xO": self.xoffset.into_json(),
-            "yS": self.yscale.into_json(),
-            "yO": self.yoffset.into_json(),
+            "xS": self.xscale.to_json(),
+            "xO": self.xoffset.to_json(),
+            "yS": self.yscale.to_json(),
+            "yO": self.yoffset.to_json(),
             "_ValueType": self.get_type()
         })
     }
@@ -88,6 +88,6 @@ impl VSFieldType for VSUDim2 {
 }
 impl Display for VSUDim2 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.into_vs())
+        write!(f, "{}", self.to_vs())
     }
 }

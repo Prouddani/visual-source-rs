@@ -19,9 +19,9 @@ const U_001A: &str = "\u{001A}";
 const U_001B: &str = "\u{001B}";
 
 trait VSObjectType {
-    fn into_vs(&self) -> String;
+    fn to_vs(&self) -> String;
     fn from_vs<'a>(&mut self, vs: &'a str) -> Result<&'a str, &'static str>;
-    fn into_json(&self, visual_source: Option<&VisualSource>) -> serde_json::Value;
+    fn to_json(&self, visual_source: Option<&VisualSource>) -> serde_json::Value;
     fn from_json(&mut self, json: serde_json::Value) -> Result<(), &'static str>;
     fn get_type(&self) -> &'static str;
 }
@@ -40,10 +40,10 @@ pub struct VisualSource {
     pub comments: Vec<Comment>
 }
 impl VisualSource {
-    pub fn into_json(&self) -> serde_json::Value {
-        let editor = self.editor.into_json(Some(self));
-        let blocks = self.blocks.iter().map(|(block_name, block)| (block_name, block.into_json(Some(self)))).collect::<HashMap<_, _>>();
-        let comments = self.comments.iter().map(|comment| comment.into_json(Some(self))).collect::<Vec<serde_json::Value>>();
+    pub fn to_json(&self) -> serde_json::Value {
+        let editor = self.editor.to_json(Some(self));
+        let blocks = self.blocks.iter().map(|(block_name, block)| (block_name, block.to_json(Some(self)))).collect::<HashMap<_, _>>();
+        let comments = self.comments.iter().map(|comment| comment.to_json(Some(self))).collect::<Vec<serde_json::Value>>();
 
         json!({
             "Editor": editor,
@@ -76,9 +76,9 @@ impl VisualSource {
 }
 impl Display for VisualSource {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let vs_blocks = self.blocks.iter().map(|(_, block)| block.into_vs()).collect::<Vec<String>>();
+        let vs_blocks = self.blocks.iter().map(|(_, block)| block.to_vs()).collect::<Vec<String>>();
         
-        write!(f, "{}{}", self.editor.into_vs(), vs_blocks.join(""))
+        write!(f, "{}{}", self.editor.to_vs(), vs_blocks.join(""))
     }
 }
 impl Debug for VisualSource {
@@ -90,11 +90,11 @@ impl Debug for VisualSource {
 
 impl Display for Box<dyn VSFieldType> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.into_vs().escape_debug())
+        write!(f, "{}", self.to_vs().escape_debug())
     }
 }
 impl Debug for Box<dyn VSFieldType> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.into_vs().escape_debug())
+        write!(f, "{}", self.to_vs().escape_debug())
     }
 }

@@ -37,11 +37,11 @@ where
     }
 }
 impl VSFieldType for VSVector2 {
-    fn into_vs(&self) -> String {
+    fn to_vs(&self) -> String {
         format!(
             "{},{}",
-            self.x.into_vs(),
-            self.y.into_vs()
+            self.x.to_vs(),
+            self.y.to_vs()
         )
     }
 
@@ -61,10 +61,10 @@ impl VSFieldType for VSVector2 {
         Ok(())
     }
 
-    fn into_json(&self) -> serde_json::Value {
+    fn to_json(&self) -> serde_json::Value {
         json!({
-            "x": self.x.into_json(),
-            "y": self.y.into_json(),
+            "x": self.x.to_json(),
+            "y": self.y.to_json(),
             "_ValueType": self.get_type(),
         })
     }
@@ -92,6 +92,6 @@ impl VSFieldType for VSVector2 {
 }
 impl Display for VSVector2 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.into_vs())
+        write!(f, "{}", self.to_vs())
     }
 }

@@ -40,7 +40,7 @@ impl DerefMut for VSString {
     }
 }
 impl VSFieldType for VSString {
-    fn into_vs(&self) -> String {
+    fn to_vs(&self) -> String {
         format!("{}", &self.0)
     }
 
@@ -50,8 +50,8 @@ impl VSFieldType for VSString {
         Ok(())
     }
 
-    fn into_json(&self) -> serde_json::Value {
-        serde_json::Value::String(self.into_vs())
+    fn to_json(&self) -> serde_json::Value {
+        serde_json::Value::String(self.to_vs())
     }
 
     fn from_json(&mut self, json: serde_json::Value) -> Result<(), &'static str> {

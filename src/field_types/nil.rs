@@ -4,7 +4,7 @@ use crate::field_types::VSFieldType;
 
 pub struct VSNil;
 impl VSFieldType for VSNil {
-    fn into_vs(&self) -> String {
+    fn to_vs(&self) -> String {
         "".to_string()
     }
 
@@ -12,7 +12,7 @@ impl VSFieldType for VSNil {
         Ok(())
     }
 
-    fn into_json(&self) -> serde_json::Value {
+    fn to_json(&self) -> serde_json::Value {
         json!("")
     }
 

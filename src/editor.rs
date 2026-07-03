@@ -30,11 +30,11 @@ impl Editor {
     }
 }
 impl VSObjectType for Editor {
-    fn into_vs(&self) -> String {
+    fn to_vs(&self) -> String {
         format!(
             "{U_001A}{U_001A}Editor{U_001A}CameraPosition{U_001B}{}{U_001A}CameraZoom{U_001B}{}",
-            self.camera_position.into_vs(),
-            self.camera_zoom.into_vs()
+            self.camera_position.to_vs(),
+            self.camera_zoom.to_vs()
         )
     }
 
@@ -108,9 +108,9 @@ impl VSObjectType for Editor {
         Ok(&vs[vs_end..])
     }
 
-    fn into_json(&self, _visual_source: Option<&crate::VisualSource>) -> serde_json::Value {
-        let camera_position = self.camera_position.into_json();
-        let camera_zoom = self.camera_zoom.into_json();
+    fn to_json(&self, _visual_source: Option<&crate::VisualSource>) -> serde_json::Value {
+        let camera_position = self.camera_position.to_json();
+        let camera_zoom = self.camera_zoom.to_json();
 
         json!({
             "CameraPosition": camera_position,

@@ -47,8 +47,8 @@ impl From<usize> for VSBrickColor {
     }
 }
 impl VSFieldType for VSBrickColor {
-    fn into_vs(&self) -> String {
-        format!("{}", self.0.into_vs())
+    fn to_vs(&self) -> String {
+        format!("{}", self.0.to_vs())
     }
 
     fn from_vs(&mut self, vs: &str) -> Result<(), &'static str> {
@@ -60,7 +60,7 @@ impl VSFieldType for VSBrickColor {
         Ok(())
     }
 
-    fn into_json(&self) -> serde_json::Value {
+    fn to_json(&self) -> serde_json::Value {
         let brick_color_json: serde_json::Value = serde_json::from_slice(include_bytes!("BrickColor.json")).unwrap();
         let brick_colors = brick_color_json.get("BrickColors").unwrap();
         let brick_color = brick_colors.get(self.0.0.0 as usize - 1).unwrap();
@@ -90,6 +90,6 @@ impl VSFieldType for VSBrickColor {
 }
 impl Display for VSBrickColor {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.into_vs())
+        write!(f, "{}", self.to_vs())
     }
 }

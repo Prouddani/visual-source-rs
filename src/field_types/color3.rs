@@ -24,8 +24,8 @@ where
     }
 }
 impl VSFieldType for VSColor3 {
-    fn into_vs(&self) -> String {
-        format!("{},{},{}", self.0.into_vs(), self.1.into_vs(), self.2.into_vs())
+    fn to_vs(&self) -> String {
+        format!("{},{},{}", self.0.to_vs(), self.1.to_vs(), self.2.to_vs())
     }
 
     fn from_vs(&mut self, vs: &str) -> Result<(), &'static str> {
@@ -38,11 +38,11 @@ impl VSFieldType for VSColor3 {
         Ok(())
     }
 
-    fn into_json(&self) -> serde_json::Value {
+    fn to_json(&self) -> serde_json::Value {
         json!({
-            "r": self.0.into_json(),
-            "g": self.1.into_json(),
-            "b": self.2.into_json(),
+            "r": self.0.to_json(),
+            "g": self.1.to_json(),
+            "b": self.2.to_json(),
             "_ValueType": "Color3"
         })
     }

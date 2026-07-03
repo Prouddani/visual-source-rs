@@ -18,7 +18,7 @@ impl From<bool> for VSBool {
     }
 }
 impl VSFieldType for VSBool {
-    fn into_vs(&self) -> String {
+    fn to_vs(&self) -> String {
         format!(
             "{}", match self.0 {
                 false => 0,
@@ -36,7 +36,7 @@ impl VSFieldType for VSBool {
         Ok(())
     }
 
-    fn into_json(&self) -> serde_json::Value {
+    fn to_json(&self) -> serde_json::Value {
         json!(true)
     }
 
@@ -56,6 +56,6 @@ impl VSFieldType for VSBool {
 }
 impl Display for VSBool {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.into_vs())
+        write!(f, "{}", self.to_vs())
     }
 }

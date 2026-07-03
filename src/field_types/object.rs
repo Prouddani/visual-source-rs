@@ -15,7 +15,7 @@ impl VSObject {
     }
 }
 impl VSFieldType for VSObject {
-    fn into_vs(&self) -> String {
+    fn to_vs(&self) -> String {
         format!("{}", self.0)
     }
 
@@ -25,8 +25,8 @@ impl VSFieldType for VSObject {
         Ok(())
     }
 
-    fn into_json(&self) -> serde_json::Value {
-        serde_json::Value::String(self.into_vs())
+    fn to_json(&self) -> serde_json::Value {
+        serde_json::Value::String(self.to_vs())
     }
 
     fn from_json(&mut self, json: serde_json::Value) -> Result<(), &'static str> {
@@ -45,6 +45,6 @@ impl VSFieldType for VSObject {
 }
 impl Display for VSObject {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.into_vs())
+        write!(f, "{}", self.to_vs())
     }
 }

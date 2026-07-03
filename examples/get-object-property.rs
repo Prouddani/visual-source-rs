@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use visual_source_rs::{VisualSource, block::{Block, BlockInput, BlockInputVisibility, BlockOutput, BlockOutputValueType}, editor::Editor, vs_obj, vs_str};
+use visual_source_rs::{VisualSource, block::{Block, BlockInput, BlockOutput, BlockOutputValueType}, editor::Editor, vs_obj, vs_str};
 
 fn main() -> Result<(), &'static str> {
     let visual_source = VisualSource {
@@ -17,14 +17,15 @@ fn main() -> Result<(), &'static str> {
                 child_blocks: vec!["Print1".into()],     // child block ids
                 else_child_block: None,                  // else child block id (only Some<VSString> for If blocks)
                 inputs: vec![
-                    //                              The visibility of the value type
-                    //        The input name      (uses variable, pre-determined or any)        The actual value
-                    //                V                        V                                      V
-                    BlockInput::new("Object", BlockInputVisibility::Implicit, vs_obj!("game.Workspace.RedButton")),
-                    BlockInput::new("Property", BlockInputVisibility::Implicit, vs_str!("BrickColor"))
+                    //                                                                     method that makes the input aware
+                    //        the input name   uses variable    the value of the input   of its owner block (GetObjectProperty)
+                    //                 v          v                  v                                 v
+                    BlockInput::new("Object",   false, vs_obj!("game.Workspace.RedButton")).of("GetObjectProperty")?,
+                    BlockInput::new("Property", false, vs_str!("BrickColor"))              .of("GetObjectProperty")?
                 ],
                 outputs: vec![
-                    //         The output name          The output type (list of variable names, aka tuples, or the variable name)
+                    //                                   The output type (list of variable names, aka tuples, or the variable name)
+                    //           The output name             in this case, it is the variable name, because it is only a string
                     //                  V                                 V
                     BlockOutput::new("Value", BlockOutputValueType::String("brickcolor".into()))?
                 ]

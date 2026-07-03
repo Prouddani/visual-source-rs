@@ -33,7 +33,7 @@ where
     }
 }
 impl VSFieldType for VSNumber {
-    fn into_vs(&self) -> String {
+    fn to_vs(&self) -> String {
         format!("{}", self.0)
     }
 
@@ -43,7 +43,7 @@ impl VSFieldType for VSNumber {
         Ok(())
     }
 
-    fn into_json(&self) -> serde_json::Value {
+    fn to_json(&self) -> serde_json::Value {
         json!(self.0.0)
     }
 
@@ -63,6 +63,6 @@ impl VSFieldType for VSNumber {
 }
 impl Display for VSNumber {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.into_vs())
+        write!(f, "{}", self.to_vs())
     }
 }

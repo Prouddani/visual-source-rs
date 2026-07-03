@@ -1,8 +1,8 @@
 use std::collections::HashMap;
 
-use visual_source_rs::{VisualSource, block::{Block, BlockInput, BlockInputVisibility}, editor::Editor, field_types::{object::VSObject, string::VSString}, vs_brickcolor, vs_obj, vs_str};
+use visual_source_rs::{VisualSource, block::{Block, BlockInput}, editor::Editor, vs_brickcolor, vs_str};
 
-fn main() {
+fn main() -> Result<(), &'static str> {
     let visual_source = VisualSource {
         version: 4,
         editor: Editor {
@@ -17,9 +17,9 @@ fn main() {
                 child_blocks: vec![],
                 else_child_block: None,
                 inputs: vec![
-                    BlockInput::new("Object", BlockInputVisibility::Implicit, vs_obj!("game.Workspace.RedButton")),
-                    BlockInput::new("Property", BlockInputVisibility::Implicit, vs_str!("BrickColor")),
-                    BlockInput::new("Value", BlockInputVisibility::Explicit, vs_brickcolor!(40, 40, 40)),
+                    BlockInput::new("Object", true, vs_str!("red_button")).of("SetObjectProperty")?, // kinda useless to put 'true' in uses_variable, because object always allow variables
+                    BlockInput::new("Property", false, vs_str!("BrickColor")).of("SetObjectProperty")?,
+                    BlockInput::new("Value", false, vs_brickcolor!(40, 40, 40)).of("SetObjectProperty")?,
                 ],
                 outputs: vec![]
             })
@@ -27,5 +27,7 @@ fn main() {
         comments: vec![]
     };
 
-    println!("{}", visual_source.into_json());
+    println!("{}", visual_source.to_json());
+
+    Ok(())
 }

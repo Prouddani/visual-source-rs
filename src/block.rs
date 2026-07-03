@@ -1,4 +1,3 @@
-use core::num;
 use std::{collections::HashMap, fmt::Display, vec};
 
 use serde_json::json;
@@ -19,7 +18,7 @@ pub enum BlockInputVisibility {
     Variable
 }
 impl BlockInputVisibility {
-    pub fn into_vs(&self) -> String {
+    pub fn to_vs(&self) -> String {
         match self {
             Self::Implicit => "0",
             Self::Explicit => "1",
@@ -52,10 +51,15 @@ pub struct BlockInput {
 }
 impl BlockInput
 {
-    pub fn new<T>(name: impl Into<VSString>, visibility: BlockInputVisibility, value: T) -> Self
+    pub fn new<T>(name: impl Into<VSString>, uses_variable: bool, value: T) -> Self
     where
         T: VSFieldType + 'static,
     {
+        let visibility = match uses_variable {
+            true => BlockInputVisibility::Variable,
+            false => BlockInputVisibility::Explicit
+        };
+
         Self {
             name: name.into(),
             visibility,
@@ -63,24 +67,60 @@ impl BlockInput
         }
     }
 
-    pub fn into_vs(&self) -> String {
+    /// Method of BlockInput that, by giving the name of the block containing the input, returns itself,
+    /// but now with a visibility field (whether the input is explicit, implicit or variable in Visual Source text)
+    /// 
+    /// If you are using variable, this method will return itself immediately
+    pub fn of(self, owner: impl Into<String>) -> Result<Self, &'static str> {
+        if let BlockInputVisibility::Variable = self.visibility {
+            return Ok(self);
+        }
+
+        let vs_blocks: serde_json::Value = serde_json::from_slice(include_bytes!("vs_blocks.json")).or(Err("Error getting vs_blocks.json"))?;
+        let block = vs_blocks.get(owner.into()).ok_or("Owner block not found in vs_blocks.json")?;
+        let inputs = block.get("Inputs").ok_or("Inputs is not a member of a block blueprint in vs_blocks.json")?.as_array().ok_or("Inputs in vs_blocks.json is not an array")?;
+        
+        let mut this = None;
+        for input in inputs {
+            if input.get("name").ok_or("Name does not exist in Inputs from vs_blocks.json")?.as_str().ok_or("Name is not a string in vs_blocks.json")? == self.name.0 {
+                this = Some(input);
+                break;
+            }
+        }
+        if this.is_none() { return Err("Unable to find input of owner in vs_blocks.json"); }
+
+        let value_type = this.unwrap().get("value_type").ok_or("'value_type' does not exist in Input from vs_blocks.json")?.as_str().ok_or("'value_type' from input in vs_blocks.json is not a string")?;
+        let input_visibility = match value_type {
+            "Any" => BlockInputVisibility::Explicit,
+            "Function" | "Table" | "CFrame" | "TextChannel" | "TextSource" | "TextChatMessage" | "Channel" => BlockInputVisibility::Variable,
+            _ => BlockInputVisibility::Implicit
+        };
+
+        Ok(Self {
+            name: self.name,
+            visibility: input_visibility,
+            value: self.value
+        })
+    }
+
+    pub fn to_vs(&self) -> String {
         format!(
             "{}{U_001B}{}{U_001B}{}{}{}",
-            self.name.into_vs(),
-            self.visibility.into_vs(),
-            self.value.into_vs(),
+            self.name.to_vs(),
+            self.visibility.to_vs(),
+            self.value.to_vs(),
             if let BlockInputVisibility::Explicit = self.visibility { U_001B } else { "" },
             if let BlockInputVisibility::Explicit = self.visibility { self.value.get_type() } else { "" },
         )
     }
 
-    pub fn into_json(&self) -> serde_json::Value {
+    pub fn to_json(&self) -> serde_json::Value {
         let variable = match &self.visibility {
-            BlockInputVisibility::Variable => self.value.into_vs(),
+            BlockInputVisibility::Variable => self.value.to_vs(),
             _ => String::new()
         };
         let use_variable = self.visibility.use_variable();
-        let value = self.value.into_json();
+        let value = self.value.to_json();
         let value_type = self.value.get_type();
 
         json!({
@@ -91,12 +131,12 @@ impl BlockInput
         })
     }
 
-    pub fn from_json(&mut self, block_id: String, input_name: String, json: serde_json::Value) -> Result<(), &'static str> {
-        let variable = json.get("Variable").ok_or("Could not get Variable in block input json")?;
-        let value = json.get("Value").ok_or("Could not get Value in block input json")?;
-        let use_variable = json.get("UseVariable").ok_or("Could not get UseVariable in block input json")?;
+    pub fn from_json(&mut self, block_id: String, input_name: String, mut json: serde_json::Value) -> Result<(), &'static str> {
+        let variable = json.get_mut("Variable").ok_or("Could not get Variable in block input json")?.take();
+        let value = json.get_mut("Value").ok_or("Could not get Value in block input json")?.take();
+        let use_variable = json.get_mut("UseVariable").ok_or("Could not get UseVariable in block input json")?.take();
 
-        let vs_value: Box<dyn VSFieldType> = match use_variable {
+        let mut vs_value: Box<dyn VSFieldType> = match use_variable {
             serde_json::Value::Bool(true) => {
                 // uses variable
                 self.visibility = BlockInputVisibility::Variable;
@@ -132,9 +172,10 @@ impl BlockInput
                 }
 
                 new_field_from_vs_type(value_type).ok_or("Invalid value_type in vs_blocks.json")?
-            },
+            }
             _ => return Err("UseVariable in block input is not a bool")
         };
+        vs_value.from_json(value)?;
 
         self.value = vs_value;
 
@@ -147,12 +188,16 @@ where
     T: VSFieldType + 'static
 {
     fn from(value: (I, BlockInputVisibility, T)) -> Self {
-        Self::new(value.0, value.1, value.2)
+        Self {
+            name: value.0.into(),
+            visibility: value.1,
+            value: Box::new(value.2)
+        }
     }
 }
 impl Display for BlockInput {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.into_vs())
+        write!(f, "{}", self.to_vs())
     }
 }
 
@@ -163,10 +208,10 @@ pub enum BlockOutputValueType {
     String(VSString)
 }
 impl BlockOutputValueType {
-    fn into_vs(&self) -> String {
+    fn to_vs(&self) -> String {
         match self {
-            Self::Tuple(number) => number.into_vs(),
-            Self::String(string) => string.into_vs()
+            Self::Tuple(number) => number.to_vs(),
+            Self::String(string) => string.to_vs()
         }
     }
 
@@ -175,10 +220,6 @@ impl BlockOutputValueType {
             Self::Tuple(_) => true,
             Self::String(_) => false
         }
-    }
-
-    fn is_tuple_from_name(name: &str) -> bool {
-        name.contains("TUPLE_")
     }
 }
 
@@ -230,9 +271,9 @@ impl BlockOutput {
         }
     }
 
-    pub fn into_json(&self) -> serde_json::Value {
+    pub fn to_json(&self) -> serde_json::Value {
         match &self.value {
-            BlockOutputValueType::String(string) => string.into_json(),
+            BlockOutputValueType::String(string) => string.to_json(),
             BlockOutputValueType::Tuple(number) => json!(number.0.0)
         }
     }
@@ -274,7 +315,7 @@ impl BlockOutput {
 }
 impl Display for BlockOutput {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}{U_001B}{}", self.name.into_vs(), self.value.into_vs())
+        write!(f, "{}{U_001B}{}", self.name.to_vs(), self.value.to_vs())
     }
 }
 
@@ -306,7 +347,7 @@ impl Block {
         let mut parent_blocks = vec![];
         for (_, block) in &visual_source.blocks {
             if block.child_blocks.contains(&self.name) {
-                parent_blocks.push(block.name.into_json())
+                parent_blocks.push(block.name.to_json())
             }
         }
         parent_blocks
@@ -320,16 +361,16 @@ impl Block {
     }
 }
 impl VSObjectType for Block {
-    fn into_vs(&self) -> String {
+    fn to_vs(&self) -> String {
         format!(
             "{U_001A}{U_001A}Block{U_001A}Type{U_001B}{}{U_001A}Name{U_001B}{}{U_001A}VisualPosition{U_001B}{}{U_001A}ChildBlocks{}{}{U_001A}ElseChildBlock{U_001B}{}{U_001A}Inputs{}{}{U_001A}Outputs{}{}",
-            self.internal.into_vs(), self.name.into_vs(), // internal_type and name
-            self.visual_position.into_vs(), // visual position
+            self.internal.to_vs(), self.name.to_vs(), // internal_type and name
+            self.visual_position.to_vs(), // visual position
             if self.child_blocks.len() <= 0 {""} else {U_001B}, // if there are no child blocks, there should be no u+001B characters
-            self.child_blocks.iter().map(VSFieldType::into_vs).collect::<Vec<String>>().join(U_001B),
+            self.child_blocks.iter().map(VSFieldType::to_vs).collect::<Vec<String>>().join(U_001B),
             self.else_child_block.clone().unwrap_or("nil".into()), // else child blocks
             if self.inputs.len() <= 0 {""} else {U_001B}, // if there are no child blocks, there should be no u+001B characters
-            self.inputs.iter().map(BlockInput::into_vs).collect::<Vec<String>>().join(U_001B), // inputs
+            self.inputs.iter().map(BlockInput::to_vs).collect::<Vec<String>>().join(U_001B), // inputs
             if self.outputs.len() <= 0 {""} else {U_001B},
             self.outputs.iter().map(BlockOutput::to_string).collect::<Vec<String>>().join(U_001B), // outputs
         )
@@ -471,7 +512,7 @@ impl VSObjectType for Block {
 
                                         let json_data = include_bytes!("vs_blocks.json");
                                         let parsed_json = serde_json::from_slice::<'_, serde_json::Value>(json_data).or(Err("Unable to parse vs_blocks.json"))?;
-                                        if let Some(block) = parsed_json.get(self.internal.into_vs()) {
+                                        if let Some(block) = parsed_json.get(self.internal.to_vs()) {
                                             // block
                                             if let Some(entry) = block["Inputs"].get(n_input) {
                                                 // input
@@ -526,7 +567,7 @@ impl VSObjectType for Block {
                             vs_name.from_vs(in_name.as_str())?;
 
                             let blocks: serde_json::Value = serde_json::from_slice(include_bytes!("vs_blocks.json")).or(Err(""))?;
-                            let block_blueprint = blocks.get(self.internal.into_vs()).ok_or("Block Internal Name does not exist in src/vs_blocks.json")?;
+                            let block_blueprint = blocks.get(self.internal.to_vs()).ok_or("Block Internal Name does not exist in src/vs_blocks.json")?;
                             let output = block_blueprint.get("Outputs").ok_or("Block in src/vs_blocks.json does not have Outputs key")?
                                                     .get(in_name).ok_or("Block does not have output in src/vs_blocks.json")?;
                             let is_output_tuple = output.is_array(); // the outputs that have their name inside an array are tuples
@@ -589,14 +630,15 @@ impl VSObjectType for Block {
         Ok(&vs[vs_end..])
     }
 
-    /// Converts self into a json. If `visual_source` parameter is None, there will be no `parent_blocks` in the returning json
-    fn into_json(&self, visual_source: Option<&VisualSource>) -> serde_json::Value {
+    /// Converts itself into a json. If `visual_source` parameter is None, there will be no `parent_blocks` in the returning json,
+    /// since there is no way to check it with it
+    fn to_json(&self, visual_source: Option<&VisualSource>) -> serde_json::Value {
         let internal = &self.internal.0;
-        let visual_position = self.visual_position.into_json();
+        let visual_position = self.visual_position.to_json();
 
-        let child_blocks = self.child_blocks.iter().map(VSFieldType::into_json).collect::<Vec<_>>();
+        let child_blocks = self.child_blocks.iter().map(VSFieldType::to_json).collect::<Vec<_>>();
         let else_child_block = match &self.else_child_block {
-            Some(else_child_block) => else_child_block.into_json(),
+            Some(else_child_block) => else_child_block.to_json(),
             None => serde_json::Value::Null
         };
 
@@ -604,14 +646,14 @@ impl VSObjectType for Block {
         let mut inputs = HashMap::new();
         for input in &self.inputs {
             if input.value.get_type() == "Tuple" {
-                for tuple in input.value.into_vs().split(",") {
-                    tuple_relation.insert(input.name.into_vs(), tuple.to_string());
+                for tuple in input.value.to_vs().split(",") {
+                    tuple_relation.insert(input.name.to_vs(), tuple.to_string());
                 }
             }
 
-            inputs.insert(input.name.into_vs(), input.into_json());
+            inputs.insert(input.name.to_vs(), input.to_json());
         }
-        for (input_name, input) in &mut inputs {
+        for (_, input) in &mut inputs {
             if let serde_json::Value::String(name) = &input["Name"] {
                 let relationship = tuple_relation.iter_mut().find(|(k, _)| {
                     *k == name
@@ -623,7 +665,7 @@ impl VSObjectType for Block {
                 }
             }
         }
-        let outputs = self.outputs.iter().map(|output| output.into_json()).collect::<Vec<_>>();
+        let outputs = self.outputs.iter().map(|output| output.to_json()).collect::<Vec<_>>();
 
         let parent_blocks = match visual_source {
             Some(visual_source) => json!(self.get_parent_blocks(visual_source)),
@@ -652,14 +694,16 @@ impl VSObjectType for Block {
             _ => return Err("ElseChild block")
         };
         let inputs = json.get_mut("Inputs").ok_or("Error getting Inputs in block json")?.as_object_mut().ok_or("Inputs in block json isn't an object")?.iter_mut().map(|(input_name, value)| {
-            let mut input = BlockInput::new("", BlockInputVisibility::Explicit, VSString::new());
-            input.from_json(internal.into_vs(), input_name.to_string(), value.take()).expect("Failed to create an input from json");
+            let uses_variable = value.get("UseVariable").expect("UseVariable is not a valid member if input of block json").as_bool().expect("UseVariable is not a bool, in block input json");
+            
+            let mut input = BlockInput::new("", uses_variable, VSString::new()).of(internal.to_vs()).expect("Error setting the owner of string");
+            input.from_json(internal.to_vs(), input_name.to_string(), value.take()).expect("Failed to create an input from json");
 
             input
         }).collect::<Vec<BlockInput>>();
         let outputs = json.get_mut("Outputs").ok_or("Error getting Outputs in block json")?.as_object_mut().ok_or("Outputs in block json is not an object")?.iter_mut().map(|(output_name, value)| {
             let mut output = BlockOutput::new("", BlockOutputValueType::String(VSString::new())).expect("Failed to create BlockOutput");
-            output.from_json(internal.into_vs(), output_name.to_string(), value.take()).expect("Failed to convert json into BlockOutput");
+            output.from_json(internal.to_vs(), output_name.to_string(), value.take()).expect("Failed to convert json into BlockOutput");
 
             output
         }).collect::<Vec<BlockOutput>>();
