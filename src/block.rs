@@ -2,7 +2,7 @@ use std::{collections::HashMap, fmt::Display, vec};
 
 use serde_json::json;
 
-use crate::{U_001A, U_001B, VSObjectType, VisualSource, field_types::{VSFieldType, new_field_from_vs_type, number::VSNumber, string::VSString, vector2::VSVector2}};
+use crate::{U_001A, U_001B, VSObjectType, VisualSource, field_types::{VSFieldType, new_field_from_vs_type, number::VSNumber, string::VSString, tuple::VSTuple, vector2::VSVector2}};
 
 #[derive(Clone, Copy, Debug)]
 /// Depicts how an input value type is stored in the RetroStudio block database. In this case, whether an input of a block already has its type determined
@@ -48,6 +48,7 @@ pub struct BlockInput {
     pub name: VSString,
     pub visibility: BlockInputVisibility,
     pub value: Box<dyn VSFieldType>,
+    tuple_of: Option<String>
 }
 impl BlockInput
 {
@@ -64,14 +65,52 @@ impl BlockInput
             name: name.into(),
             visibility,
             value: Box::new(value),
+            tuple_of: None
         }
+    }
+
+    /// Mixes `BlockInput::new` and `BlockInput::of_tuple` together into 1 method.
+    pub fn as_tuple_param<T>(tuple: impl Into<String>, i: u32, uses_variable: bool, value: T) -> Self
+    where
+        T: VSFieldType + 'static,
+    {
+        let tuple = tuple.into();
+
+        let name = format!("TUPLEPARAM_{}_{}", tuple, i).into();
+        let visibility = match uses_variable {
+            true => BlockInputVisibility::Variable,
+            false => BlockInputVisibility::Explicit
+        };
+        let value = Box::new(value);
+        let tuple_of = Some(tuple);
+
+        Self {
+            name,
+            visibility,
+            value,
+            tuple_of
+        }
+    }
+
+    /// Sets an input as a tuple parameter.
+    /// 
+    /// Changes its visual source name to TUPLEPARAM_X_Y, where X and Y are the tuple parameter info, and makes it aware of its tuple parent
+    pub fn of_tuple(mut self, tuple: impl Into<String>, i: u32) -> Self {
+        let tuple = tuple.into();
+
+        self.name = format!("TUPLEPARAM_{}_{}", tuple, i).into();
+        self.tuple_of = Some(tuple);
+
+        self
     }
 
     /// Method of BlockInput that, by giving the name of the block containing the input, returns itself,
     /// but now with a visibility field (whether the input is explicit, implicit or variable in Visual Source text)
     /// 
-    /// If you are using variable, this method will return itself immediately
-    pub fn of(self, owner: impl Into<String>) -> Result<Self, &'static str> {
+    /// If you are using variable, this method will return itself immediately.
+    /// 
+    /// Do not call this method if the input is a tuple parameter.
+    pub fn of(mut self, owner: impl Into<String>) -> Result<Self, &'static str> {
         if let BlockInputVisibility::Variable = self.visibility {
             return Ok(self);
         }
@@ -96,11 +135,9 @@ impl BlockInput
             _ => BlockInputVisibility::Implicit
         };
 
-        Ok(Self {
-            name: self.name,
-            visibility: input_visibility,
-            value: self.value
-        })
+        self.visibility = input_visibility;
+
+        Ok(self)
     }
 
     pub fn to_vs(&self) -> String {
@@ -114,14 +151,19 @@ impl BlockInput
         )
     }
 
-    pub fn to_json(&self) -> serde_json::Value {
+    pub fn to_json(&self, inputs: &Vec<BlockInput>) -> serde_json::Value {
         let variable = match &self.visibility {
             BlockInputVisibility::Variable => self.value.to_vs(),
             _ => String::new()
         };
         let use_variable = self.visibility.use_variable();
-        let value = self.value.to_json();
+        let mut value = self.value.to_json();
         let value_type = self.value.get_type();
+
+        if value_type == "Tuple" {
+            let tuple_parameters = VSTuple::get_from_input_vec(self, inputs);
+            value = json!(tuple_parameters.iter().map(|param| param.name.to_string()).collect::<Vec<String>>());
+        }
 
         json!({
             "Variable": variable,
@@ -181,6 +223,10 @@ impl BlockInput
 
         Ok(())
     }
+
+    pub(crate) fn is_of_tuple(&self, tuple: impl Into<String>) -> bool {
+        self.tuple_of.is_some() && self.tuple_of.as_ref().unwrap() == &tuple.into()
+    }
 }
 impl<I, T> From<(I, BlockInputVisibility, T)> for BlockInput
 where
@@ -191,7 +237,8 @@ where
         Self {
             name: value.0.into(),
             visibility: value.1,
-            value: Box::new(value.2)
+            value: Box::new(value.2),
+            tuple_of: None
         }
     }
 }
@@ -208,14 +255,14 @@ pub enum BlockOutputValueType {
     String(VSString)
 }
 impl BlockOutputValueType {
-    fn to_vs(&self) -> String {
+    pub fn to_vs(&self) -> String {
         match self {
             Self::Tuple(number) => number.to_vs(),
             Self::String(string) => string.to_vs()
         }
     }
 
-    fn is_tuple(&self) -> bool {
+    pub fn is_tuple(&self) -> bool {
         match self {
             Self::Tuple(_) => true,
             Self::String(_) => false
@@ -235,16 +282,20 @@ impl BlockOutput {
     ) -> Result<Self, &'static str> {
         let name = name.into();
 
-        match value {
-            BlockOutputValueType::String(_) => {},
-            BlockOutputValueType::Tuple(_) if name.contains("TUPLE_") => {},
-            _ => return Err("The value doesn't match the output type, given by the name (tuple or not)")
-        };
-
         Ok(Self {
             name: name.into(),
             value,
         })
+    }
+
+    pub fn of_tuple(parent_tuple: impl Into<VSString>, i: u32, variable_name: impl Into<VSString>) -> Self {
+        let name = format!("TUPLEPARAM_{}_{}", parent_tuple.into().to_string(), i);
+        let value = BlockOutputValueType::String(variable_name.into());
+
+        Self {
+            name: name.into(),
+            value
+        }
     }
 
     pub fn is_tuple(value: serde_json::Value) -> bool {
@@ -254,7 +305,6 @@ impl BlockOutput {
     /// Returns the tuple parameters' name. However, if the block output
     pub fn get_tuple_param_names(&self) -> Option<Vec<String>> {
         let raw_name = self.name.to_string();
-        let (_, root_name) = raw_name.split_once("TUPLE_").unwrap_or(("", raw_name.as_str()));
 
         match self.value {
             BlockOutputValueType::Tuple(num_params) => {
@@ -262,7 +312,7 @@ impl BlockOutput {
                 
                 let mut param_names = vec![];
                 for i in 1..=num_params {
-                    param_names.push(format!("TUPLEPARAM_{root_name}_{i}"))
+                    param_names.push(format!("TUPLEPARAM_{raw_name}_{i}"))
                 }
 
                 Some(param_names)
@@ -274,7 +324,7 @@ impl BlockOutput {
     pub fn to_json(&self) -> serde_json::Value {
         match &self.value {
             BlockOutputValueType::String(string) => string.to_json(),
-            BlockOutputValueType::Tuple(number) => json!(number.0.0)
+            BlockOutputValueType::Tuple(number) => json!(number.0.0.to_string())
         }
     }
 
@@ -307,8 +357,7 @@ impl BlockOutput {
                 }
             }
         }
-        
-        self.value = output_type.ok_or("")?;
+        self.value = output_type.ok_or("Could not find type of output (from_json)")?;
 
         Ok(())
     }
@@ -547,7 +596,8 @@ impl VSObjectType for Block {
                                 self.inputs.push(BlockInput {
                                     name: vs_name.take().unwrap(),
                                     visibility: vs_visibility.take().unwrap(),
-                                    value: temp_vs_value
+                                    value: temp_vs_value,
+                                    tuple_of: None
                                 })
                             }
 
@@ -651,7 +701,7 @@ impl VSObjectType for Block {
                 }
             }
 
-            inputs.insert(input.name.to_vs(), input.to_json());
+            inputs.insert(input.name.to_vs(), input.to_json(&self.inputs));
         }
         for (_, input) in &mut inputs {
             if let serde_json::Value::String(name) = &input["Name"] {
@@ -665,7 +715,16 @@ impl VSObjectType for Block {
                 }
             }
         }
-        let outputs = self.outputs.iter().map(|output| output.to_json()).collect::<Vec<_>>();
+        let outputs = self.outputs.iter().map(|output| {
+            let is_tuple = output.value.is_tuple();
+            let out_name = if is_tuple {
+                format!("TUPLE_{}", output.name.to_string())
+            } else {
+                output.name.to_string()
+            };
+
+            (json!(out_name), output.to_json())
+        }).collect::<HashMap<_, _>>();
 
         let parent_blocks = match visual_source {
             Some(visual_source) => json!(self.get_parent_blocks(visual_source)),

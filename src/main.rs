@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use visual_source_rs::{VisualSource, block::{Block, BlockInput}, editor::Editor, vs_brickcolor, vs_str};
+use visual_source_rs::{VisualSource, block::{Block, BlockInput, BlockInputVisibility, BlockOutput, BlockOutputValueType}, editor::Editor, vs_brickcolor, vs_obj, vs_str, vs_tuple};
 
 fn main() -> Result<(), &'static str> {
     let visual_source = VisualSource {
@@ -10,16 +10,16 @@ fn main() -> Result<(), &'static str> {
             camera_zoom: 0.45.into(),
         },
         blocks: HashMap::from([
-            ("Set Object Property1".to_string(), Block {
-                internal: "SetObjectProperty".into(),
-                name: "Set Object Property1".into(),
+            ("If".to_string(), Block {
+                internal: "If".into(),
+                name: "If is tikki phonk1".into(),
                 visual_position: (0.0, 0.0).into(),
                 child_blocks: vec![],
                 else_child_block: None,
                 inputs: vec![
-                    BlockInput::new("Object", true, vs_str!("red_button")).of("SetObjectProperty")?, // kinda useless to put 'true' in uses_variable, because object always allow variables
-                    BlockInput::new("Property", false, vs_str!("BrickColor")).of("SetObjectProperty")?,
-                    BlockInput::new("Value", false, vs_brickcolor!(40, 40, 40)).of("SetObjectProperty")?,
+                    BlockInput::new("Value 1", false, vs_str!("amongus")).of("If")?,
+                    BlockInput::new("ComparisonType", false, vs_str!("newbite more like oldbite")).of("If")?,
+                    BlockInput::new("Value 2", false, vs_str!("sussy")).of("If")?
                 ],
                 outputs: vec![]
             })

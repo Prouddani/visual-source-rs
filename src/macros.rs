@@ -60,14 +60,8 @@ macro_rules! vs_col3 {
 
 #[macro_export]
 macro_rules! vs_tuple {
-    ($($x:expr),*) => {
-        {
-            let mut tuple = vec![];
-            $(
-                tuple.push($x);
-            )*
-            $crate::field_types::tuple::VSTuple::from(tuple)
-        }
+    () => {
+        $crate::field_types::tuple::VSTuple::new();
     }
 }
 

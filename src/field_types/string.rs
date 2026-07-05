@@ -27,6 +27,11 @@ impl From<&str> for VSString {
         Self(value.to_string())
     }
 }
+impl Into<String> for VSString {
+    fn into(self) -> String {
+        self.to_string()
+    }
+}
 impl Deref for VSString {
     type Target = String;
 

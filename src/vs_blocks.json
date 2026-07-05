@@ -3163,7 +3163,7 @@
             }
         ],
         "Outputs": [
-            ["TUPLE_ReturnedValues"]
+            ["ReturnedValues"]
         ],
         "Category": "Logic"
     },
@@ -3357,7 +3357,7 @@
             }
         ],
         "Outputs": [
-            ["TUPLE_Values"]
+            ["Values"]
         ],
         "Category": "Logic"
     },
