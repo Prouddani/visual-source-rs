@@ -8,7 +8,7 @@ impl VSFieldType for VSNil {
         "".to_string()
     }
 
-    fn from_vs(&mut self, vs: &str) -> Result<(), &'static str> {
+    fn from_vs(&mut self, _vs: &str) -> Result<(), &'static str> {
         Ok(())
     }
 
@@ -16,7 +16,7 @@ impl VSFieldType for VSNil {
         json!("")
     }
 
-    fn from_json(&mut self, json: serde_json::Value) -> Result<(), &'static str> {
+    fn from_json(&mut self, _json: serde_json::Value) -> Result<(), &'static str> {
         Ok(())
     }
 
