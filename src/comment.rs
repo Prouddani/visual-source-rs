@@ -27,21 +27,7 @@ impl Comment {
     }
 }
 impl VSObjectType for Comment {
-    fn to_vs(&self) -> String {
-        format!(
-            "{U_001A}{U_001A}Comment{U_001A}Position{U_001B}{}{U_001A}Size{U_001B}{}{U_001A}Color{U_001B}{}{U_001A}Name{U_001B}{}",
-            self.visual_position.to_vs(),
-            self.size.to_vs(),
-            self.color.to_vs(),
-            self.name.to_vs()
-        )
-    }
-
-    fn from_vs<'a>(&mut self, vs: &'a str) -> Result<&'a str, &'static str> {
-        todo!()
-    }
-
-    fn to_json(&self, visual_source: Option<&crate::VisualSource>) -> serde_json::Value {
+    fn to_json(&self) -> serde_json::Value {
         json!({
             "Position": self.visual_position.to_json(),
             "Color": self.color.to_json(),

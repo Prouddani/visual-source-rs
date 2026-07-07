@@ -376,7 +376,8 @@ pub struct Block {
     pub child_blocks: Vec<VSString>,
     pub else_child_block: Option<VSString>,
     pub inputs: Vec<BlockInput>,
-    pub outputs: Vec<BlockOutput>
+    pub outputs: Vec<BlockOutput>,
+    pub parent_blocks: Vec<String>
 }
 impl Block {
     /// Creates a new Block instance
@@ -388,18 +389,9 @@ impl Block {
             child_blocks: vec![],
             else_child_block: None,
             inputs: vec![],
-            outputs: vec![]
+            outputs: vec![],
+            parent_blocks: vec![]
         }
-    }
-
-    pub fn get_parent_blocks(&self, visual_source: &VisualSource) -> Vec<serde_json::Value> {
-        let mut parent_blocks = vec![];
-        for (_, block) in &visual_source.blocks {
-            if block.child_blocks.contains(&self.name) {
-                parent_blocks.push(block.name.to_json())
-            }
-        }
-        parent_blocks
     }
 
     pub fn from_json(json: serde_json::Value) -> Result<Self, &'static str> {
@@ -410,279 +402,9 @@ impl Block {
     }
 }
 impl VSObjectType for Block {
-    fn to_vs(&self) -> String {
-        format!(
-            "{U_001A}{U_001A}Block{U_001A}Type{U_001B}{}{U_001A}Name{U_001B}{}{U_001A}VisualPosition{U_001B}{}{U_001A}ChildBlocks{}{}{U_001A}ElseChildBlock{U_001B}{}{U_001A}Inputs{}{}{U_001A}Outputs{}{}",
-            self.internal.to_vs(), self.name.to_vs(), // internal_type and name
-            self.visual_position.to_vs(), // visual position
-            if self.child_blocks.len() <= 0 {""} else {U_001B}, // if there are no child blocks, there should be no u+001B characters
-            self.child_blocks.iter().map(VSFieldType::to_vs).collect::<Vec<String>>().join(U_001B),
-            self.else_child_block.clone().unwrap_or("nil".into()), // else child blocks
-            if self.inputs.len() <= 0 {""} else {U_001B}, // if there are no child blocks, there should be no u+001B characters
-            self.inputs.iter().map(BlockInput::to_vs).collect::<Vec<String>>().join(U_001B), // inputs
-            if self.outputs.len() <= 0 {""} else {U_001B},
-            self.outputs.iter().map(BlockOutput::to_string).collect::<Vec<String>>().join(U_001B), // outputs
-        )
-    }
-
-    fn from_vs<'a>(&mut self, vs: &'a str) -> Result<&'a str, &'static str> {
-        //{1a}{1a}Block{1a}Type{1b}SetObjectProperty{1a}Name{1b}Set1{1a}VisualPosition{1b}0,0{1b}ChildBlocks{1a}ElseChildBlock{1b}nil{1a}Inputs{1a}Outputs
-        let mut vs_end = 0;
-        
-        let mut is_block = false;
-        let mut u1a_count = 0;
-
-        let mut set_property_name = false;
-        let mut property_name = String::new();
-        let mut set_property_value = false;
-        let mut property_values: Vec<String> = vec![];
-
-        for (i, c) in vs.chars().enumerate() {
-            vs_end = i;
-
-            if u1a_count >= 2 {
-                if is_block == true {
-                    break; // entering another Object
-                }
-
-                is_block = true;
-                u1a_count = 0;
-            }
-
-            match c.to_string().as_str() {
-                U_001A => {
-                    u1a_count += 1;
-                },
-                _ => {}
-            }
-
-            // good stuff (or bad, if you lose sanity while coding, which I do and did while writting this code, unfortunately)
-            if c.to_string() == U_001A {
-                set_property_name = true;
-                set_property_value = false;
-
-                match property_name.as_str() {
-                    "Type" => {
-                        let result = self.internal.from_vs(&property_values[0][..]);
-                        if result.is_err() {
-                            return Err("Error when defining property valued for 'Type'.");
-                        }
-                    },
-                    "Name" => {
-                        let result = self.name.from_vs(&property_values[0][..]);
-                        if result.is_err() {
-                            return Err("Error when defining property valued for 'Name'.");
-                        }
-                    },
-                    "VisualPosition" => {
-                        let result = self.visual_position.from_vs(&property_values[0][..]);
-                        if result.is_err() {
-                            return Err("Error when defining property valued for 'VisualPosition'.");
-                        }
-                    },
-                    "ChildBlocks" => {
-                        self.child_blocks.clear();
-                        for pv in &property_values {
-                            let mut temp: VSString = "".into();
-                            let result = temp.from_vs(&pv[..]);
-                            if result.is_err() {
-                                return Err("Error when defining property valued for 'Type'.");
-                            }
-
-                            self.child_blocks.push(temp);
-                        }
-                    },
-                    "ElseChildBlock" => {
-                        let mut c: VSString = "hi".into();
-                        
-                        let result = c.from_vs(&property_values[0][..]);
-                        if result.is_err() {
-                            self.else_child_block = None;
-                            return Err("Error when defining property valued for 'Type'.");
-                        }
-
-                        self.else_child_block = Some(c);
-                    },
-                    "Inputs" => {
-                        self.inputs.clear();
-
-                        use std::mem;
-
-                        let mut n_input = 0;
-                        let mut vs_name = None;
-                        let mut vs_visibility = None;
-
-                        for i in 0..property_values.len() {
-                            if vs_name.is_none() {
-                                let in_name = {
-                                    let in_name = &mut property_values[i];
-                                    mem::take(in_name)
-                                };
-
-                                let mut temp_vs_name = VSString::new();
-                                temp_vs_name.from_vs(in_name.as_str()).or(Err("Unable to identify Input name"))?;
-
-                                vs_name = Some(temp_vs_name);
-                            } else if vs_visibility.is_none() {
-                                let in_visibility = {
-                                    let in_visibility = &mut property_values[i];
-                                    mem::take(in_visibility)
-                                };
-                                
-                                let temp_vs_visibility = BlockInputVisibility::from_vs(&in_visibility)
-                                    .or(Err("Unable to identify Input Value visibility (Uses Variable)"))?;
-                            
-                                vs_visibility = Some(temp_vs_visibility)
-                            } else {
-                                let in_value = {
-                                    let in_value = &mut property_values[i];
-                                    mem::take(in_value)
-                                };
-
-                                let visibility = vs_visibility.as_ref().unwrap();
-                                let temp_vs_value = match visibility {
-                                    BlockInputVisibility::Explicit => {
-                                        let in_value_type = &mut property_values[i + 1];
-                                        let mut vs_value = new_field_from_vs_type(in_value_type.as_str())
-                                            .ok_or("Input value does not match with explicit type")?;
-
-                                        vs_value.from_vs(&in_value).or(Err("Error in translating VisualSource into block input value.
-                                        Input type or visibility could be invalid or incorrect"))?;
-
-                                        vs_value
-                                    },
-                                    BlockInputVisibility::Implicit => {
-                                        // TODO:
-                                        /*
-                                         * Get Block Input Types in /vs_blocks.json
-                                         */
-
-                                        //todo!("must get Block Input Types in /vs_blocks.json");
-
-                                        let json_data = include_bytes!("vs_blocks.json");
-                                        let parsed_json = serde_json::from_slice::<'_, serde_json::Value>(json_data).or(Err("Unable to parse vs_blocks.json"))?;
-                                        if let Some(block) = parsed_json.get(self.internal.to_vs()) {
-                                            // block
-                                            if let Some(entry) = block["Inputs"].get(n_input) {
-                                                // input
-                                                let mut value_type = entry.get("value_type")
-                                                                        .ok_or("Unable to find input type")?.as_str()
-                                                                        .ok_or("Unable to parse input type into string")?;
-                                                
-                                                match value_type {
-                                                    "EventConnection" | "Table" | "CFrame" | "Function" => {
-                                                        vs_visibility = Some(BlockInputVisibility::Variable);
-                                                        value_type = "String"
-                                                    },
-                                                    _ => {}
-                                                }
-
-                                                new_field_from_vs_type(value_type).ok_or("Unable to create a new value for input of input type")?
-                                            } else {
-                                                return Err("Input out of bounds. Make sure evert VisualSource block has the correct number of inputs");
-                                            }
-                                        } else {
-                                            return Err(Box::leak(format!("Blueprint of {} hasn't been found in vs_blocks.json", self.internal).into_boxed_str()));
-                                        }
-                                    },
-                                    BlockInputVisibility::Variable => {
-                                        let mut vs_value = VSString::new();
-                                        vs_value.from_vs(&in_value).or(Err("Unable to find variable name in input"))?;
-
-                                        Box::new(vs_value)
-                                    }
-                                };
-
-                                self.inputs.push(BlockInput {
-                                    name: vs_name.take().unwrap(),
-                                    visibility: vs_visibility.take().unwrap(),
-                                    value: temp_vs_value,
-                                    tuple_of: None
-                                })
-                            }
-
-                            n_input += 1;
-                        }
-                    },
-                    "Outputs" => {
-                        use std::mem;
-                        
-                        for i in 0..property_values.len()/2 {
-                            let in_name = {
-                                let in_name = &mut property_values[i * 3 + 0];
-                                mem::take(in_name)
-                            };
-
-                            let mut vs_name = VSString::new();
-                            vs_name.from_vs(in_name.as_str())?;
-
-                            let blocks: serde_json::Value = serde_json::from_slice(include_bytes!("vs_blocks.json")).or(Err(""))?;
-                            let block_blueprint = blocks.get(self.internal.to_vs()).ok_or("Block Internal Name does not exist in src/vs_blocks.json")?;
-                            let output = block_blueprint.get("Outputs").ok_or("Block in src/vs_blocks.json does not have Outputs key")?
-                                                    .get(in_name).ok_or("Block does not have output in src/vs_blocks.json")?;
-                            let is_output_tuple = output.is_array(); // the outputs that have their name inside an array are tuples
-
-                            let in_value = {
-                                let in_value = &mut property_values[i * 3 + 1];
-                                mem::take(in_value)
-                            };
-
-                            let vs_value = match is_output_tuple {
-                                true => {
-                                    let mut vs_value = VSNumber::new();
-                                    vs_value.from_vs(in_value.as_str())?;
-
-                                    BlockOutputValueType::Tuple(vs_value)
-                                }
-                                false => {
-                                    let mut vs_value = VSString::new();
-                                    vs_value.from_vs(in_value.as_str())?;
-
-                                    BlockOutputValueType::String(vs_value)
-                                }
-                            };
-
-                            self.outputs.push(BlockOutput {
-                                name: vs_name,
-                                value: vs_value
-                            });
-                        }
-                    },
-                    _ => {}
-                }
-                
-                property_name.clear();
-                property_values.clear();
-            } else if c.to_string() == U_001B {
-                set_property_name = false;
-                set_property_value = true;
-
-                property_values.push(String::new());
-            } else {
-                // normal characters
-                match (set_property_name, set_property_value) {
-                    (true, false) => {
-                        // set property name
-                        property_name.push(c);
-                    },
-                    (false, true) => {
-                        // set property value
-                        let last_pv = property_values.last_mut().unwrap();
-                        last_pv.push(c)
-                    },
-                    _ => {
-                        continue;
-                    }
-                };
-            }
-        }
-
-        Ok(&vs[vs_end..])
-    }
-
     /// Converts itself into a json. If `visual_source` parameter is None, there will be no `parent_blocks` in the returning json,
     /// since there is no way to check it with it
-    fn to_json(&self, visual_source: Option<&VisualSource>) -> serde_json::Value {
+    fn to_json(&self) -> serde_json::Value {
         let internal = &self.internal.0;
         let visual_position = self.visual_position.to_json();
 
@@ -726,10 +448,7 @@ impl VSObjectType for Block {
             (json!(out_name), output.to_json())
         }).collect::<HashMap<_, _>>();
 
-        let parent_blocks = match visual_source {
-            Some(visual_source) => json!(self.get_parent_blocks(visual_source)),
-            None => serde_json::Value::Null
-        };
+        let parent_blocks = &self.parent_blocks;
 
         json!({
             "Type": internal,
